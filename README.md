@@ -15,5 +15,5 @@ This project was started since Google has announced that they will discontinue t
 ### Umbraco login
 Login in the Umbraco backoffice with the following credentials:
 
-username: admin
+username: info@w3s.nl
 password: googlecustomsearch
