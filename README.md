@@ -22,6 +22,45 @@ Development URL >
 #### Back-end / front-end
 The documentation below can also be reached from the GCS section in the backoffice or in via the source.
 
+### Basic Installation
+A basic installation only needs two html elements to be inserted in your template alongside some classes.
+You'll also need to reference the .js file that come alongside this package. 
+
+GCS also creates some tables in the Umbraco database because it stores it's settings there.
+<br />
+
+#### Scripts
+The .js files are automatically copied to your project by utilizing the post-build actions. Add a reference to the following script file either in a _layout.cshtml file or
+in a bundles file.
+```
+<script src="~/App_Plugins/GCS/Scripts/gcsearch.js" type="text/javascript"></script>
+```
+<br />
+
+#### Search input
+To allow a user to search throughout your website you will need to add a input field on any page.
+Copy the following snippet anywhere in one of your templates to add the input field. 
+
+```
+<input type="text" class="gcs gcs_input" name="text" placeholder="">
+```
+<br />
+
+#### Search results
+Secondly an element where the search results will be appended to needs to be iserted on your results page.
+Copy the following snippet on your search results page.
+
+
+```
+<div class="gcs gcs_results"></div>
+```
+
+Now navigate to the Umbraco backoffice `GCS` section to further configure your installation.
+If this section is not available then browse to the users configuration manager and allow the `GCS` section to be visible. 
+
+<br />
+
+
 ### Running locally
 - Download or fork this project.
 - Open the .sln file with the Visual Studio IDE. 
