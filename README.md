@@ -11,6 +11,7 @@ This project was started since Google has announced that they will discontinue t
 - Navigate to the development URL
 
 ### Plugin documentation
+The documentation can also be reached from the section itself or in the source documentation
 
 ### Umbraco login
 Login in the Umbraco backoffice with the following credentials:
