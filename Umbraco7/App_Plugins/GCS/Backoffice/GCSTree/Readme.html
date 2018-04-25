@@ -1,0 +1,21 @@
+﻿<form ng-controller="W3S.GCS.ReadMeController"
+      ng-show="loaded"
+	  val-form-manager>
+    <umb-panel>
+        <umb-header tabs="content.tabs">
+            <div class="umb-headline-editor-wrapper span12 ng-scope">
+                <h1 class="ng-binding">GCS - {{content.name}}</h1>
+            </div>
+        </umb-header>
+
+        <umb-tab-view>
+            <umb-tab id="tab{{tab.id}}" rel="{{tab.id}}" ng-repeat="tab in content.tabs">
+                <div class="umb-pane">
+                    <div id="readme">
+                        <div ng-bind-html="readme"></div>
+                    </div>
+                </div>
+            </umb-tab>
+        </umb-tab-view>
+    </umb-panel>
+</div>

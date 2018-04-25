@@ -1,0 +1,104 @@
+﻿using GCS.Models.Dtos;
+using GCS.Repositories;
+using GCS.Services;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using Umbraco.Core.Models;
+using Umbraco.Core.Services;
+using Umbraco.Web;
+using Umbraco.Web.Mvc;
+
+namespace GCS.App_Plugins.GCS.Controllers {
+    public class GCSSettingsController : SurfaceController {
+
+        private SettingsRepository SettingsRepository;
+        private NodeService NodeService;
+
+        private IDomainService DomainService { get; set; }
+        private List<IDomain> Domains { get; set; }
+
+        public GCSSettingsController() {
+            SettingsRepository = new SettingsRepository();
+            NodeService = new NodeService();
+        }
+
+        [HttpPost]
+        public JsonResult Get(SearchSettings model) {
+            IPublishedContent currentNode = null;
+            SearchSettings SearchSettings = SettingsRepository.Get();
+
+            if (DomainService == null) {
+                DomainService = Services.DomainService;
+            }
+
+            if (Domains == null) {
+                Domains = DomainService.GetAll(true).ToList();
+            }
+
+            var currentDomain = NodeService.GetCurrentDomain(Domains, model.CurrentURL);
+
+            if (currentDomain != null) {
+                currentNode = UmbracoContext.ContentCache.GetById(currentDomain.RootContentId.Value);
+            }
+
+            SearchSettings.RedirectNodeURL = NodeService.GetRedirectNodeURL(currentNode, SearchSettings.RedirectAlias);
+
+            JsonResult json = new JsonResult() {
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                Data = new {
+                    id = SearchSettings.Id,
+                    baseUrl = SearchSettings.BaseURL,
+                    cxKey = SearchSettings.CXKey,
+                    apiKey = SearchSettings.APIKey,
+                    itemsPerPage = SearchSettings.ItemsPerPage,
+                    redirectPath = !String.IsNullOrEmpty(SearchSettings.RedirectNodeURL) ? SearchSettings.RedirectNodeURL : "",
+                    excludeUrls = !String.IsNullOrEmpty(SearchSettings.ExcludeNodeIds) ? String.Join(",", NodeService.GetPathsByUdi(SearchSettings.ExcludeNodeIds)) : "",
+                    loadMoreSetUp = SearchSettings.LoadMoreSetUp,
+                    maxPaginationPages = SearchSettings.MaxPaginationPages,
+                    showQuery = SearchSettings.ShowQuery,
+                    showTotalCount = SearchSettings.ShowTotalCount,
+                    showTiming = SearchSettings.ShowTiming,
+                    showSpelling = SearchSettings.ShowSpelling,
+                    excludeTerms = SearchSettings.ExcludeTerms,
+                    excludeNodeIds = SearchSettings.ExcludeNodeIds,
+                    documentTypeFilter = SearchSettings.DocumentTypeFilter, //q: relatedSite, q:siteSearch
+                    showFilterFileType = SearchSettings.ShowFilterFileType,
+                    filterSetupFileType = SearchSettings.FilterSetupFileType,
+                    filterSetupDocType = SearchSettings.FilterSetupDocType,
+                    showThumbnail = SearchSettings.ShowThumbnail,
+                    thumbnailFallback = !String.IsNullOrEmpty(SearchSettings.ThumbnailFallbackGUID) ? NodeService.GetMediaPathByUdi(SearchSettings.ThumbnailFallbackGUID) : "",
+                    preloaderIcon = !String.IsNullOrEmpty(SearchSettings.LoadIconGUID) ? NodeService.GetMediaPathByUdi(SearchSettings.LoadIconGUID) : "",
+                    developmentURL = SearchSettings.DevelopmentURL,
+                    currentNodeId = currentNode.Id,
+                    keepquery = SearchSettings.KeepQuery
+                }
+            };
+
+            return json;
+        }
+
+        [HttpPost]
+        public JsonResult Set(String model) {
+            Boolean success = false;
+
+            try {
+                SettingsRepository.Set(JsonConvert.DeserializeObject<SearchSettings>(model));
+                success = true;
+            } catch {
+                success = false;
+            }
+
+            JsonResult json = new JsonResult() {
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                Data = new {
+                    success = success,
+                }
+            };
+
+            return json;
+        }
+    }
+}

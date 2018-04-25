@@ -1,0 +1,33 @@
+﻿<form novalidate name=""
+      ng-controller="W3S.GCS.DevelopmentController"
+      ng-show="loaded"
+      ng-submit="getResults(query, index, fileType)"
+      val-form-manager>
+    <umb-panel>
+        <umb-header tabs="content.tabs">
+            <div class="umb-headline-editor-wrapper span12 ng-scope">
+                <h1 class="ng-binding">GCS - {{content.name}}</h1>
+            </div>
+        </umb-header>
+        <umb-tab-view>
+            <umb-tab id="tab{{tab.id}}" rel="{{tab.id}}" ng-repeat="tab in content.tabs">
+                <div class="umb-pane">
+
+                    <div class="row">
+                        <input type="text" ng-model="query" placeholder="query" class="col-md-3"/>
+                        <input type="number" ng-model="index" placeholder="1" class="col-md-3"/>
+                        <select ng-model="fileType" class="col-md-3"></select>
+                        <button data-hotkey="ctrl+s" class="btn btn-success" class="col-md-3">
+                            Test
+                        </button>
+                    </div>
+
+                    <br/>
+                    <pre>
+                        {{ result | json }}
+                    </pre>
+                </div>
+            </umb-tab>
+        </umb-tab-view>
+    </umb-panel>
+</form>

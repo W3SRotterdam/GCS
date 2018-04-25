@@ -1,0 +1,87 @@
+﻿<form ng-controller="W3S.GCS.StatsController"
+     ng-show="loaded"
+     val-form-manager>
+    <umb-panel>
+        <umb-header tabs="content.tabs">
+            <div class="umb-headline-editor-wrapper span12 ng-scope">
+                <h1 class="ng-binding">GCS - {{content.name}}</h1>
+            </div>
+        </umb-header>
+
+        <umb-tab-view>
+            <umb-tab id="tab{{tab.id}}" rel="{{tab.id}}" ng-repeat="tab in content.tabs">
+                <div class="umb-pane">
+                    <!-- Top 10 queries -->
+                    <div class="stats__table">
+
+                        <p><b>Period</b></p>
+                        <p>Define the period for which you want to show statistics.</p>
+                        <div class="gcs__filter__datefilter">
+                            <div class="row">
+                                <select class="col-md-3" ng-model="chosenyear" ng-options="year as year.name for year in years" ng-change="datechange(chosenyear.value, chosenmonth.value)">
+                                    <option value="">-- choose year --</option>
+                                </select>
+                                <select class="col-md-3" ng-model="chosenmonth" ng-options="month as month.name for month in months" ng-change="datechange(chosenyear.value, chosenmonth.value)">
+                                    <option value="">-- choose month --</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <p><b>Top 10 queries</b></p>
+                        <p>This table show the top 10 search terms for the given period.</p>
+                        <table class="gcs__stats__table">
+                            <tr>
+                                <th>Query</th>
+                                <th>Occurence</th>
+                            </tr>
+
+                            <tr ng-repeat="element in topqueries | orderBy:'-occurence'">
+                                <td>{{ element.query }}</td>
+                                <td>{{ element.occurence }}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Top 10 spelling -->
+                    <div class="gcs__stats__table">
+                        <p><b>Top 10 spelling</b></p>
+                        <p>This table show the top 10 incorrect terms for which a corrected query was given, for the given period.</p>
+                        <table>
+                            <tr>
+                                <th>Query</th>
+                                <th>Occurence</th>
+                            </tr>
+
+                            <tr ng-repeat="element in topspelling | orderBy:'-occurence'">
+                                <td>{{ element.query }}</td>
+                                <td>{{ element.occurence }}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Top 10 clicks -->
+                    <div class="gcs__stats__table">
+                        <p><b>Top 10 clicks</b></p>
+                        <p>This table shows the top 10 links on which the user has clicked after the results were shown, for the given period.</p>
+                        <table>
+                            <tr>
+                                <th>Query</th>
+                                <th>Occurence</th>
+                            </tr>
+
+                            <tr ng-repeat="element in topclicks | orderBy:'-occurence'">
+                                <td><a href="{{element.query}}" target="_blank">{{ element.query }}</a> </td>
+                                <td>{{ element.occurence }}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Average load time-->
+                    <p><b>Average load</b></p>
+                    <p>The average time to retrieve the search results for the given period</p>
+                    {{ stats.averageload}}
+                </div>
+            </umb-tab>
+        </umb-tab-view>
+    </umb-panel>
+</form>

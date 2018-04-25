@@ -1,0 +1,14 @@
+﻿{
+    javascript: [
+        "~/app_plugins/gcs/scripts/routes.js",
+        "~/app_plugins/gcs/scripts/resources.js",
+        "~/app_plugins/gcs/scripts/edit.controller.js",
+        "~/app_plugins/gcs/scripts/stats.controller.js",
+        "~/app_plugins/gcs/scripts/development.controller.js",
+        "~/app_plugins/gcs/scripts/readme.controller.js",
+        "~/app_plugins/gcs/scripts/lib/showdown.min.js"
+    ],
+    "css": [
+        "~/app_plugins/gcs/content/css/gcs.css"
+    ]
+}

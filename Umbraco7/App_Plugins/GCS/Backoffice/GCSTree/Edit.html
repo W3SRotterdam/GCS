@@ -1,0 +1,30 @@
+﻿<form novalidate name=""
+      ng-controller="W3S.GCS.EditController"
+      ng-show="loaded"
+      ng-submit="publish(node)"
+      val-form-manager>
+    <umb-panel>
+        <umb-header tabs="content.tabs">
+            <div class="umb-headline-editor-wrapper span12 ng-scope">
+                <h1 class="ng-binding">GCS - {{content.name}}</h1>
+            </div>
+        </umb-header>
+        <umb-tab-view>
+            <umb-tab id="tab{{tab.id}}" rel="{{tab.id}}" ng-repeat="tab in content.tabs">
+                <div class="umb-pane">
+                    <umb-property property="property"
+                                  ng-repeat="property in tab.properties">
+                        <umb-editor model="property"></umb-editor>
+                    </umb-property>
+                </div>
+                <div class="btn__save" detect-fold>
+                    <div class="btn-group">
+                        <button data-hotkey="ctrl+s" class="btn btn-success">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </umb-tab>
+        </umb-tab-view>
+    </umb-panel>
+</form>

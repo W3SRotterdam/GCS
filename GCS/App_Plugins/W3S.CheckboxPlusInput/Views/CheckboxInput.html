@@ -1,0 +1,10 @@
+﻿<div class="umb-editor" ng-controller="W3S.CheckboxPlusInput">
+    <div property="property" ng-repeat="value in values">
+        <label>
+            <b>{{ value.label }}</b>
+            <br/>
+        <input type="checkbox" {{value.ischecked}} ng-model="value.ischecked"/> <input type="text" placeholder="option value" value="{{value.text}}" ng-model="value.text" />
+        </label>
+        <hr/>
+    </div>
+</div>

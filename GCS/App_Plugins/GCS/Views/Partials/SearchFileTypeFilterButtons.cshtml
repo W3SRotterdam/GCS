@@ -1,0 +1,7 @@
+﻿@inherits System.Web.Mvc.WebViewPage<GCS.Models.Filters.FileTypeFilter>
+
+<div class="gcs__filetypefilter">
+    @foreach (var filetype in Model.FileTypes) {
+        <button value="@filetype.Key" class="gcs__filetypefilter__btn">@filetype.Value</button>
+    }
+</div>
