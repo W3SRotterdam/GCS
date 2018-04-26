@@ -1,4 +1,4 @@
-# GCS
+# W3S GCS
 Google Custom Search plugin for Umbraco v7.x
 
 ### About
