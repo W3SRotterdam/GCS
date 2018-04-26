@@ -135,6 +135,8 @@
     <Content Include="App_Plugins\W3S.CheckboxPlusInput\Views\CheckboxInput.html" />
     <Content Include="App_Plugins\GCS\Backoffice\GCSTree\Development.html" />
     <Content Include="App_Plugins\W3S.CheckboxPlusInput\package.manifest" />
+    <Content Include="readme.txt" />
+    <Content Include="W3S-GCS.nuspec" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -307,9 +309,7 @@
     <Compile Include="Services\SettingsPropertiesService.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Plugins\GCS\Templates\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710241428441_initial.resx">
       <DependentUpon>201710241428441_initial.cs</DependentUpon>

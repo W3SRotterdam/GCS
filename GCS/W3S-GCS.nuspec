@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>W3S-GCS</id>
+    <version>0.1.0</version>
+    <title>W3S</title>
+    <authors>W3S Google Custom Search</authors>
+    <owners>W3S</owners>
+    <licenseUrl>http://opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>https://github.com/W3S-uORM/GCS</projectUrl>
+    <iconUrl>http://our.umbraco.org/media/wiki/128764/635397390473214430_logo_mainpng.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>W3S Google Custom Search is a package that uses the Google Custom Search API to create a search engine for your Umbraco powered website.</description>
+	<tags>google custom search api umbraco plugin</tags>
+  </metadata>
+  <files>
+		<file src="readme.txt" target="" />
+		<file src="App_Plugins\GCS\**" target="content" />
+		<file src="App_Plugins\GCS\**" target="content" />
+		<file src="bin\GCS.dll" target="lib\net45" />
+		<file src="bin\GCS.pdb" target="lib\net45" />
+	</files>
+</package>
