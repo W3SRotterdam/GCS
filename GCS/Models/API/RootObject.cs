@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GCS.Models.API {
+namespace W3S_GCS.Models.API {
     public class RootObject {
         //public string kind { get; set; }
         //public Url url { get; set; }

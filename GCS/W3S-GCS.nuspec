@@ -15,8 +15,8 @@
   </metadata>
   <files>
 		<file src="readme.txt" target="" />
-		<file src="App_Plugins\GCS\**" target="content" />
-		<file src="App_Plugins\GCS\**" target="content" />
+		<file src="App_Plugins\GCS\**" target="content\App_Plugins" />
+		<file src="App_Plugins\GCS\**" target="content\App_plugins" />
 		<file src="bin\GCS.dll" target="lib\net45" />
 		<file src="bin\GCS.pdb" target="lib\net45" />
 	</files>

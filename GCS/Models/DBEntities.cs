@@ -1,7 +1,7 @@
-﻿using GCS.Models.Dtos;
-using System.Data.Entity;
+﻿using System.Data.Entity;
+using W3S_GCS.Models.Dtos;
 
-namespace GCS.Models {
+namespace W3S_GCS.Models {
     public class DBEntities : DbContext {
         public DBEntities() : base("name=umbracoDbDSN") {
 

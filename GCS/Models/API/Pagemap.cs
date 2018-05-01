@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GCS.Models.API {
+namespace W3S_GCS.Models.API {
     public class Pagemap {
         public List<Metatag> metatags { get; set; }
         public List<CseThumbnail> cse_thumbnail { get; set; }

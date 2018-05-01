@@ -1,10 +1,10 @@
-﻿using GCS.Converters;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using W3S_GCS.Converters;
 
-namespace GCS.Models.Dtos {
+namespace W3S_GCS.Models.Dtos {
     public class SearchSettings {
         [Key]
         public Int32 Id { get; set; }

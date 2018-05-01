@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GCS</RootNamespace>
-    <AssemblyName>GCS</AssemblyName>
+    <RootNamespace>W3S_GCS</RootNamespace>
+    <AssemblyName>W3S_GCS</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -112,28 +112,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\GCS\Backoffice\GCSTree\Readme.html" />
-    <Content Include="App_Plugins\GCS\Backoffice\GCSTree\Stats.html" />
-    <Content Include="App_Plugins\GCS\Content\css\gcs.css" />
-    <Content Include="App_Plugins\GCS\Scripts\development.controller.js" />
-    <Content Include="App_Plugins\GCS\Scripts\gcsearch.min.js" />
-    <Content Include="App_Plugins\GCS\Scripts\lib\showdown.js" />
-    <Content Include="App_Plugins\GCS\Scripts\lib\showdown.min.js" />
-    <Content Include="App_Plugins\GCS\Scripts\readme.controller.js" />
-    <Content Include="App_Plugins\GCS\Scripts\resources.js" />
-    <Content Include="App_Plugins\GCS\Scripts\routes.js" />
-    <Content Include="App_Plugins\GCS\Scripts\stats.controller.js" />
-    <Content Include="App_Plugins\GCS\Scripts\gcsearch.js" />
-    <Content Include="App_Plugins\GCS\Views\Partials\SearchResults.cshtml" />
-    <Content Include="App_Plugins\GCS\Views\Partials\SearchPagination.cshtml" />
-    <Content Include="App_Plugins\GCS\Views\Partials\SearchSpelling.cshtml" />
-    <Content Include="App_Plugins\GCS\Views\Partials\DocumentTypeFilterSelect.cshtml" />
-    <Content Include="App_Plugins\GCS\Views\Partials\SearchFileTypeFilterSelect.cshtml" />
-    <Content Include="App_Plugins\GCS\Views\Partials\SearchFileTypeFilterButtons.cshtml" />
-    <Content Include="App_Plugins\GCS\Views\Partials\DocumentTypeFilterButtons.cshtml" />
+    <Content Include="App_Plugins\W3S_GCS\Backoffice\GCSTree\Readme.html" />
+    <Content Include="App_Plugins\W3S_GCS\Backoffice\GCSTree\Stats.html" />
+    <Content Include="App_Plugins\W3S_GCS\Content\css\gcs.css" />
+    <Content Include="App_Plugins\W3S_GCS\Scripts\development.controller.js" />
+    <Content Include="App_Plugins\W3S_GCS\Scripts\gcsearch.min.js" />
+    <Content Include="App_Plugins\W3S_GCS\Scripts\lib\showdown.js" />
+    <Content Include="App_Plugins\W3S_GCS\Scripts\lib\showdown.min.js" />
+    <Content Include="App_Plugins\W3S_GCS\Scripts\readme.controller.js" />
+    <Content Include="App_Plugins\W3S_GCS\Scripts\resources.js" />
+    <Content Include="App_Plugins\W3S_GCS\Scripts\routes.js" />
+    <Content Include="App_Plugins\W3S_GCS\Scripts\stats.controller.js" />
+    <Content Include="App_Plugins\W3S_GCS\Scripts\gcsearch.js" />
+    <Content Include="App_Plugins\W3S_GCS\Views\Partials\SearchResults.cshtml" />
+    <Content Include="App_Plugins\W3S_GCS\Views\Partials\SearchPagination.cshtml" />
+    <Content Include="App_Plugins\W3S_GCS\Views\Partials\SearchSpelling.cshtml" />
+    <Content Include="App_Plugins\W3S_GCS\Views\Partials\DocumentTypeFilterSelect.cshtml" />
+    <Content Include="App_Plugins\W3S_GCS\Views\Partials\SearchFileTypeFilterSelect.cshtml" />
+    <Content Include="App_Plugins\W3S_GCS\Views\Partials\SearchFileTypeFilterButtons.cshtml" />
+    <Content Include="App_Plugins\W3S_GCS\Views\Partials\DocumentTypeFilterButtons.cshtml" />
     <Content Include="App_Plugins\W3S.CheckboxPlusInput\Controllers\checkboxplusinput.controller.js" />
     <Content Include="App_Plugins\W3S.CheckboxPlusInput\Views\CheckboxInput.html" />
-    <Content Include="App_Plugins\GCS\Backoffice\GCSTree\Development.html" />
+    <Content Include="App_Plugins\W3S_GCS\Backoffice\GCSTree\Development.html" />
     <Content Include="App_Plugins\W3S.CheckboxPlusInput\package.manifest" />
     <Content Include="readme.txt" />
     <Content Include="W3S-GCS.nuspec" />
@@ -153,8 +153,8 @@
     <None Include="_bin_deployableAssemblies\amd64\sqlceca40.dll" />
     <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
     <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
-    <None Include="App_Plugins\GCS\README.md" />
-    <Content Include="App_Plugins\GCS\package.manifest" />
+    <None Include="App_Plugins\W3S_GCS\README.md" />
+    <Content Include="App_Plugins\W3S_GCS\package.manifest" />
     <Content Include="Views\_GCSElements.cshtml" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -167,20 +167,20 @@
     <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\GCS\Backoffice\GCSTree\Edit.html" />
-    <Content Include="App_Plugins\GCS\Scripts\edit.controller.js" />
+    <Content Include="App_Plugins\W3S_GCS\Backoffice\GCSTree\Edit.html" />
+    <Content Include="App_Plugins\W3S_GCS\Scripts\edit.controller.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Plugins\GCS\Controllers\GCSController.cs" />
-    <Compile Include="App_Plugins\GCS\Models\LanguageInstaller.cs" />
+    <Compile Include="App_Plugins\W3S_GCS\Controllers\GCSController.cs" />
+    <Compile Include="App_Plugins\W3S_GCS\Models\LanguageInstaller.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\GCSPropertiesController.cs" />
     <Compile Include="Controllers\GCSQueriesController.cs" />
     <Compile Include="Controllers\GCSSettingsController.cs" />
-    <Compile Include="App_Plugins\GCS\Models\GCSApplication.cs" />
+    <Compile Include="App_Plugins\W3S_GCS\Models\GCSApplication.cs" />
     <Compile Include="Controllers\GCSearchController.cs" />
     <Compile Include="Controllers\GCSStatisticsController.cs" />
     <Compile Include="Controllers\Trees\GCSTreeController.cs" />
@@ -389,14 +389,14 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>XCOPY "$(ProjectDir)bin\GCS.*" "$(ProjectDir)..\Umbraco7\bin\" /y /e /f
+    <PostBuildEvent>XCOPY "$(ProjectDir)bin\W3S_GCS.*" "$(ProjectDir)..\Umbraco7\bin\" /y /e /f
 XCOPY "$(ProjectDir)bin\EntityFramework.*" "$(ProjectDir)..\Umbraco7\bin\" /y /e /f
 XCOPY "$(ProjectDir)App_Plugins\*.js" "$(ProjectDir)..\Umbraco7\App_Plugins\" /y /e /f
 XCOPY "$(ProjectDir)App_Plugins\*.html" "$(ProjectDir)..\Umbraco7\App_Plugins\" /y /e /f
 XCOPY "$(ProjectDir)App_Plugins\*.manifest" "$(ProjectDir)..\Umbraco7\App_Plugins\" /y /e /f
 XCOPY "$(ProjectDir)App_Plugins\*.css" "$(ProjectDir)..\Umbraco7\App_Plugins\" /y /e /f
 XCOPY "$(ProjectDir)App_Plugins\*.md" "$(ProjectDir)..\Umbraco7\App_Plugins\" /y /e /f
-XCOPY "$(ProjectDir)App_Plugins\GCS\Views\Partials\*.*" "$(ProjectDir)..\Umbraco7\App_Plugins\GCS\Views\Partials\" /y /f</PostBuildEvent>
+XCOPY "$(ProjectDir)App_Plugins\W3S_GCS\Views\Partials\*.*" "$(ProjectDir)..\Umbraco7\App_PluginsW3S_GCS\Views\Partials\" /y /f</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

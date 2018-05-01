@@ -6,7 +6,7 @@ using Umbraco.Core;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 
-namespace GCS.Services {
+namespace W3S_GCS.Services {
     public class NodeService {
 
         UmbracoHelper uh = new UmbracoHelper(UmbracoContext.Current);
@@ -75,13 +75,13 @@ namespace GCS.Services {
 
             while (!String.IsNullOrEmpty(URL) && index != 0 && domain == null) {
                 domain = domains.FirstOrDefault(d => d.DomainName.TrimEnd('/').ToLower() == URL.ToLower().TrimEnd('/'));
-				string part = parts.ElementAt(index - 1);
-				int partIndex = URL.LastIndexOf(part);
-				
-				if (partIndex > -1) {
-					URL = URL.Remove(partIndex, part.Length).Insert(partIndex, "");
-				}
-				
+                string part = parts.ElementAt(index - 1);
+                int partIndex = URL.LastIndexOf(part);
+
+                if (partIndex > -1) {
+                    URL = URL.Remove(partIndex, part.Length).Insert(partIndex, "");
+                }
+
                 //URL = URL.Replace(parts.ElementAt(index - 1), "");
                 index--;
             }

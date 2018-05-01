@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace GCS.Models.API {
+namespace W3S_GCS.Models.API {
     public class Item {
         //public string kind { get; set; }
         public string title { get; set; }

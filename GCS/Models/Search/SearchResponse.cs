@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace GCS.Models.Search {
+namespace W3S_GCS.Models.Search {
     public class SearchResponse {
         public Boolean Success { get; set; }
         public String Response { get; set; }

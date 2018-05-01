@@ -1,18 +1,13 @@
-namespace GCS.Migrations
-{
-    using System;
+namespace W3S_GCS.Migrations {
     using System.Data.Entity.Migrations;
-    
-    public partial class makefieldsdatecreatedandupdatedatenullable : DbMigration
-    {
-        public override void Up()
-        {
+
+    public partial class makefieldsdatecreatedandupdatedatenullable : DbMigration {
+        public override void Up() {
             AlterColumn("dbo.SearchSettings", "LastUpdated", c => c.DateTime());
             AlterColumn("dbo.SearchSettings", "DateCreated", c => c.DateTime());
         }
-        
-        public override void Down()
-        {
+
+        public override void Down() {
             AlterColumn("dbo.SearchSettings", "DateCreated", c => c.DateTime(nullable: false));
             AlterColumn("dbo.SearchSettings", "LastUpdated", c => c.DateTime(nullable: false));
         }

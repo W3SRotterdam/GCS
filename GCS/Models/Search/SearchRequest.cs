@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GCS.Models.Search {
+namespace W3S_GCS.Models.Search {
     public class SearchRequest {
         public string Query { get; set; }
         public int StartIndex { get; set; }

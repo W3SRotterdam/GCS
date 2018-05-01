@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace GCS.Services {
+namespace W3S_GCS.Services {
     public class QueryParamsServices {
         public String FormatQueryParameters(String url, String[] keys, String[] values) {
             var returnString = "";

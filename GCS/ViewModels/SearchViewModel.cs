@@ -1,6 +1,6 @@
-﻿using GCS.Models.API;
+﻿using W3S_GCS.Models.API;
 
-namespace GCS.ViewModels {
+namespace W3S_GCS.ViewModels {
     public class SearchViewModel {
         public string Query { get; set; }
         public string StartIndex { get; set; }

@@ -1,11 +1,4 @@
-﻿using GCS.Models;
-using GCS.Models.API;
-using GCS.Models.Dtos;
-using GCS.Models.Filters;
-using GCS.Models.Search;
-using GCS.Repositories;
-using GCS.Services;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -19,8 +12,15 @@ using Umbraco.Core.Logging;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
+using W3S_GCS.Models;
+using W3S_GCS.Models.API;
+using W3S_GCS.Models.Dtos;
+using W3S_GCS.Models.Filters;
+using W3S_GCS.Models.Search;
+using W3S_GCS.Repositories;
+using W3S_GCS.Services;
 
-namespace GCS.Controllers {
+namespace W3S_GCS.Controllers {
     public class GCSearchController : SurfaceController {
         private SettingsRepository SettingsRepository;
         private QueriesRepository QueriesRepository;
@@ -53,7 +53,7 @@ namespace GCS.Controllers {
                 IPublishedContent currentNode = UmbracoContext.ContentCache.GetById(model.CurrentNodeID);
 
                 IPublishedContent rootNode = uh.TypedContentAtRoot().FirstOrDefault(t => t.GetCulture().TwoLetterISOLanguageName == NodeService.GetCurrentCulture(currentNode).TwoLetterISOLanguageName);
-                if(rootNode == null) {
+                if (rootNode == null) {
                     //Edit: Niels - Bovenstaande werkt niet in multilanguage site zoals Goudappel. De UmbracoHelper zal altijd een node selecteren die op inherit language(nl ihgv.Goudappel) staat.Hierdoor werkt de zoek in engelstalige pagina's niet. Rootnode zoeken op basis van currentNode werkt wel zoals hieronder.
                     rootNode = currentNode.AncestorsOrSelf(2).FirstOrDefault();
                 }
@@ -77,7 +77,7 @@ namespace GCS.Controllers {
                     URL += String.Format("&dateRestrict=d{0}", Math.Abs((DateTime.Now - settings.DateRestrict.Value).Days));
                 }
 
-                if(ConfigurationManager.AppSettings["Log-GCS-Url"] != null && ConfigurationManager.AppSettings["Log-GCS-Url"] == "true") {
+                if (ConfigurationManager.AppSettings["Log-GCS-Url"] != null && ConfigurationManager.AppSettings["Log-GCS-Url"] == "true") {
                     LogHelper.Info<String>("GCS-Url: " + URL);
                 }
 
@@ -212,7 +212,7 @@ namespace GCS.Controllers {
 
         [HttpGet]
         public JsonResult Update() {
-            Database.SetInitializer<DBEntities>(new MigrateDatabaseToLatestVersion<DBEntities, GCS.Migrations.Configuration>());
+            Database.SetInitializer<DBEntities>(new MigrateDatabaseToLatestVersion<DBEntities, W3S_GCS.Migrations.Configuration>());
             using (DBEntities db = new DBEntities()) {
                 db.Database.Initialize(true);
             }

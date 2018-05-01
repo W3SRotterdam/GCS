@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GCS.Models.Search {
+namespace W3S_GCS.Models.Search {
     public class SpellingModel {
         public String CorrectedQuery { get; set; }
         public String SearchURL { get; set; }

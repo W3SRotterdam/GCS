@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GCS.Models.Dtos {
+namespace W3S_GCS.Models.Dtos {
     public class SearchInstance {
         [Key]
         public Int32 Id { get; set; }

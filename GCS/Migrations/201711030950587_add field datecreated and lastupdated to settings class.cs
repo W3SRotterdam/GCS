@@ -1,18 +1,13 @@
-namespace GCS.Migrations
-{
-    using System;
+namespace W3S_GCS.Migrations {
     using System.Data.Entity.Migrations;
-    
-    public partial class addfielddatecreatedandlastupdatedtosettingsclass : DbMigration
-    {
-        public override void Up()
-        {
+
+    public partial class addfielddatecreatedandlastupdatedtosettingsclass : DbMigration {
+        public override void Up() {
             AddColumn("dbo.SearchSettings", "LastUpdated", c => c.DateTime(nullable: false));
             AddColumn("dbo.SearchSettings", "DateCreated", c => c.DateTime(nullable: false));
         }
-        
-        public override void Down()
-        {
+
+        public override void Down() {
             DropColumn("dbo.SearchSettings", "DateCreated");
             DropColumn("dbo.SearchSettings", "LastUpdated");
         }

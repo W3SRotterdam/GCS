@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GCS.Models.Search {
+namespace W3S_GCS.Models.Search {
     public class PaginationModel {
         public List<PagingItemModel> PagingItems { get; set; }
         public int MaxPages { get; set; }

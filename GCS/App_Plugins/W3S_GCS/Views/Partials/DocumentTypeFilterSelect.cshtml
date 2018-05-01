@@ -1,0 +1,10 @@
+﻿@inherits System.Web.Mvc.WebViewPage<GCS.Models.Filters.DocumentTypeFilter>
+
+<div class="gcs__doctypefilter">
+    <select class="gcs__doctypefilter__select">
+        <option value=""></option>
+        @foreach(var doctype in Model.DocumentTypes) {
+            <option value="@doctype.alias">@doctype.text</option>
+        }
+    </select>
+</div>

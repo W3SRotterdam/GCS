@@ -1,10 +1,10 @@
-﻿using GCS.Interfaces;
-using GCS.Models;
-using GCS.Models.Dtos;
-using System;
+﻿using System;
 using System.Linq;
+using W3S_GCS.Interfaces;
+using W3S_GCS.Models;
+using W3S_GCS.Models.Dtos;
 
-namespace GCS.Repositories {
+namespace W3S_GCS.Repositories {
     public class InstancesRepository : IRepository<SearchInstance> {
         public SearchInstance Get() {
             using (DBEntities db = new DBEntities()) {

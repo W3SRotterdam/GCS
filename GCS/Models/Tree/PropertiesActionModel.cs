@@ -1,6 +1,6 @@
 ﻿using umbraco.interfaces;
 
-namespace GCS.Models.Tree {
+namespace W3S_GCS.Models.Tree {
     public class PropertiesActionModel : IAction {
         private static readonly PropertiesActionModel m_instance = new PropertiesActionModel();
 

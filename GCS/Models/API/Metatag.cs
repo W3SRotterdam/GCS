@@ -1,4 +1,4 @@
-﻿namespace GCS.Models.API {
+﻿namespace W3S_GCS.Models.API {
     public class Metatag {
         public string viewport { get; set; }
         //public string __invalid_name__geo.placename { get; set; }

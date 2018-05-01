@@ -1,7 +1,4 @@
-﻿using GCS.Models.Dtos;
-using GCS.Repositories;
-using GCS.Services;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +7,11 @@ using Umbraco.Core.Models;
 using Umbraco.Core.Services;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
+using W3S_GCS.Models.Dtos;
+using W3S_GCS.Repositories;
+using W3S_GCS.Services;
 
-namespace GCS.App_Plugins.GCS.Controllers {
+namespace W3S_GCS.App_Plugins.GCS.Controllers {
     public class GCSSettingsController : SurfaceController {
 
         private SettingsRepository SettingsRepository;

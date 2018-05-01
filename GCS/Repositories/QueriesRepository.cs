@@ -1,12 +1,12 @@
-﻿using GCS.Interfaces;
-using GCS.Models;
-using GCS.Models.Dtos;
-using GCS.Models.Extensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using W3S_GCS.Interfaces;
+using W3S_GCS.Models;
+using W3S_GCS.Models.Dtos;
+using W3S_GCS.Models.Extensions;
 
-namespace GCS.Repositories {
+namespace W3S_GCS.Repositories {
     public class QueriesRepository : IRepository<SearchEntry> {
 
         public SearchEntry Get() {

@@ -1,14 +1,14 @@
-﻿using GCS.Models.Dtos;
-using GCS.Repositories;
-using GCS.Services;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using Umbraco.Web.Models.ContentEditing;
 using Umbraco.Web.Mvc;
+using W3S_GCS.Models.Dtos;
+using W3S_GCS.Repositories;
+using W3S_GCS.Services;
 
-namespace GCS.Controllers {
+namespace W3S_GCS.Controllers {
     public class GCSPropertiesController : SurfaceController {
 
         private InstancesRepository InstancesRepository;

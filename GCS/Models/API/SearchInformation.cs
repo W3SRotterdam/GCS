@@ -1,4 +1,4 @@
-﻿namespace GCS.Models.API {
+﻿namespace W3S_GCS.Models.API {
     public class SearchInformation {
         public double searchTime { get; set; }
         public string formattedSearchTime { get; set; }

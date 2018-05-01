@@ -1,17 +1,12 @@
-namespace GCS.Migrations
-{
-    using System;
+namespace W3S_GCS.Migrations {
     using System.Data.Entity.Migrations;
-    
-    public partial class addfieldmaxPaginationItems : DbMigration
-    {
-        public override void Up()
-        {
+
+    public partial class addfieldmaxPaginationItems : DbMigration {
+        public override void Up() {
             AddColumn("dbo.SearchSettings", "MaxPaginationPages", c => c.Int(nullable: false));
         }
-        
-        public override void Down()
-        {
+
+        public override void Down() {
             DropColumn("dbo.SearchSettings", "MaxPaginationPages");
         }
     }

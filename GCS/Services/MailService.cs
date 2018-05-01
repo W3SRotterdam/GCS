@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net.Mail;
 using System.Text;
 
-namespace GCS.Services {
+namespace W3S_GCS.Services {
     public class MailService {
         public void Send(MailMessage message) {
             SmtpClient client = new SmtpClient();

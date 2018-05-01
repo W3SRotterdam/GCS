@@ -1,11 +1,11 @@
-﻿using GCS.Models.API;
-using GCS.Models.Search;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using W3S_GCS.Models.API;
+using W3S_GCS.Models.Search;
 
-namespace GCS.Services {
+namespace W3S_GCS.Services {
     public class PaginationService {
 
         private QueryParamsServices QueryParamsService;

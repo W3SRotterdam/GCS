@@ -1,4 +1,4 @@
-﻿namespace GCS.Models.API {
+﻿namespace W3S_GCS.Models.API {
     public class NextPage {
         public string title { get; set; }
         public string totalResults { get; set; }

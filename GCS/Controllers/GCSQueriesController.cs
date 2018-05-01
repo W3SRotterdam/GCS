@@ -1,10 +1,10 @@
-﻿using GCS.Models.Dtos;
-using GCS.Repositories;
-using System;
+﻿using System;
 using System.Web.Mvc;
 using Umbraco.Web.Mvc;
+using W3S_GCS.Models.Dtos;
+using W3S_GCS.Repositories;
 
-namespace GCS.Controllers {
+namespace W3S_GCS.Controllers {
     public class GCSQueriesController : SurfaceController {
 
         private QueriesRepository QueriesRepository;

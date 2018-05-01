@@ -231,3 +231,4 @@ C:\inetpub\wwwroot\git\w3s\gcs\GCS\GCS\obj\Debug\GCS.Migrations.addfieldpreloade
 C:\inetpub\wwwroot\git\w3s\gcs\GCS\GCS\obj\Debug\GCS.csproj.GenerateResource.Cache
 C:\inetpub\wwwroot\git\w3s\gcs\GCS\GCS\obj\Debug\GCS.dll
 C:\inetpub\wwwroot\git\w3s\gcs\GCS\GCS\obj\Debug\GCS.pdb
+C:\inetpub\wwwroot\git\w3s\gcs\GCS\GCS\obj\Debug\GCS.csprojResolveAssemblyReference.cache

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace GCS.Converters {
+namespace W3S_GCS.Converters {
     public class BooleanConverter : JsonConverter {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer) {
             writer.WriteValue(((bool)value) ? 1 : 0);

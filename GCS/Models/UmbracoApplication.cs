@@ -1,9 +1,9 @@
-﻿using GCS.App_Plugins.GCS.Models;
-using GCS.App_Start;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using Umbraco.Core;
+using W3S_GCS.App_Plugins.GCS.Models;
+using W3S_GCS.App_Start;
 
-namespace GCS.Models {
+namespace W3S_GCS.Models {
     public class UmbracoApplication : ApplicationEventHandler {
         public UmbracoApplication() {
         }
@@ -11,7 +11,7 @@ namespace GCS.Models {
             base.ApplicationStarting(httpApplication, applicationContext);
 
             WebApiConfig.Register(System.Web.Http.GlobalConfiguration.Configuration);
-            Database.SetInitializer<DBEntities>(new MigrateDatabaseToLatestVersion<DBEntities, GCS.Migrations.Configuration>());
+            Database.SetInitializer<DBEntities>(new MigrateDatabaseToLatestVersion<DBEntities, W3S_GCS.Migrations.Configuration>());
             using (DBEntities db = new DBEntities()) {
                 db.Database.Initialize(true);
             }

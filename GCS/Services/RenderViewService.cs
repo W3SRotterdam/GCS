@@ -3,7 +3,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace GCS.Services {
+namespace W3S_GCS.Services {
     public class RenderViewService {
         public static string RenderView(Controller controller, string action) {
             using (StringWriter sw = new StringWriter()) {

@@ -5,7 +5,7 @@ using umbraco;
 using Umbraco.Core;
 using Umbraco.Core.Logging;
 
-namespace GCS.App_Plugins.GCS.Models {
+namespace W3S_GCS.App_Plugins.GCS.Models {
     public class LanguageInstaller {
         private static bool _executed;
 

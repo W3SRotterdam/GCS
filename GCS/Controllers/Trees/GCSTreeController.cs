@@ -1,11 +1,11 @@
-﻿using GCS.Models.Tree;
-using System.Linq;
+﻿using System.Linq;
 using System.Net.Http.Formatting;
 using Umbraco.Web.Models.Trees;
 using Umbraco.Web.Mvc;
 using Umbraco.Web.Trees;
+using W3S_GCS.Models.Tree;
 
-namespace GCS.Controllers.Trees {
+namespace W3S_GCS.Controllers.Trees {
     [PluginController("GCS")]
     [Tree("GCS", "GCSTree", "Google Custom Search", iconClosed: "icon-binoculars")]
     public class GCSTreeController : TreeController {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GCS.Models.Filters {
+namespace W3S_GCS.Models.Filters {
     public class FileTypeFilter {
         public Dictionary<String, String> FileTypes = new Dictionary<String, String>() {
         { "", "" },

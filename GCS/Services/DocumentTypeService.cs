@@ -4,7 +4,7 @@ using System.Linq;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 
-namespace GCS.Services {
+namespace W3S_GCS.Services {
     public class DocumentTypeService {
 
         private UmbracoHelper uh = new UmbracoHelper(UmbracoContext.Current);

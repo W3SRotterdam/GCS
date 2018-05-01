@@ -1,7 +1,7 @@
-﻿using GCS.Models.Dtos;
-using System.Linq;
+﻿using System.Linq;
+using W3S_GCS.Models.Dtos;
 
-namespace GCS.Models.Extensions {
+namespace W3S_GCS.Models.Extensions {
     public static class Extensions {
         public static IQueryable<T> FilterByDate<T>(this IQueryable<T> query, int year, int month) where T : SearchEntry {
             return query.Where(

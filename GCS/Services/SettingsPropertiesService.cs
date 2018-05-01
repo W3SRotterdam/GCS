@@ -1,10 +1,10 @@
-﻿using GCS.Models.Filters;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using W3S_GCS.Models.Filters;
 
-namespace GCS.Services {
+namespace W3S_GCS.Services {
     public class SettingsPropertiesService {
 
         private DocumentTypeService DocumentTypeService;

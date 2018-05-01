@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace GCS.Models.Dtos {
+namespace W3S_GCS.Models.Dtos {
     public class SearchEntry {
         [Key]
         public Int32 Id { get; set; }

@@ -1,18 +1,13 @@
-namespace GCS.Migrations
-{
-    using System;
+namespace W3S_GCS.Migrations {
     using System.Data.Entity.Migrations;
-    
-    public partial class adddocumenttypefilterpropr : DbMigration
-    {
-        public override void Up()
-        {
+
+    public partial class adddocumenttypefilterpropr : DbMigration {
+        public override void Up() {
             AddColumn("dbo.SearchSettings", "DocumentTypeFilter", c => c.String());
             AddColumn("dbo.SearchSettings", "DateRestrict", c => c.DateTime());
         }
-        
-        public override void Down()
-        {
+
+        public override void Down() {
             DropColumn("dbo.SearchSettings", "DateRestrict");
             DropColumn("dbo.SearchSettings", "DocumentTypeFilter");
         }

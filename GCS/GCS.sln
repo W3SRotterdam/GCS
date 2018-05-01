@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCS", "GCS.csproj", "{95D6E980-C86B-498E-811D-C94CA646ED94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W3S_GCS", "W3S_GCS.csproj", "{95D6E980-C86B-498E-811D-C94CA646ED94}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Umbraco7", "..\Umbraco7\", "{F634DD79-E7F3-4EB8-BDF8-17400B7508E9}"
 	ProjectSection(WebsiteProperties) = preProject
