@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <language alias="no" intName="Norwegian" localName="norsk" lcid="20" culture="nb-NO">
   <creator>
     <name>The Umbraco community</name>
@@ -193,27 +193,22 @@
   </area>
   <area alias="bulk">
     <key alias="done">Done</key>
-    
     <key alias="deletedItem">Deleted %0% item</key>
     <key alias="deletedItems">Deleted %0% items</key>
     <key alias="deletedItemOfItem">Deleted %0% out of %1% item</key>
     <key alias="deletedItemOfItems">Deleted %0% out of %1% items</key>
-
     <key alias="publishedItem">Published %0% item</key>
     <key alias="publishedItems">Published %0% items</key>
     <key alias="publishedItemOfItem">Published %0% out of %1% item</key>
     <key alias="publishedItemOfItems">Published %0% out of %1% items</key>
-
     <key alias="unpublishedItem">Unpublished %0% item</key>
     <key alias="unpublishedItems">Unpublished %0% items</key>
     <key alias="unpublishedItemOfItem">Unpublished %0% out of %1% item</key>
     <key alias="unpublishedItemOfItems">Unpublished %0% out of %1% items</key>
-
     <key alias="movedItem">Moved %0% item</key>
     <key alias="movedItems">Moved %0% items</key>
     <key alias="movedItemOfItem">Moved %0% out of %1% item</key>
     <key alias="movedItemOfItems">Moved %0% out of %1% items</key>
-
     <key alias="copiedItem">Copied %0% item</key>
     <key alias="copiedItems">Copied %0% items</key>
     <key alias="copiedItemOfItem">Copied %0% out of %1% item</key>
@@ -713,6 +708,7 @@ Vennlig hilsen Umbraco roboten
     <key alias="help" version="7.0">Hjelp</key>
     <key alias="forms">Skjemaer</key>
     <key alias="analytics">Analytics</key>
+    <key alias="GCS">GCS</key>
   </area>
   <area alias="help">
     <key alias="goTo">gå til</key>
@@ -836,22 +832,19 @@ Vennlig hilsen Umbraco roboten
     <key alias="macro">Macro</key>
     <key alias="embed">Embed</key>
     <key alias="headline">Headline</key>
-    <key alias="quote">Quote</key>  
+    <key alias="quote">Quote</key>
     <key alias="insertControl">Sett inn element</key>
     <key alias="chooseLayout">Velg layout</key>
     <key alias="addRows">Legg til rad</key>
     <key alias="addElement">Legg til innhold</key>
     <key alias="dropElement">Slipp innhold</key>
     <key alias="settingsApplied">Raden har tilpasset design</key>
-
     <key alias="contentNotAllowed">Innholdstypen er ikke tillatt her</key>
     <key alias="contentAllowed">Innholdstypen er tillatt her</key>
-
     <key alias="clickToEmbed">Klikk for å bygge inn</key>
     <key alias="clickToInsertImage">Klikk for å sette inn et bilde</key>
     <key alias="placeholderImageCaption">Bildetekst...</key>
     <key alias="placeholderWriteHere">Skriv her...</key>
-    
     <key alias="gridLayouts">Rutenettoppsett</key>
     <key alias="gridLayoutsDetail">Et oppsett er det overordnede arbeidsområdet til ditt rutenett - du vil typisk kun behøve ett eller to</key>
     <key alias="addGridLayout">Legg til rutenettoppsett</key>
@@ -860,18 +853,13 @@ Vennlig hilsen Umbraco roboten
     <key alias="rowConfigurationsDetail">Rader er forhåndsdefinerte celler arrangert vannrett</key>
     <key alias="addRowConfiguration">Legg til radkonfigurasjon</key>
     <key alias="addRowConfigurationDetail">Juster raden ved å sette cellebredder og legge til flere celler</key>
-
     <key alias="columns">Kolonner</key>
     <key alias="columnsDetails">Totalt antall kolonner i rutenettet</key>
-    
     <key alias="settings">Innstillinger</key>
     <key alias="settingsDetails">Konfigurer hvilke innstillinger brukeren kan endre</key>
-
     <key alias="styles">Stiler</key>
     <key alias="stylesDetails">Konfigurer hvilke stiler redaktørene kan endre</key>
-
     <key alias="settingDialogDetails">Innstillingene lagres kun når konfigurasjonen er gyldig</key>
-    
     <key alias="allowAllEditors">Tillatt alle editorer</key>
     <key alias="allowAllRowConfigurations">Tillat alle radkonfigurasjoner</key>
     <key alias="setAsDefault">Bruk som standard</key>

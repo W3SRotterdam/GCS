@@ -131,27 +131,22 @@
   </area>
   <area alias="bulk">
     <key alias="done">Done</key>
-
     <key alias="deletedItem">Deleted %0% item</key>
     <key alias="deletedItems">Deleted %0% items</key>
     <key alias="deletedItemOfItem">Deleted %0% out of %1% item</key>
     <key alias="deletedItemOfItems">Deleted %0% out of %1% items</key>
-
     <key alias="publishedItem">Published %0% item</key>
     <key alias="publishedItems">Published %0% items</key>
     <key alias="publishedItemOfItem">Published %0% out of %1% item</key>
     <key alias="publishedItemOfItems">Published %0% out of %1% items</key>
-
     <key alias="unpublishedItem">Unpublished %0% item</key>
     <key alias="unpublishedItems">Unpublished %0% items</key>
     <key alias="unpublishedItemOfItem">Unpublished %0% out of %1% item</key>
     <key alias="unpublishedItemOfItems">Unpublished %0% out of %1% items</key>
-
     <key alias="movedItem">Moved %0% item</key>
     <key alias="movedItems">Moved %0% items</key>
     <key alias="movedItemOfItem">Moved %0% out of %1% item</key>
     <key alias="movedItemOfItems">Moved %0% out of %1% items</key>
-
     <key alias="copiedItem">Copied %0% item</key>
     <key alias="copiedItems">Copied %0% items</key>
     <key alias="copiedItemOfItem">Copied %0% out of %1% item</key>
@@ -342,7 +337,8 @@
     <key alias="showPageOnSend">הצג עמוד בשליחה</key>
     <key alias="size">גודל</key>
     <key alias="sort">סדר</key>
-    <key alias="submit">Submit</key> <!-- TODO: Translate this -->
+    <key alias="submit">Submit</key>
+    <!-- TODO: Translate this -->
     <key alias="type">סוג</key>
     <key alias="typeToSearch">הקלד לחיפוש...</key>
     <key alias="up">למעלה</key>
@@ -657,6 +653,7 @@ To manage your website, simply open the Umbraco back office and start adding con
     <key alias="statistics">סטטיסטיקות</key>
     <key alias="translation">תירגום</key>
     <key alias="users">משתמשים</key>
+    <key alias="GCS">GCS</key>
   </area>
   <area alias="settings">
     <key alias="defaulttemplate">תבנית ברירת מחדל</key>
@@ -745,7 +742,7 @@ To manage your website, simply open the Umbraco back office and start adding con
     <key alias="template">תבנית</key>
   </area>
   <area alias="grid">
-      <key alias="rte">Rich Text Editor</key>
+    <key alias="rte">Rich Text Editor</key>
     <key alias="media">Image</key>
     <key alias="macro">Macro</key>
     <key alias="embed">Embed</key>
@@ -757,15 +754,12 @@ To manage your website, simply open the Umbraco back office and start adding con
     <key alias="addElement">Add content</key>
     <key alias="dropElement">Drop content</key>
     <key alias="settingsApplied">Settings applied</key>
-
     <key alias="contentNotAllowed">This content is not allowed here</key>
     <key alias="contentAllowed">This content is allowed here</key>
-
     <key alias="clickToEmbed">Click to embed</key>
     <key alias="clickToInsertImage">Click to insert image</key>
     <key alias="placeholderImageCaption">Image caption...</key>
     <key alias="placeholderWriteHere">Write here...</key>
-
     <key alias="gridLayouts">Grid Layouts</key>
     <key alias="gridLayoutsDetail">Layouts are the overall work area for the grid editor, usually you only need one or two different layouts</key>
     <key alias="addGridLayout">Add Grid Layout</key>
@@ -774,18 +768,13 @@ To manage your website, simply open the Umbraco back office and start adding con
     <key alias="rowConfigurationsDetail">Rows are predefined cells arranged horizontally</key>
     <key alias="addRowConfiguration">Add row configuration</key>
     <key alias="addRowConfigurationDetail">Adjust the row by setting cell widths and adding additional cells</key>
-
     <key alias="columns">Columns</key>
     <key alias="columnsDetails">Total combined number of columns in the grid layout</key>
-
     <key alias="settings">Settings</key>
     <key alias="settingsDetails">Configure what settings editors can change</key>
-
     <key alias="styles">Styles</key>
     <key alias="stylesDetails">Configure what styling editors can change</key>
-
     <key alias="settingDialogDetails">Settings will only save if the entered json configuration is valid</key>
-
     <key alias="allowAllEditors">Allow all editors</key>
     <key alias="allowAllRowConfigurations">Allow all row configurations</key>
   </area>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <language alias="zh_tw" intName="Chinese (Taiwan)" localName="中文（正體，台灣）" lcid="0404" culture="zh-TW">
   <creator>
     <name>The Umbraco community</name>
@@ -872,6 +872,7 @@
     <key alias="help" version="7.0">說明</key>
     <key alias="forms">表單</key>
     <key alias="analytics">統計</key>
+    <key alias="GCS">GCS</key>
   </area>
   <area alias="help">
     <key alias="goTo">移至</key>
@@ -1000,7 +1001,7 @@
     <key alias="macro">Macro</key>
     <key alias="embed">Embed</key>
     <key alias="headline">Headline</key>
-    <key alias="quote">Quote</key>  
+    <key alias="quote">Quote</key>
     <key alias="insertControl">選擇內容類別</key>
     <key alias="chooseLayout">選擇排列方式</key>
     <key alias="addRows">新增一行</key>

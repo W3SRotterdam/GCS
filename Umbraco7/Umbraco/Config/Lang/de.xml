@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <language alias="de" intName="German (DE)" localName="Deutsch (DE)" lcid="7" culture="de-DE">
   <creator>
     <name>The Umbraco community</name>
@@ -193,27 +193,22 @@
   </area>
   <area alias="bulk">
     <key alias="done">Done</key>
-
     <key alias="deletedItem">Deleted %0% item</key>
     <key alias="deletedItems">Deleted %0% items</key>
     <key alias="deletedItemOfItem">Deleted %0% out of %1% item</key>
     <key alias="deletedItemOfItems">Deleted %0% out of %1% items</key>
-
     <key alias="publishedItem">Published %0% item</key>
     <key alias="publishedItems">Published %0% items</key>
     <key alias="publishedItemOfItem">Published %0% out of %1% item</key>
     <key alias="publishedItemOfItems">Published %0% out of %1% items</key>
-
     <key alias="unpublishedItem">Unpublished %0% item</key>
     <key alias="unpublishedItems">Unpublished %0% items</key>
     <key alias="unpublishedItemOfItem">Unpublished %0% out of %1% item</key>
     <key alias="unpublishedItemOfItems">Unpublished %0% out of %1% items</key>
-
     <key alias="movedItem">Moved %0% item</key>
     <key alias="movedItems">Moved %0% items</key>
     <key alias="movedItemOfItem">Moved %0% out of %1% item</key>
     <key alias="movedItemOfItems">Moved %0% out of %1% items</key>
-
     <key alias="copiedItem">Copied %0% item</key>
     <key alias="copiedItems">Copied %0% items</key>
     <key alias="copiedItemOfItem">Copied %0% out of %1% item</key>
@@ -426,7 +421,8 @@
     <key alias="showPageOnSend">Seite beim Senden anzeigen</key>
     <key alias="size">Größe</key>
     <key alias="sort">Sortieren</key>
-    <key alias="submit">Submit</key> <!-- TODO: Translate this -->
+    <key alias="submit">Submit</key>
+    <!-- TODO: Translate this -->
     <key alias="type">Typ</key>
     <key alias="typeToSearch">Durchsuchen ...</key>
     <key alias="up">nach oben</key>
@@ -595,8 +591,7 @@ Wenn Sie sich für Runway entscheiden, können Sie optional Blöcke nutzen, die 
       Einen schönen Tag wünscht
       Ihr freundlicher Umbraco-Robot
     </key>
-    <key alias="mailBodyHtml">
-<![CDATA[<p>Hallo %0%</p>
+    <key alias="mailBodyHtml"><![CDATA[<p>Hallo %0%</p>
 		  <p>Dies ist eine automatisch E-Mail, welche Sie informiert, dass die Aufgabe <strong>'%1%'</strong> 
 		  an der Seite <a href="http://%4%/#/content/content/edit/%5%"><strong>'%2%'</strong></a>
 		  vom Benutzer <strong>'%3%'</strong> ausgeführt wurde.
@@ -622,8 +617,7 @@ Wenn Sie sich für Runway entscheiden, können Sie optional Blöcke nutzen, die 
 		  <p>Einen schönen Tag wünscht<br /><br />
 			  Ihr freundlicher Umbraco-Robot
 		  </p>
-]]>
-</key>
+]]></key>
     <key alias="mailSubject">[%0%] Benachrichtigung: %1% ausgeführt an Seite '%2%' </key>
     <key alias="notifications">Benachrichtigungen</key>
   </area>
@@ -733,6 +727,7 @@ Wenn Sie sich für Runway entscheiden, können Sie optional Blöcke nutzen, die 
     <key alias="help" version="7.0">Hilfe</key>
     <key alias="forms">Formulare</key>
     <key alias="analytics">Auswertungen</key>
+    <key alias="GCS">GCS</key>
   </area>
   <area alias="help">
     <key alias="goTo">go to</key>
@@ -856,7 +851,7 @@ Wenn Sie sich für Runway entscheiden, können Sie optional Blöcke nutzen, die 
     <key alias="macro">Macro</key>
     <key alias="embed">Embed</key>
     <key alias="headline">Headline</key>
-    <key alias="quote">Quote</key>  
+    <key alias="quote">Quote</key>
     <key alias="insertControl">Element hinzufügen</key>
     <key alias="addRows">Zeilenlayout auswählen</key>
     <key alias="addElement">Element mit &lt;i class="icon icon-add blue"&gt;&lt;/i&gt; hinzufügen</key>

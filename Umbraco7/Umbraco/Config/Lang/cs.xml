@@ -185,27 +185,22 @@
   </area>
   <area alias="bulk">
     <key alias="done">Done</key>
-
     <key alias="deletedItem">Deleted %0% item</key>
     <key alias="deletedItems">Deleted %0% items</key>
     <key alias="deletedItemOfItem">Deleted %0% out of %1% item</key>
     <key alias="deletedItemOfItems">Deleted %0% out of %1% items</key>
-
     <key alias="publishedItem">Published %0% item</key>
     <key alias="publishedItems">Published %0% items</key>
     <key alias="publishedItemOfItem">Published %0% out of %1% item</key>
     <key alias="publishedItemOfItems">Published %0% out of %1% items</key>
-
     <key alias="unpublishedItem">Unpublished %0% item</key>
     <key alias="unpublishedItems">Unpublished %0% items</key>
     <key alias="unpublishedItemOfItem">Unpublished %0% out of %1% item</key>
     <key alias="unpublishedItemOfItems">Unpublished %0% out of %1% items</key>
-
     <key alias="movedItem">Moved %0% item</key>
     <key alias="movedItems">Moved %0% items</key>
     <key alias="movedItemOfItem">Moved %0% out of %1% item</key>
     <key alias="movedItemOfItems">Moved %0% out of %1% items</key>
-
     <key alias="copiedItem">Copied %0% item</key>
     <key alias="copiedItems">Copied %0% items</key>
     <key alias="copiedItemOfItem">Copied %0% out of %1% item</key>
@@ -407,7 +402,8 @@
     <key alias="showPageOnSend">Zobrazit stránku při odeslání</key>
     <key alias="size">Rozměr</key>
     <key alias="sort">Seřadit</key>
-    <key alias="submit">Submit</key> <!-- TODO: Translate this -->
+    <key alias="submit">Submit</key>
+    <!-- TODO: Translate this -->
     <key alias="type">Typ</key>
     <key alias="typeToSearch">Pro hledání pište...</key>
     <key alias="up">Nahoru</key>
@@ -682,11 +678,9 @@
     <key alias="paSimpleHelp">Jestliže chcete nastavit jenom jednoduchou ochranu prostřednictvím uživatelského jména a hesla</key>
   </area>
   <area alias="publish">
-    <key alias="contentPublishedFailedAwaitingRelease">
-      <![CDATA[
+    <key alias="contentPublishedFailedAwaitingRelease"><![CDATA[
       %0% nemůže být publikována, protože položka je naplánovaná k uvolnění.
-    ]]>
-    </key>
+    ]]></key>
     <key alias="contentPublishedFailedInvalid"><![CDATA[
       %0% nemůže být publikována, protože tyto vlastnosti: %1%  nesplňují validační pravidla.
     ]]></key>
@@ -747,6 +741,7 @@
     <key alias="translation">Překlad</key>
     <key alias="users">Uživatelé</key>
     <key alias="help" version="7.0">Nápověda</key>
+    <key alias="GCS">GCS</key>
   </area>
   <area alias="settings">
     <key alias="defaulttemplate">Výchozí šablona</key>
@@ -853,22 +848,19 @@
     <key alias="macro">Macro</key>
     <key alias="embed">Embed</key>
     <key alias="headline">Headline</key>
-    <key alias="quote">Quote</key>  
+    <key alias="quote">Quote</key>
     <key alias="insertControl">Choose type of content</key>
     <key alias="chooseLayout">Choose a layout</key>
     <key alias="addRows">Add a row</key>
     <key alias="addElement">Add content</key>
     <key alias="dropElement">Drop content</key>
     <key alias="settingsApplied">Settings applied</key>
-
     <key alias="contentNotAllowed">This content is not allowed here</key>
     <key alias="contentAllowed">This content is allowed here</key>
-
     <key alias="clickToEmbed">Click to embed</key>
     <key alias="clickToInsertImage">Click to insert image</key>
     <key alias="placeholderImageCaption">Image caption...</key>
     <key alias="placeholderWriteHere">Write here...</key>
-
     <key alias="gridLayouts">Grid Layouts</key>
     <key alias="gridLayoutsDetail">Layouts are the overall work area for the grid editor, usually you only need one or two different layouts</key>
     <key alias="addGridLayout">Add Grid Layout</key>
