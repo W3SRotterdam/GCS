@@ -396,7 +396,7 @@ XCOPY "$(ProjectDir)App_Plugins\*.html" "$(ProjectDir)..\Umbraco7\App_Plugins\" 
 XCOPY "$(ProjectDir)App_Plugins\*.manifest" "$(ProjectDir)..\Umbraco7\App_Plugins\" /y /e /f
 XCOPY "$(ProjectDir)App_Plugins\*.css" "$(ProjectDir)..\Umbraco7\App_Plugins\" /y /e /f
 XCOPY "$(ProjectDir)App_Plugins\*.md" "$(ProjectDir)..\Umbraco7\App_Plugins\" /y /e /f
-XCOPY "$(ProjectDir)App_Plugins\W3S_GCS\Views\Partials\*.*" "$(ProjectDir)..\Umbraco7\App_PluginsW3S_GCS\Views\Partials\" /y /f</PostBuildEvent>
+XCOPY "$(ProjectDir)App_Plugins\W3S_GCS\Views\Partials\*.*" "$(ProjectDir)..\Umbraco7\App_Plugins\W3S_GCS\Views\Partials\" /y /f</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
