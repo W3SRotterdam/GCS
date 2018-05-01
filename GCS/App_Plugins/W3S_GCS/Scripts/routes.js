@@ -69,7 +69,7 @@
             controller: function ($scope, $route, $routeParams, treeService) {
 
                 $routeParams.method = "Edit";
-                $routeParams.section = "GCS";
+                $routeParams.section = "W3S_GCS";
                 $routeParams.tree = "GCSTree";
 
                 $scope.templateUrl = "/app_plugins/" + $routeParams.section + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
@@ -81,7 +81,7 @@
             controller: function ($scope, $route, $routeParams, treeService) {
 
                 $routeParams.method = "Stats";
-                $routeParams.section = "GCS";
+                $routeParams.section = "W3S_GCS";
                 $routeParams.tree = "GCSTree";
 
                 $scope.templateUrl = "/app_plugins/" + $routeParams.section + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
@@ -93,7 +93,7 @@
             controller: function ($scope, $route, $routeParams, treeService) {
 
                 $routeParams.method = "Development";
-                $routeParams.section = "GCS";
+                $routeParams.section = "W3S_GCS";
                 $routeParams.tree = "GCSTree";
 
                 $scope.templateUrl = "/app_plugins/" + $routeParams.section + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
@@ -105,7 +105,7 @@
              controller: function ($scope, $route, $routeParams, treeService) {
 
                  $routeParams.method = "ReadMe";
-                 $routeParams.section = "GCS";
+                 $routeParams.section = "W3S_GCS";
                  $routeParams.tree = "GCSTree";
 
                  $scope.templateUrl = "/app_plugins/" + $routeParams.section + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
