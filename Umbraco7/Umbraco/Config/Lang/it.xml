@@ -34,7 +34,7 @@
     <key alias="unpublish">Annulla pubblicazione</key>
     <key alias="update">Aggiorna</key>
   </area>
-  <area alias="assignDomain">
+   <area alias="assignDomain">
     <key alias="addNew">Aggiungi nuovo dominio</key>
     <key alias="domain">Dominio</key>
     <key alias="domainCreated"><![CDATA[Il dominio '%0%' è stato creato]]></key>
@@ -134,22 +134,27 @@
   </area>
   <area alias="bulk">
     <key alias="done">Done</key>
+
     <key alias="deletedItem">Deleted %0% item</key>
     <key alias="deletedItems">Deleted %0% items</key>
     <key alias="deletedItemOfItem">Deleted %0% out of %1% item</key>
     <key alias="deletedItemOfItems">Deleted %0% out of %1% items</key>
+
     <key alias="publishedItem">Published %0% item</key>
     <key alias="publishedItems">Published %0% items</key>
     <key alias="publishedItemOfItem">Published %0% out of %1% item</key>
     <key alias="publishedItemOfItems">Published %0% out of %1% items</key>
+
     <key alias="unpublishedItem">Unpublished %0% item</key>
     <key alias="unpublishedItems">Unpublished %0% items</key>
     <key alias="unpublishedItemOfItem">Unpublished %0% out of %1% item</key>
     <key alias="unpublishedItemOfItems">Unpublished %0% out of %1% items</key>
+
     <key alias="movedItem">Moved %0% item</key>
     <key alias="movedItems">Moved %0% items</key>
     <key alias="movedItemOfItem">Moved %0% out of %1% item</key>
     <key alias="movedItemOfItems">Moved %0% out of %1% items</key>
+
     <key alias="copiedItem">Copied %0% item</key>
     <key alias="copiedItems">Copied %0% items</key>
     <key alias="copiedItemOfItem">Copied %0% out of %1% item</key>
@@ -167,7 +172,7 @@
     <key alias="confirmlogout"><![CDATA[Sei sicuro?]]></key>
     <key alias="confirmSure"><![CDATA[Sei sicuro?]]></key>
     <key alias="cut">Taglia</key>
-    <key alias="editdictionary">Modifica elemento Dictionary</key>
+   <key alias="editdictionary">Modifica elemento Dictionary</key>
     <key alias="editlanguage">Modifica il linguaggio</key>
     <key alias="insertAnchor">Inserisci il link locale</key>
     <key alias="insertCharacter">Inserisci carattere</key>
@@ -339,8 +344,7 @@
     <key alias="showPageOnSend">Mostra la pagina inviata</key>
     <key alias="size">Dimensione</key>
     <key alias="sort">Ordina</key>
-    <key alias="submit">Submit</key>
-    <!-- TODO: Translate this -->
+    <key alias="submit">Submit</key> <!-- TODO: Translate this -->
     <key alias="type">Tipo</key>
     <key alias="typeToSearch"><![CDATA[Parola da cercare...]]></key>
     <key alias="up">Su</key>
@@ -375,8 +379,10 @@
     <key alias="databaseHeader"><![CDATA[Configurazione database]]></key>
     <key alias="databaseInstall"><![CDATA[Premi il tasto <strong>installa</strong> per installare il database Umbraco %0% ]]></key>
     <key alias="databaseInstallDone"><![CDATA[Umbraco %0% è stato copiato nel tuo database. Premi <strong>Avanti</strong> per proseguire.]]></key>
-    <key alias="databaseNotFound"><![CDATA[<p>Database non trovato! Perfavore, controlla che le informazioni della stringa di connessione nel file "web.config" siano corrette.</p>
-<p>Per procedere, edita il file "web.config" (utilizzando Visual Studio o l'editor di testo che preferisci), scorri in basso, aggiungi la stringa di connessione per il database chiamato "umbracoDbDSN" e salva il file.</p><p>Clicca il tasto <strong>riprova</strong> quando hai finito.<br /><a href="http://our.umbraco.org/documentation/Using-Umbraco/Config-files/webconfig7" target="_blank"> Maggiori dettagli per la modifica del file web.config qui.</a></p>]]></key>
+    <key alias="databaseNotFound">
+      <![CDATA[<p>Database non trovato! Perfavore, controlla che le informazioni della stringa di connessione nel file "web.config" siano corrette.</p>
+<p>Per procedere, edita il file "web.config" (utilizzando Visual Studio o l'editor di testo che preferisci), scorri in basso, aggiungi la stringa di connessione per il database chiamato "umbracoDbDSN" e salva il file.</p><p>Clicca il tasto <strong>riprova</strong> quando hai finito.<br /><a href="http://our.umbraco.org/documentation/Using-Umbraco/Config-files/webconfig7" target="_blank"> Maggiori dettagli per la modifica del file web.config qui.</a></p>]]>
+    </key>
     <key alias="databaseText"><![CDATA[Per completare questo passaggio, devi conoscere alcune informazioni riguardanti il tuo database server ("connection string"). Se è necessario contatta il tuo ISP per reperire le informazioni necessarie. Se stai effettuando l'installazione in locale o su un server, puoi richiederle al tuo amministratore di sistema]]></key>
     <key alias="databaseUpgrade"><![CDATA[<p>Premi il tasto <strong>aggiorna</strong> per aggiornare il database ad Umbraco %0%</p><p>Non preoccuparti, il contenuto non verrà perso e tutto continuerà a funzionare dopo l'aggiornamento!</p>]]></key>
     <key alias="databaseUpgradeDone"><![CDATA[Il tuo database è stato aggiornato all'ultima versione %0%.<br />Premi il tasto <strong>Avanti</strong> per continuare.]]></key>
@@ -437,8 +443,10 @@ Hai installato Runway, quindi perché non dare uno sguardo al vostro nuovo sito 
 Fatti aiutare dalla nostra community, consulta la documentazione o guarda alcuni video gratuiti su come costruire un semplice sito web, come usare i pacchetti e una guida rapida alla terminologia Umbraco]]></key>
     <key alias="theEndHeader"><![CDATA[Umbraco %0% è installato e pronto per l'uso]]></key>
     <key alias="theEndInstallFailed"><![CDATA[Per terminare l'installazione, dovrai modificare manualmente il file <strong>/web.config</strong> e aggiornare la chiave AppSetting <strong>UmbracoConfigurationStatus</strong> impostando il valore <strong>'%0%'</strong>.]]></key>
-    <key alias="theEndInstallSuccess"><![CDATA[Puoi <strong>iniziare immediatamente</strong> cliccando sul bottone "Avvia Umbraco". <br />Se sei <strong>nuovo a Umbraco</strong>, si possono trovare un sacco di risorse sulle nostre pagine Getting Started.]]></key>
-    <key alias="theEndOpenUmbraco"><![CDATA[<h3>Avvia Umbraco</h3>
+    <key alias="theEndInstallSuccess">
+      <![CDATA[Puoi <strong>iniziare immediatamente</strong> cliccando sul bottone "Avvia Umbraco". <br />Se sei <strong>nuovo a Umbraco</strong>, si possono trovare un sacco di risorse sulle nostre pagine Getting Started.]]></key>
+    <key alias="theEndOpenUmbraco">
+      <![CDATA[<h3>Avvia Umbraco</h3>
 Per gestire il tuo sito web, è sufficiente aprire il back office di Umbraco e iniziare ad aggiungere i contenuti, aggiornando i modelli e i fogli di stile o aggiungere nuove funzionalità]]></key>
     <key alias="Unavailable">Connessione al database non riuscita.</key>
     <key alias="Version3">Umbraco Versione 3</key>
@@ -493,7 +501,8 @@ Per gestire il tuo sito web, è sufficiente aprire il back office di Umbraco e i
 
       Grazie da Umbraco
     ]]></key>
-    <key alias="mailBodyHtml"><![CDATA[<p>Salve %0%</p>
+    <key alias="mailBodyHtml">
+        <![CDATA[<p>Salve %0%</p>
 
 		  <p>Questa è un'email automatica per informare che l'azione <strong>'%1%'</strong> 
 		  è stata eseguita sulla pagina <a href="http://%4%/actions/preview.aspx?id=%5%"><strong>'%2%'</strong></a>
@@ -626,7 +635,6 @@ Per gestire il tuo sito web, è sufficiente aprire il back office di Umbraco e i
     <key alias="statistics">Statistiche</key>
     <key alias="translation">Traduzione</key>
     <key alias="users">Utenti</key>
-    <key alias="GCS">GCS</key>
   </area>
   <area alias="settings">
     <key alias="asAContentMasterType"><![CDATA[come tipo di contenuto master. Le tab del tipo di contenuto master non sono mostrate e possono essere modificate solo direttamente dal tipo di contenuto master.]]></key>
@@ -686,9 +694,9 @@ Per gestire il tuo sito web, è sufficiente aprire il back office di Umbraco e i
     <key alias="fileSavedHeader"><![CDATA[File salvato]]></key>
     <key alias="fileSavedText"><![CDATA[File salvato con successo]]></key>
     <key alias="languageSaved"><![CDATA[Lingua salvata]]></key>
-    <key alias="partialViewSavedHeader">Partial view salvata</key>
-    <key alias="partialViewSavedText">Partial view salvata senza errori!</key>
-    <key alias="partialViewErrorHeader">Partial view non salvata</key>
+    <key alias="partialViewSavedHeader">Partial view salvata</key>    
+    <key alias="partialViewSavedText">Partial view salvata senza errori!</key>    
+    <key alias="partialViewErrorHeader">Partial view non salvata</key>   
     <key alias="partialViewErrorText">Errore durante il salvataggio del file.</key>
     <key alias="pythonErrorHeader"><![CDATA[Script Python non salvato]]></key>
     <key alias="pythonErrorText"><![CDATA[A causa di un errore lo script Python non può essere salvato]]></key>
@@ -729,19 +737,22 @@ Per gestire il tuo sito web, è sufficiente aprire il back office di Umbraco e i
     <key alias="macro">Macro</key>
     <key alias="embed">Embed</key>
     <key alias="headline">Headline</key>
-    <key alias="quote">Quote</key>
+    <key alias="quote">Quote</key>  
     <key alias="insertControl">Choose type of content</key>
     <key alias="chooseLayout">Choose a layout</key>
     <key alias="addRows">Add a row</key>
     <key alias="addElement">Add content</key>
     <key alias="dropElement">Drop content</key>
     <key alias="settingsApplied">Settings applied</key>
+
     <key alias="contentNotAllowed">This content is not allowed here</key>
     <key alias="contentAllowed">This content is allowed here</key>
+
     <key alias="clickToEmbed">Click to embed</key>
     <key alias="clickToInsertImage">Click to insert image</key>
     <key alias="placeholderImageCaption">Image caption...</key>
     <key alias="placeholderWriteHere">Write here...</key>
+
     <key alias="gridLayouts">Grid Layouts</key>
     <key alias="gridLayoutsDetail">Layouts are the overall work area for the grid editor, usually you only need one or two different layouts</key>
     <key alias="addGridLayout">Add Grid Layout</key>
@@ -750,13 +761,18 @@ Per gestire il tuo sito web, è sufficiente aprire il back office di Umbraco e i
     <key alias="rowConfigurationsDetail">Rows are predefined cells arranged horizontally</key>
     <key alias="addRowConfiguration">Add row configuration</key>
     <key alias="addRowConfigurationDetail">Adjust the row by setting cell widths and adding additional cells</key>
+
     <key alias="columns">Columns</key>
     <key alias="columnsDetails">Total combined number of columns in the grid layout</key>
+
     <key alias="settings">Settings</key>
     <key alias="settingsDetails">Configure what settings editors can change</key>
+
     <key alias="styles">Styles</key>
     <key alias="stylesDetails">Configure what styling editors can change</key>
+
     <key alias="settingDialogDetails">Settings will only save if the entered json configuration is valid</key>
+
     <key alias="allowAllEditors">Allow all editors</key>
     <key alias="allowAllRowConfigurations">Allow all row configurations</key>
   </area>
@@ -854,7 +870,7 @@ Per gestire il tuo sito web, è sufficiente aprire il back office di Umbraco e i
     <key alias="memberTypes">Tipologia Membri</key>
     <key alias="documentTypes">Tipi di documento</key>
     <key alias="packager">Pacchetti</key>
-    <key alias="packages">Pacchetti</key>
+	  <key alias="packages">Pacchetti</key>
     <key alias="python">Files Python</key>
     <key alias="repositories">Installa dal repository</key>
     <key alias="runway">Installa Runway</key>
