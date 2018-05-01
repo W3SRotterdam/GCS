@@ -1,14 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Web.Mvc;
-using Umbraco.Core.Logging;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
@@ -77,10 +75,6 @@ namespace W3S_GCS.Controllers {
                     URL += String.Format("&dateRestrict=d{0}", Math.Abs((DateTime.Now - settings.DateRestrict.Value).Days));
                 }
 
-                if (ConfigurationManager.AppSettings["Log-GCS-Url"] != null && ConfigurationManager.AppSettings["Log-GCS-Url"] == "true") {
-                    LogHelper.Info<String>("GCS-Url: " + URL);
-                }
-
                 SearchResponse = SearchRequest(URL);
 
                 obj = JsonConvert.DeserializeObject<RootObject>(SearchResponse.Response);
@@ -126,10 +120,6 @@ namespace W3S_GCS.Controllers {
                 CorrectedQuery = obj.spelling != null ? obj.spelling.correctedQuery : ""
             });
 
-            DocumentTypeFilter DocumentTypeFilter = new DocumentTypeFilter() {
-                DocumentTypes = !String.IsNullOrEmpty(settings.DocumentTypeFilter) ? JsonConvert.DeserializeObject<List<DocumentTypeFilterItem>>(settings.DocumentTypeFilter) : null
-            };
-
             JsonResult json = new JsonResult() {
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet,
                 Data = new {
@@ -141,7 +131,6 @@ namespace W3S_GCS.Controllers {
                     totalPages = Math.Ceiling((double)int.Parse(obj.searchInformation.totalResults) / int.Parse(settings.ItemsPerPage.ToString())),
                     pagination = settings.LoadMoreSetUp == "pagination" ? RenderViewService.GetRazorViewAsString(PaginationService.GetPaginationModel(Request, obj, settings.ItemsPerPage, model.StartIndex, model.Query, model.FileType, model.Section, settings.MaxPaginationPages), "~/App_Plugins/W3S_GCS/Views/Partials/SearchPagination.cshtml") : "",
                     filetypefilter = settings.ShowFilterFileType ? RenderViewService.GetRazorViewAsString(new FileTypeFilter(), "~/App_Plugins/W3S_GCS/Views/Partials/SearchFileTypeFilter" + GetFilterSetupAction(settings.FilterSetupFileType) + ".cshtml") : "",
-                    documenttypefilter = DocumentTypeFilter != null && DocumentTypeFilter.DocumentTypes != null && DocumentTypeFilter.DocumentTypes.Count > 0 ? RenderViewService.GetRazorViewAsString(DocumentTypeFilter, "~/App_Plugins/W3S_GCS/Views/Partials/DocumentTypeFilter" + GetFilterSetupAction(settings.FilterSetupDocType) + ".cshtml") : "",
                     queryId = SearchEntry.Id
                 }
             };

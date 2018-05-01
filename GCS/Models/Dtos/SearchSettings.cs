@@ -36,14 +36,12 @@ namespace W3S_GCS.Models.Dtos {
         public Boolean ShowFilterFileType { get; set; }
         public String ExcludeTerms { get; set; }
         public String ExcludeNodeIds { get; set; }
-        public String DocumentTypeFilter { get; set; }
         public DateTime? DateRestrict { get; set; }
         [JsonConverter(typeof(BooleanConverter))]
         public Boolean ShowThumbnail { get; set; }
         public String ThumbnailFallbackGUID { get; set; }
         public String LoadIconGUID { get; set; }
         public String FilterSetupFileType { get; set; }
-        public String FilterSetupDocType { get; set; }
         public DateTime? LastUpdated { get; set; }
         public DateTime? DateCreated { get; set; }
         public String DevelopmentURL { get; set; }

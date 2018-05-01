@@ -1,7 +1,0 @@
-﻿@inherits System.Web.Mvc.WebViewPage<GCS.Models.Filters.DocumentTypeFilter>
-
-<div class="gcs__doctypefilter">
-    @foreach(var doctype in Model.DocumentTypes) {
-        <button value="@doctype.alias" class="gcs__doctypefilter__btn">@doctype.text</button>
-    }
-</div>

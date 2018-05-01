@@ -18,8 +18,6 @@
             infinitescroll: $(".gcs_infinite_scroll"),
             filter_filetype_select: $(".gcs_filetype_filter_select"),
             filter_filetype_btns: $(".gcs_filetype_filter_buttons"),
-            filter_documenttype_select: $(".gcs_filter_documenttype_select"),
-            filter_documenttype_btns: $(".gcs_filter_documenttype_buttons"),
             spelling: $(".gcs_spelling"),
             didyoumean: $(".gcs_didyoumean"),
             error: $(".gcs_error")
@@ -181,53 +179,6 @@
 
                 $(".gcs_filetype_filter_buttons button").on("click", function (e) {
                     gcs.fileTypeFilter = $(this).val();
-                    showLoader();
-                    gcs.resources.performSearch(gcs.query, gcs.startIndex).then(function (data) {
-                        $(gcs.elements.results).html("");
-                        setUpResult(data);
-                        hideLoader();
-                    });
-                });
-            }
-        }
-
-        if (gcs.settings.documentTypeFilter != "") {
-            $(gcs.elements.filter_documenttype_select).show();
-
-            if (gcs.settings.filterSetupDocType == "lists") {
-                var select = $(gcs.elements.filter_documenttype_select).find("select");
-                var firstoption = $(gcs.elements.filter_documenttype_select).attr("data-first-option");
-
-                if (select.length <= 0) {
-                    $(gcs.elements.filter_documenttype_select).append(data.documenttypefilter);
-                }
-
-                if (gcs.docTypeFilter != "") {
-                    $(".gcs_filter_documenttype_select select").val(gcs.docTypeFilter);
-                }
-
-                $($(".gcs_filter_documenttype_select option")[0]).html(firstoption);
-
-                $(gcs.elements.filter_documenttype_select).change(function () {
-                    gcs.docTypeFilter = $(".gcs_filter_documenttype_select option:selected").val();
-                    showLoader();
-                    gcs.resources.performSearch(gcs.query, gcs.startIndex).then(function (data) {
-                        $(gcs.elements.results).html("");
-                        setUpResult(data);
-                        hideLoader();
-                    });
-                });
-            }
-
-            if (gcs.settings.filterSetupDocType == "buttons") {
-                var buttons = $(gcs.elements.filter_documenttype_btns);
-
-                if (buttons.length > 0) {
-                    $(gcs.elements.filter_documenttype_btns).html("<div class='gcs gcs_filter_documenttype_buttons'>" + data.documenttypefilter + "</div>");
-                }
-
-                $(".gcs_filter_documenttype_buttons button").on("click", function () {
-                    gcs.docTypeFilter = $(this).val();
                     showLoader();
                     gcs.resources.performSearch(gcs.query, gcs.startIndex).then(function (data) {
                         $(gcs.elements.results).html("");
