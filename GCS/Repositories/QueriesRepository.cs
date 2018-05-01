@@ -42,7 +42,8 @@ namespace W3S_GCS.Repositories {
         public Dictionary<String, Int32> GetTopQueries(int year = -1, int month = -1) {
             using (DBEntities db = new DBEntities()) {
                 //return GetTopValues("Query", 10);
-                return db.SearchEntries != null ? db.SearchEntries
+                return year != -1 && month != -1 && db.SearchEntries != null && db.SearchEntries.Where(e => !String.IsNullOrEmpty(e.Query)) != null ?
+                     db.SearchEntries
                     .Where(e => !String.IsNullOrEmpty(e.Query))
                     .FilterByDate(year, month)
                     .GroupBy(e => e.Query)
@@ -56,26 +57,28 @@ namespace W3S_GCS.Repositories {
         public Dictionary<String, Int32> GetTopSpelling(int year = -1, int month = -1) {
             using (DBEntities db = new DBEntities()) {
                 //return GetTopValues("CorrectedQuery", 10);
-                return db.SearchEntries
+                return year != -1 && month != -1 && db.SearchEntries != null && db.SearchEntries.Where(e => !String.IsNullOrEmpty(e.CorrectedQuery)) != null ?
+                    db.SearchEntries
                    .Where(e => !String.IsNullOrEmpty(e.CorrectedQuery))
                    .FilterByDate(year, month)
                    .GroupBy(e => e.Query)
                    .OrderByDescending(g => g.Count())
                    .Take(10)
-                   .ToDictionary(e => e.First().Query, e => e.Count());
+                   .ToDictionary(e => e.First().Query, e => e.Count()) : null;
             }
         }
 
         public Dictionary<String, Int32> GetTopClicks(int year = -1, int month = -1) {
             using (DBEntities db = new DBEntities()) {
                 //return GetTopValues("ClickURL", 10);
-                return db.SearchEntries
+                return year != -1 && month != -1 && db.SearchEntries != null && db.SearchEntries.Where(e => !String.IsNullOrEmpty(e.ClickURL)) != null ?
+                    db.SearchEntries
                    .Where(e => !String.IsNullOrEmpty(e.ClickURL))
                    .FilterByDate(year, month)
                    .GroupBy(e => e.ClickURL)
                    .OrderByDescending(g => g.Count())
                    .Take(10)
-                   .ToDictionary(e => e.First().ClickURL, e => e != null ? e.Count() : 0);
+                   .ToDictionary(e => e.First().ClickURL, e => e != null ? e.Count() : 0) : null;
             }
         }
 

@@ -40,11 +40,9 @@
             $scope.loaded = true;
         });
 
-        GCSResources.GetStats().then(function (data) {
-            appendData(data);
-        });
-
-        
+        //GCSResources.GetStats(-1, -1).then(function (data) {
+        //    appendData(data);
+        //});
 
         function appendData(data) {
             $scope.stats = data.data;

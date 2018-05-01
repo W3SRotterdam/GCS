@@ -19,7 +19,7 @@ GCS also creates some tables in the Umbraco database because it stores it's sett
 The .js files are automatically copied to your project by utilizing the post-build actions. Add a reference to the following script file either in a _layout.cshtml file or
 in a bundles file.
 ```
-<script src="~/App_Plugins/GCS/Scripts/gcsearch.js" type="text/javascript"></script>
+<script src="~/App_Plugins/W3S_GCS/Scripts/gcsearch.js" type="text/javascript"></script>
 ```
 <br />
 

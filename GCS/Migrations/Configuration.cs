@@ -1,4 +1,4 @@
-namespace W3S_GCS.Migrations {
+namespace GCS.Migrations {
     using System.Data.Entity.Migrations;
 
     internal sealed class Configuration : DbMigrationsConfiguration<W3S_GCS.Models.DBEntities> {

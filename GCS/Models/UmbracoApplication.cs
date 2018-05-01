@@ -11,7 +11,7 @@ namespace W3S_GCS.Models {
             base.ApplicationStarting(httpApplication, applicationContext);
 
             WebApiConfig.Register(System.Web.Http.GlobalConfiguration.Configuration);
-            Database.SetInitializer<DBEntities>(new MigrateDatabaseToLatestVersion<DBEntities, W3S_GCS.Migrations.Configuration>());
+            Database.SetInitializer<DBEntities>(new MigrateDatabaseToLatestVersion<DBEntities, GCS.Migrations.Configuration>());
             using (DBEntities db = new DBEntities()) {
                 db.Database.Initialize(true);
             }

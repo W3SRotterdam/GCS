@@ -69,10 +69,10 @@
             controller: function ($scope, $route, $routeParams, treeService) {
 
                 $routeParams.method = "Edit";
-                $routeParams.section = "W3S_GCS";
+                $routeParams.section = "GCS";
                 $routeParams.tree = "GCSTree";
 
-                $scope.templateUrl = "/app_plugins/" + $routeParams.section + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
+                $scope.templateUrl = "/app_plugins/" + "W3S_GCS" + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
             },
             resolve: canRoute(true)
         })
@@ -81,10 +81,10 @@
             controller: function ($scope, $route, $routeParams, treeService) {
 
                 $routeParams.method = "Stats";
-                $routeParams.section = "W3S_GCS";
+                $routeParams.section = "GCS";
                 $routeParams.tree = "GCSTree";
 
-                $scope.templateUrl = "/app_plugins/" + $routeParams.section + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
+                $scope.templateUrl = "/app_plugins/" + "W3S_GCS" + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
             },
             resolve: canRoute(true)
         })
@@ -93,10 +93,10 @@
             controller: function ($scope, $route, $routeParams, treeService) {
 
                 $routeParams.method = "Development";
-                $routeParams.section = "W3S_GCS";
+                $routeParams.section = "GCS";
                 $routeParams.tree = "GCSTree";
 
-                $scope.templateUrl = "/app_plugins/" + $routeParams.section + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
+                $scope.templateUrl = "/app_plugins/" + "W3S_GCS" + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
             },
             resolve: canRoute(true)
         })
@@ -105,10 +105,10 @@
              controller: function ($scope, $route, $routeParams, treeService) {
 
                  $routeParams.method = "ReadMe";
-                 $routeParams.section = "W3S_GCS";
+                 $routeParams.section = "GCS";
                  $routeParams.tree = "GCSTree";
 
-                 $scope.templateUrl = "/app_plugins/" + $routeParams.section + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
+                 $scope.templateUrl = "/app_plugins/" + "W3S_GCS" + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
              },
              resolve: canRoute(true)
          });

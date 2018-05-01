@@ -1,4 +1,4 @@
-namespace W3S_GCS.Migrations {
+namespace GCS.Migrations {
     using System.Data.Entity.Migrations;
 
     public partial class letredirectnodeidbenullable : DbMigration {

@@ -72,7 +72,7 @@
                 $routeParams.section = "GCS";
                 $routeParams.tree = "GCSTree";
 
-                $scope.templateUrl = "/app_plugins/" + $routeParams.section + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
+                $scope.templateUrl = "/app_plugins/" + "W3S_GCS" + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
             },
             resolve: canRoute(true)
         })
@@ -84,7 +84,7 @@
                 $routeParams.section = "GCS";
                 $routeParams.tree = "GCSTree";
 
-                $scope.templateUrl = "/app_plugins/" + $routeParams.section + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
+                $scope.templateUrl = "/app_plugins/" + "W3S_GCS" + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
             },
             resolve: canRoute(true)
         })
@@ -96,7 +96,7 @@
                 $routeParams.section = "GCS";
                 $routeParams.tree = "GCSTree";
 
-                $scope.templateUrl = "/app_plugins/" + $routeParams.section + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
+                $scope.templateUrl = "/app_plugins/" + "W3S_GCS" + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
             },
             resolve: canRoute(true)
         })
@@ -108,7 +108,7 @@
                  $routeParams.section = "GCS";
                  $routeParams.tree = "GCSTree";
 
-                 $scope.templateUrl = "/app_plugins/" + $routeParams.section + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
+                 $scope.templateUrl = "/app_plugins/" + "W3S_GCS" + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
              },
              resolve: canRoute(true)
          });

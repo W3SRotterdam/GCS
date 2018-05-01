@@ -134,14 +134,14 @@ namespace W3S_GCS.Controllers {
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet,
                 Data = new {
                     success = SearchResponse.Success,
-                    list = RenderViewService.GetRazorViewAsString(obj, "~/App_Plugins/GCS/Views/Partials/SearchResults.cshtml"),
-                    spelling = settings.ShowSpelling && obj.spelling != null && !String.IsNullOrEmpty(obj.spelling.correctedQuery) ? RenderViewService.GetRazorViewAsString(new SpellingModel() { CorrectedQuery = obj.spelling.correctedQuery, SearchURL = settings.RedirectNodeURL }, "~/App_Plugins/GCS/Views/Partials/SearchSpelling.cshtml") : "",
+                    list = RenderViewService.GetRazorViewAsString(obj, "~/App_Plugins/W3S_GCS/Views/Partials/SearchResults.cshtml"),
+                    spelling = settings.ShowSpelling && obj.spelling != null && !String.IsNullOrEmpty(obj.spelling.correctedQuery) ? RenderViewService.GetRazorViewAsString(new SpellingModel() { CorrectedQuery = obj.spelling.correctedQuery, SearchURL = settings.RedirectNodeURL }, "~/App_Plugins/W3S_GCS/Views/Partials/SearchSpelling.cshtml") : "",
                     totalCount = obj.searchInformation.totalResults,
                     timing = obj.searchInformation.formattedSearchTime,
                     totalPages = Math.Ceiling((double)int.Parse(obj.searchInformation.totalResults) / int.Parse(settings.ItemsPerPage.ToString())),
-                    pagination = settings.LoadMoreSetUp == "pagination" ? RenderViewService.GetRazorViewAsString(PaginationService.GetPaginationModel(Request, obj, settings.ItemsPerPage, model.StartIndex, model.Query, model.FileType, model.Section, settings.MaxPaginationPages), "~/App_Plugins/GCS/Views/Partials/SearchPagination.cshtml") : "",
-                    filetypefilter = settings.ShowFilterFileType ? RenderViewService.GetRazorViewAsString(new FileTypeFilter(), "~/App_Plugins/GCS/Views/Partials/SearchFileTypeFilter" + GetFilterSetupAction(settings.FilterSetupFileType) + ".cshtml") : "",
-                    documenttypefilter = DocumentTypeFilter != null && DocumentTypeFilter.DocumentTypes != null && DocumentTypeFilter.DocumentTypes.Count > 0 ? RenderViewService.GetRazorViewAsString(DocumentTypeFilter, "~/App_Plugins/GCS/Views/Partials/DocumentTypeFilter" + GetFilterSetupAction(settings.FilterSetupDocType) + ".cshtml") : "",
+                    pagination = settings.LoadMoreSetUp == "pagination" ? RenderViewService.GetRazorViewAsString(PaginationService.GetPaginationModel(Request, obj, settings.ItemsPerPage, model.StartIndex, model.Query, model.FileType, model.Section, settings.MaxPaginationPages), "~/App_Plugins/W3S_GCS/Views/Partials/SearchPagination.cshtml") : "",
+                    filetypefilter = settings.ShowFilterFileType ? RenderViewService.GetRazorViewAsString(new FileTypeFilter(), "~/App_Plugins/W3S_GCS/Views/Partials/SearchFileTypeFilter" + GetFilterSetupAction(settings.FilterSetupFileType) + ".cshtml") : "",
+                    documenttypefilter = DocumentTypeFilter != null && DocumentTypeFilter.DocumentTypes != null && DocumentTypeFilter.DocumentTypes.Count > 0 ? RenderViewService.GetRazorViewAsString(DocumentTypeFilter, "~/App_Plugins/W3S_GCS/Views/Partials/DocumentTypeFilter" + GetFilterSetupAction(settings.FilterSetupDocType) + ".cshtml") : "",
                     queryId = SearchEntry.Id
                 }
             };
@@ -152,7 +152,7 @@ namespace W3S_GCS.Controllers {
         public JsonResult ReadMe() {
             return new JsonResult() {
                 Data = new {
-                    markdown = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/app_plugins/gcs/README.md"))
+                    markdown = System.IO.File.ReadAllText(HttpContext.Server.MapPath("~/app_plugins/w3s_gcs/README.md"))
                 },
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
@@ -212,7 +212,7 @@ namespace W3S_GCS.Controllers {
 
         [HttpGet]
         public JsonResult Update() {
-            Database.SetInitializer<DBEntities>(new MigrateDatabaseToLatestVersion<DBEntities, W3S_GCS.Migrations.Configuration>());
+            Database.SetInitializer<DBEntities>(new MigrateDatabaseToLatestVersion<DBEntities, GCS.Migrations.Configuration>());
             using (DBEntities db = new DBEntities()) {
                 db.Database.Initialize(true);
             }
