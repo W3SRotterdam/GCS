@@ -2,7 +2,7 @@ Umbraco7/App_Data/Logs/
 Umbraco7/App_Data/Models/
 Umbraco7/App_Data/packages/
 Umbraco7/App_Data/TEMP/
-Umbraco7/App_Data/TEMP/PluginCache
+Umbraco7/App_Data/TEMP/PluginCache/
 Umbraco7/App_Data/cache/
 Umbraco7/bin/W3S_GCS.dll
 Umbraco7/bin/W3S_GCS.pdb
