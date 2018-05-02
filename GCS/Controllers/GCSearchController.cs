@@ -201,7 +201,7 @@ namespace W3S_GCS.Controllers {
 
         [HttpGet]
         public JsonResult Update() {
-            Database.SetInitializer<DBEntities>(new MigrateDatabaseToLatestVersion<DBEntities, GCS.Migrations.Configuration>());
+            Database.SetInitializer<DBEntities>(new MigrateDatabaseToLatestVersion<DBEntities, W3S_GCS.Migrations.Configuration>());
             using (DBEntities db = new DBEntities()) {
                 db.Database.Initialize(true);
             }
