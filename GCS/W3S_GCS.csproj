@@ -163,81 +163,9 @@
     <Compile Include="Controllers\Trees\GCSTreeController.cs" />
     <Compile Include="Converters\BooleanConverter.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Migrations\201710241428441_initial.cs" />
-    <Compile Include="Migrations\201710241428441_initial.Designer.cs">
-      <DependentUpon>201710241428441_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710241447426_add fields ExcludeTerms and ExcludeNodeIds to searchSettings class.cs" />
-    <Compile Include="Migrations\201710241447426_add fields ExcludeTerms and ExcludeNodeIds to searchSettings class.Designer.cs">
-      <DependentUpon>201710241447426_add fields ExcludeTerms and ExcludeNodeIds to searchSettings class.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710250857388_add fields clickURl and clickNodeId to searchentry class.cs" />
-    <Compile Include="Migrations\201710250857388_add fields clickURl and clickNodeId to searchentry class.Designer.cs">
-      <DependentUpon>201710250857388_add fields clickURl and clickNodeId to searchentry class.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710251228324_add field htmlsnippet.cs" />
-    <Compile Include="Migrations\201710251228324_add field htmlsnippet.Designer.cs">
-      <DependentUpon>201710251228324_add field htmlsnippet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710251321480_let redirectnodeid be nullable.cs" />
-    <Compile Include="Migrations\201710251321480_let redirectnodeid be nullable.Designer.cs">
-      <DependentUpon>201710251321480_let redirectnodeid be nullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710261006188_add correctedQuery field to searchEntry class.cs" />
-    <Compile Include="Migrations\201710261006188_add correctedQuery field to searchEntry class.Designer.cs">
-      <DependentUpon>201710261006188_add correctedQuery field to searchEntry class.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710261229189_Change RedirectNodeId to RedirectNodeGUID.cs" />
-    <Compile Include="Migrations\201710261229189_Change RedirectNodeId to RedirectNodeGUID.Designer.cs">
-      <DependentUpon>201710261229189_Change RedirectNodeId to RedirectNodeGUID.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710261332503_add field filefiltertype to searchsettings.cs" />
-    <Compile Include="Migrations\201710261332503_add field filefiltertype to searchsettings.Designer.cs">
-      <DependentUpon>201710261332503_add field filefiltertype to searchsettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710271147283_add field thumbnailfallback.cs" />
-    <Compile Include="Migrations\201710271147283_add field thumbnailfallback.Designer.cs">
-      <DependentUpon>201710271147283_add field thumbnailfallback.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710300847433_add field showThumbnail to searchsettings class.cs" />
-    <Compile Include="Migrations\201710300847433_add field showThumbnail to searchsettings class.Designer.cs">
-      <DependentUpon>201710300847433_add field showThumbnail to searchsettings class.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711030950587_add field datecreated and lastupdated to settings class.cs" />
-    <Compile Include="Migrations\201711030950587_add field datecreated and lastupdated to settings class.Designer.cs">
-      <DependentUpon>201711030950587_add field datecreated and lastupdated to settings class.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711091124268_add filtersetup to searchsettings class.cs" />
-    <Compile Include="Migrations\201711091124268_add filtersetup to searchsettings class.Designer.cs">
-      <DependentUpon>201711091124268_add filtersetup to searchsettings class.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711091346498_split filter styling into two props.cs" />
-    <Compile Include="Migrations\201711091346498_split filter styling into two props.Designer.cs">
-      <DependentUpon>201711091346498_split filter styling into two props.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712291409564_add property redirectalias.cs" />
-    <Compile Include="Migrations\201712291409564_add property redirectalias.Designer.cs">
-      <DependentUpon>201712291409564_add property redirectalias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801031210263_add field developmentURL.cs" />
-    <Compile Include="Migrations\201801031210263_add field developmentURL.Designer.cs">
-      <DependentUpon>201801031210263_add field developmentURL.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801051322555_make fields datecreated and updatedate nullable.cs" />
-    <Compile Include="Migrations\201801051322555_make fields datecreated and updatedate nullable.designer.cs">
-      <DependentUpon>201801051322555_make fields datecreated and updatedate nullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801180919325_add property keepalias.cs" />
-    <Compile Include="Migrations\201801180919325_add property keepalias.Designer.cs">
-      <DependentUpon>201801180919325_add property keepalias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801231207458_add field maxPaginationItems.cs" />
-    <Compile Include="Migrations\201801231207458_add field maxPaginationItems.Designer.cs">
-      <DependentUpon>201801231207458_add field maxPaginationItems.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804120820262_add field preloaderIcon.cs" />
-    <Compile Include="Migrations\201804120820262_add field preloaderIcon.designer.cs">
-      <DependentUpon>201804120820262_add field preloaderIcon.cs</DependentUpon>
+    <Compile Include="Migrations\201805021419212_Initial.cs" />
+    <Compile Include="Migrations\201805021419212_Initial.Designer.cs">
+      <DependentUpon>201805021419212_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\API\Context.cs" />
@@ -279,64 +207,9 @@
     <Compile Include="Services\RenderViewService.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710241428441_initial.resx">
-      <DependentUpon>201710241428441_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710241447426_add fields ExcludeTerms and ExcludeNodeIds to searchSettings class.resx">
-      <DependentUpon>201710241447426_add fields ExcludeTerms and ExcludeNodeIds to searchSettings class.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710250857388_add fields clickURl and clickNodeId to searchentry class.resx">
-      <DependentUpon>201710250857388_add fields clickURl and clickNodeId to searchentry class.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710251228324_add field htmlsnippet.resx">
-      <DependentUpon>201710251228324_add field htmlsnippet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710251321480_let redirectnodeid be nullable.resx">
-      <DependentUpon>201710251321480_let redirectnodeid be nullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710261006188_add correctedQuery field to searchEntry class.resx">
-      <DependentUpon>201710261006188_add correctedQuery field to searchEntry class.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710261229189_Change RedirectNodeId to RedirectNodeGUID.resx">
-      <DependentUpon>201710261229189_Change RedirectNodeId to RedirectNodeGUID.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710261332503_add field filefiltertype to searchsettings.resx">
-      <DependentUpon>201710261332503_add field filefiltertype to searchsettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710271147283_add field thumbnailfallback.resx">
-      <DependentUpon>201710271147283_add field thumbnailfallback.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710300847433_add field showThumbnail to searchsettings class.resx">
-      <DependentUpon>201710300847433_add field showThumbnail to searchsettings class.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711030950587_add field datecreated and lastupdated to settings class.resx">
-      <DependentUpon>201711030950587_add field datecreated and lastupdated to settings class.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711091124268_add filtersetup to searchsettings class.resx">
-      <DependentUpon>201711091124268_add filtersetup to searchsettings class.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711091346498_split filter styling into two props.resx">
-      <DependentUpon>201711091346498_split filter styling into two props.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712291409564_add property redirectalias.resx">
-      <DependentUpon>201712291409564_add property redirectalias.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801031210263_add field developmentURL.resx">
-      <DependentUpon>201801031210263_add field developmentURL.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801051322555_make fields datecreated and updatedate nullable.resx">
-      <DependentUpon>201801051322555_make fields datecreated and updatedate nullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801180919325_add property keepalias.resx">
-      <DependentUpon>201801180919325_add property keepalias.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801231207458_add field maxPaginationItems.resx">
-      <DependentUpon>201801231207458_add field maxPaginationItems.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804120820262_add field preloaderIcon.resx">
-      <DependentUpon>201804120820262_add field preloaderIcon.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805021419212_Initial.resx">
+      <DependentUpon>201805021419212_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,12 +1,19 @@
-namespace GCS.Migrations {
+namespace W3S_GCS.Migrations
+{
+    using System;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<W3S_GCS.Models.DBEntities> {
-        public Configuration() {
+    internal sealed class Configuration : DbMigrationsConfiguration<W3S_GCS.Models.DBEntities>
+    {
+        public Configuration()
+        {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(W3S_GCS.Models.DBEntities context) {
+        protected override void Seed(W3S_GCS.Models.DBEntities context)
+        {
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
