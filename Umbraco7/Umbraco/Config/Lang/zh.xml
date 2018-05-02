@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <language alias="zh" intName="Chinese (Simple)" localName="中文（简体，中国）" lcid="0804" culture="zh-CN">
   <creator>
     <name>黄仁祥(wanddy@163.com)</name>
@@ -51,17 +51,13 @@
     <key alias="domainExists">域名 '%0%' 已使用</key>
     <key alias="domainUpdated">域名 '%0%' 已更新</key>
     <key alias="orEdit">编辑当前域名</key>
-    <key alias="domainHelp">
-      <![CDATA[例如：example.com、www.example.com、example.com:8080、<br/>
+    <key alias="domainHelp"><![CDATA[例如：example.com、www.example.com、example.com:8080、<br/>
         https://www.example.com/、example.com/en、……使用 * 代表任意域名，<br/>
-        只需要设置语言部分即可。]]>
-    </key>
+        只需要设置语言部分即可。]]></key>
     <key alias="inherit">继承</key>
     <key alias="setLanguage">语言</key>
-    <key alias="setLanguageHelp">
-      <![CDATA[为当前节点及子节点设置语言，<br /> 
-       也可以从父节点继承。]]>
-    </key>
+    <key alias="setLanguageHelp"><![CDATA[为当前节点及子节点设置语言，<br /> 
+       也可以从父节点继承。]]></key>
     <key alias="setDomains">域名</key>
   </area>
   <area alias="auditTrails">
@@ -287,14 +283,10 @@
     <key alias="siterepublishHelp">网站缓存将会刷新，所有已发布的内容将会更新。</key>
     <key alias="tableColumns">表格列数</key>
     <key alias="tableRows">表格行数</key>
-    <key alias="templateContentAreaHelp">
-      <![CDATA[<strong>设置一个占位符id</strong> 您可以在子模板中通过该ID来插入内容，
-       引用格式： <code>&lt;asp:content /&gt;</code>。]]>
-    </key>
-    <key alias="templateContentPlaceHolderHelp">
-      <![CDATA[从下面的列表中<strong>选择一个
-      占位符id</strong>。]]>
-    </key>
+    <key alias="templateContentAreaHelp"><![CDATA[<strong>设置一个占位符id</strong> 您可以在子模板中通过该ID来插入内容，
+       引用格式： <code>&lt;asp:content /&gt;</code>。]]></key>
+    <key alias="templateContentPlaceHolderHelp"><![CDATA[从下面的列表中<strong>选择一个
+      占位符id</strong>。]]></key>
     <key alias="thumbnailimageclickfororiginal">点击图片查看完整大小</key>
     <key alias="treepicker">拾取项</key>
     <key alias="viewCacheItem">查看缓存项</key>
@@ -328,18 +320,14 @@
     <key alias="selectSnippet">选择代码段</key>
   </area>
   <area alias="dictionaryItem">
-    <key alias="description">
-      <![CDATA[
+    <key alias="description"><![CDATA[
        为字典项编辑不同语言的版本‘<em>%0%</em>’<br/>您可以在左侧的“语言”中添加一种语言
-    ]]>
-    </key>
+    ]]></key>
     <key alias="displayName">语言名称</key>
     <key alias="changeKey">编辑字典项的键。</key>
-    <key alias="changeKeyError">
-      <![CDATA[
+    <key alias="changeKeyError"><![CDATA[
       关键字 '%0%' 已经存在。
-   ]]>
-    </key>
+   ]]></key>
   </area>
   <area alias="placeholders">
     <key alias="username">输入您的用户名</key>
@@ -554,7 +542,6 @@
     <key alias="embed">嵌入</key>
     <key alias="selected">已选择</key>
   </area>
-
   <area alias="colors">
     <key alias="black">黑色</key>
     <key alias="green">绿色</key>
@@ -563,7 +550,6 @@
     <key alias="blue">蓝色</key>
     <key alias="red">红色</key>
   </area>
-
   <area alias="shortcuts">
     <key alias="addTab">添加选项卡</key>
     <key alias="addProperty">添加属性</key>
@@ -586,7 +572,6 @@
     <key alias="generalHeader">一般</key>
     <key alias="editorHeader">编辑</key>
   </area>
-
   <area alias="graphicheadline">
     <key alias="backgroundcolor">背景色</key>
     <key alias="bold">粗体</key>
@@ -594,7 +579,6 @@
     <key alias="font">字体</key>
     <key alias="text">文本</key>
   </area>
-
   <area alias="headers">
     <key alias="page">页面</key>
   </area>
@@ -603,36 +587,27 @@
     <key alias="databaseErrorWebConfig">无法保存web.config文件，请手工修改。</key>
     <key alias="databaseFound">发现数据库</key>
     <key alias="databaseHeader">数据库配置</key>
-    <key alias="databaseInstall">
-      <![CDATA[
+    <key alias="databaseInstall"><![CDATA[
       点击<strong>安装</strong>进行 %0% 数据库配置
-    ]]>
-    </key>
+    ]]></key>
     <key alias="databaseInstallDone"><![CDATA[%0%数据库安装完成。点击<strong>下一步</strong>继续。]]></key>
-    <key alias="databaseNotFound">
-      <![CDATA[<p>数据库未找到！请检查数据库连接串设置。</p>
+    <key alias="databaseNotFound"><![CDATA[<p>数据库未找到！请检查数据库连接串设置。</p>
               <p>您可以自行编辑“web.config”文件，键名为 “UmbracoDbDSN”</p>
               <p>
              当自行编辑后，单击<strong>重试</strong>按钮<br /><a href="http://our.umbraco.org/documentation/Using-Umbraco/Config-files/webconfig7" target="_blank">。
                                     如何编辑web.config</a></p>
-    ]]>
-    </key>
-    <key alias="databaseText">
-      <![CDATA[完成本步，需要配置一个正确的连接字符串（“connection string”）。<br />
+    ]]></key>
+    <key alias="databaseText"><![CDATA[完成本步，需要配置一个正确的连接字符串（“connection string”）。<br />
       如有必要，请联系您的系统管理员。
-      如果您是本机安装，请使用管理员账号。]]>
-    </key>
-    <key alias="databaseUpgrade">
-      <![CDATA[
+      如果您是本机安装，请使用管理员账号。]]></key>
+    <key alias="databaseUpgrade"><![CDATA[
       <p>
      点击<strong>更新</strong>来更新系统到 %0%</p>
       <p>
       不用担心更新会丢失数据！
       </p>    
-    ]]>
-    </key>
+    ]]></key>
     <key alias="databaseUpgradeDone"><![CDATA[数据库已更新到版本 %0%。<br />点击<strong>下一步</strong>继续。]]></key>
-
     <key alias="databaseUpToDate"><![CDATA[您的数据库已安装！点击<strong>下一步</strong>继续]]></key>
     <key alias="defaultUserChangePass"><![CDATA[<strong>需要修改默认密码！</strong>]]></key>
     <key alias="defaultUserDisabled"><![CDATA[<strong>默认账户已禁用或无权访问系统！</strong></p><p>点击<b>下一步</b>继续。]]></key>
@@ -644,56 +619,41 @@
     <key alias="permissionsAffectedFolders">受影响的文件和文件夹</key>
     <key alias="permissionsAffectedFoldersMoreInfo">此处查看更多信息</key>
     <key alias="permissionsAffectedFoldersText">您需要对以下文件和文件夹授于ASP.NET用户修改权限</key>
-    <key alias="permissionsAlmostPerfect">
-      <![CDATA[<strong>您当前的安全设置满足要求!</strong><br /><br />
-        您可以毫无问题的运行系统，但您不能安装系统所推荐的扩展包的完整功能。]]>
-    </key>
+    <key alias="permissionsAlmostPerfect"><![CDATA[<strong>您当前的安全设置满足要求!</strong><br /><br />
+        您可以毫无问题的运行系统，但您不能安装系统所推荐的扩展包的完整功能。]]></key>
     <key alias="permissionsHowtoResolve">如何解决</key>
     <key alias="permissionsHowtoResolveLink">点击阅读文字版</key>
     <key alias="permissionsHowtoResolveText"><![CDATA[观看我们的<strong>视频教程</strong> ]]></key>
-    <key alias="permissionsMaybeAnIssue">
-      <![CDATA[<strong>您当前的安全设置有问题！</strong>
+    <key alias="permissionsMaybeAnIssue"><![CDATA[<strong>您当前的安全设置有问题！</strong>
       <br/><br />
-      您可以毫无问题的运行系统，但您不能新建文件夹、也不能安装系统所推荐的包的完整功能。    ]]>
-    </key>
-    <key alias="permissionsNotReady">
-      <![CDATA[<strong>您当前的安全设置不适合于系统!</strong>
+      您可以毫无问题的运行系统，但您不能新建文件夹、也不能安装系统所推荐的包的完整功能。    ]]></key>
+    <key alias="permissionsNotReady"><![CDATA[<strong>您当前的安全设置不适合于系统!</strong>
           <br /><br />
-         您需要修改系统访问权限。]]>
-    </key>
-    <key alias="permissionsPerfect">
-      <![CDATA[<strong>您当前的权限设置正确！</strong><br /><br />
-             您可以运行系统并安装其它扩展包！]]>
-    </key>
+         您需要修改系统访问权限。]]></key>
+    <key alias="permissionsPerfect"><![CDATA[<strong>您当前的权限设置正确！</strong><br /><br />
+             您可以运行系统并安装其它扩展包！]]></key>
     <key alias="permissionsResolveFolderIssues">解决文件夹问题</key>
     <key alias="permissionsResolveFolderIssuesLink">点此查看ASP.NET和创建文件夹的问题解决方案</key>
     <key alias="permissionsSettingUpPermissions">设置文件夹权限</key>
-    <key alias="permissionsText">
-      <![CDATA[
+    <key alias="permissionsText"><![CDATA[
       系统需要磁盘的读写权限以实现功能，
       比如模板文件、站点中Cache文件的的操作等。
-    ]]>
-    </key>
+    ]]></key>
     <key alias="runwayFromScratch">我要从头开始</key>
-    <key alias="runwayFromScratchText">
-      <![CDATA[
+    <key alias="runwayFromScratchText"><![CDATA[
        此时您的网站是全空的,您应该首先建立您的文档类型和模板
         (<a href="http://Umbraco.tv/documentation/videos/for-site-builders/foundation/document-types">如何操作？</a>)
        您也可以安装晚一些安装“Runway”。
-    ]]>
-    </key>
+    ]]></key>
     <key alias="runwayHeader">您刚刚安装了一个干净的系统，要继续吗？</key>
     <key alias="runwayInstalled">“Runway”已安装</key>
-    <key alias="runwayInstalledText">
-      <![CDATA[
+    <key alias="runwayInstalledText"><![CDATA[
                 在顶部选择您想要的功能模块<br />
       这是我们推荐的模块，您也可以查看 <a href="#" onclick="toggleModules(); return false;" id="toggleModuleList">全部模块</a>
-    ]]>
-    </key>
+    ]]></key>
     <key alias="runwayOnlyProUsers">仅推荐高级用户使用</key>
     <key alias="runwaySimpleSite">给我一个简单的网站</key>
-    <key alias="runwaySimpleSiteText">
-      <![CDATA[
+    <key alias="runwaySimpleSiteText"><![CDATA[
       <p>
       “Runway”是一个简单的，包含文件类型和模板的示例网站。安装程序会自动为您安装。
        您可以自行编辑和删除之。
@@ -704,8 +664,7 @@
         <em>Runway:</em> 主页, 开始页, 安装模块页.<br />
         <em>可选模块:</em> 顶部导航, 站点地图, 联系我们, 图库.
         </small>
-    ]]>
-    </key>
+    ]]></key>
     <key alias="runwayWhatIsRunway">“Runway”是什么？</key>
     <key alias="step1">步骤 1/5：接受许可协议</key>
     <key alias="step2">步骤 2/5：数据库配置</key>
@@ -713,34 +672,24 @@
     <key alias="step4">步骤 4/5：系统安全性</key>
     <key alias="step5">步骤 5/5：一切就绪，可以开始使用系统。</key>
     <key alias="thankYou">感谢选择我们的产品</key>
-    <key alias="theEndBrowseSite">
-      <![CDATA[<h3>浏览您的新站点</h3>
-您安装了“Runway”，那么来瞧瞧吧。]]>
-    </key>
-    <key alias="theEndFurtherHelp">
-      <![CDATA[<h3>更多的帮助信息</h3>
-从社区获取帮助]]>
-    </key>
+    <key alias="theEndBrowseSite"><![CDATA[<h3>浏览您的新站点</h3>
+您安装了“Runway”，那么来瞧瞧吧。]]></key>
+    <key alias="theEndFurtherHelp"><![CDATA[<h3>更多的帮助信息</h3>
+从社区获取帮助]]></key>
     <key alias="theEndHeader">系统 %0% 安装完毕</key>
-    <key alias="theEndInstallFailed">
-      <![CDATA[完成安装，您需要手工编辑<strong>/web.config file</strong> 的 AppSetting 键 
-        <strong>UmbracoConfigurationStatus</strong>为 <strong>'%0%'</strong>。]]>
-    </key>
+    <key alias="theEndInstallFailed"><![CDATA[完成安装，您需要手工编辑<strong>/web.config file</strong> 的 AppSetting 键 
+        <strong>UmbracoConfigurationStatus</strong>为 <strong>'%0%'</strong>。]]></key>
     <key alias="theEndInstallSuccess"><![CDATA[您想要<strong>立即开始</strong>请点“运行系统”<br />如果您是<strong>新手</strong>, 您可以得到相当丰富的学习资源。]]></key>
-    <key alias="theEndOpenUmbraco">
-      <![CDATA[<h3>运行系统</h3>
+    <key alias="theEndOpenUmbraco"><![CDATA[<h3>运行系统</h3>
 管理您的网站, 运行后台添加内容，
-也可以添加模板和功能。]]>
-    </key>
+也可以添加模板和功能。]]></key>
     <key alias="Unavailable">无法连接到数据库。</key>
     <key alias="Version3">系统版本 3</key>
     <key alias="Version4">系统版本 4</key>
     <key alias="watch">观看</key>
-    <key alias="welcomeIntro">
-      <![CDATA[本向导将指引您完成配置和安装（或升级安装）系统
+    <key alias="welcomeIntro"><![CDATA[本向导将指引您完成配置和安装（或升级安装）系统
 <br /><br />
-按 <strong>“下一步”</strong>进入向导。]]>
-    </key>
+按 <strong>“下一步”</strong>进入向导。]]></key>
   </area>
   <area alias="language">
     <key alias="cultureCode">语言代码</key>
@@ -770,9 +719,7 @@
     <key alias="setPasswordConfirmation">您的密码已更新</key>
     <key alias="resetCodeExpired">您单击的链接无效或已过期</key>
     <key alias="resetPasswordEmailCopySubject">Umbraco: 重置密码</key>
-    <key alias="resetPasswordEmailCopyFormat">
-      <![CDATA[<p>您的用户名登录到 Umbraco 后台是: <strong>%0%</strong></p><p>点击 <a href="%1%"><strong>这里</strong></a> 重置密码，或复制链接粘贴到您的浏览器访问:</p><p><em>%1%</em></p>]]>
-    </key>
+    <key alias="resetPasswordEmailCopyFormat"><![CDATA[<p>您的用户名登录到 Umbraco 后台是: <strong>%0%</strong></p><p>点击 <a href="%1%"><strong>这里</strong></a> 重置密码，或复制链接粘贴到您的浏览器访问:</p><p><em>%1%</em></p>]]></key>
   </area>
   <area alias="main">
     <key alias="dashboard">仪表板</key>
@@ -795,8 +742,7 @@
   </area>
   <area alias="notifications">
     <key alias="editNotifications">为 %0% 编写通知</key>
-    <key alias="mailBody">
-      <![CDATA[
+    <key alias="mailBody"><![CDATA[
 %0%：
 
   您好！这是一封自动邮件，提醒您用户'%3%'
@@ -808,10 +754,8 @@
       Have a nice day!
 
       来自Umbraco机器人
-    ]]>
-    </key>
-    <key alias="mailBodyHtml">
-      <![CDATA[<p>%0%：</p>
+    ]]></key>
+    <key alias="mailBodyHtml"><![CDATA[<p>%0%：</p>
 
 		  <p>您好！这是一封自动发送的邮件，告诉您任务<strong>'%1%'</strong>
 		  已在<a href="http://%4%/actions/preview.aspx?id=%5%"><strong>'%2%'</strong></a>
@@ -837,18 +781,15 @@
 
                   <p>祝您愉快！<br /><br />
                           该信息由系统自动发送
-                  </p>]]>
-    </key>
+                  </p>]]></key>
     <key alias="mailSubject">在 %2%，[%0%] 关于 %1% 的通告已执行。</key>
     <key alias="notifications">通知</key>
   </area>
   <area alias="packager">
-    <key alias="chooseLocalPackageText">
-      <![CDATA[
+    <key alias="chooseLocalPackageText"><![CDATA[
       从本机安装扩展包，可以点击“浏览”按钮<br />
       选择 ".umb" 或者 ".zip" 文件
-      ]]>
-    </key>
+      ]]></key>
     <key alias="dropHere">拖入上传</key>
     <key alias="orClickHereToUpload">或单击此处选择文件</key>
     <key alias="uploadPackage">上传包</key>
@@ -888,10 +829,8 @@
     <key alias="packageMetaData">元数据</key>
     <key alias="packageName">名称</key>
     <key alias="packageNoItemsHeader">扩展包不含任何项</key>
-    <key alias="packageNoItemsText">
-      <![CDATA[该扩展包不包含任何项<br/><br/>
-      点击下面的“卸载”，您可以安全的删除。]]>
-    </key>
+    <key alias="packageNoItemsText"><![CDATA[该扩展包不包含任何项<br/><br/>
+      点击下面的“卸载”，您可以安全的删除。]]></key>
     <key alias="packageNoUpgrades">无可用更新</key>
     <key alias="packageOptions">选项</key>
     <key alias="packageReadme">说明</key>
@@ -900,11 +839,9 @@
     <key alias="packageUninstalledHeader">已卸载</key>
     <key alias="packageUninstalledText">扩展包卸载成功</key>
     <key alias="packageUninstallHeader">卸载</key>
-    <key alias="packageUninstallText">
-      <![CDATA[选择想要卸载的项目，点击“卸载”<br />
+    <key alias="packageUninstallText"><![CDATA[选择想要卸载的项目，点击“卸载”<br />
       <span style="color: Red; font-weight: bold;">注意：</span>
-      卸载包将导致所有依赖该包的东西失效，请确认。    ]]>
-    </key>
+      卸载包将导致所有依赖该包的东西失效，请确认。    ]]></key>
     <key alias="packageUpgradeDownload">从程序库下载更新</key>
     <key alias="packageUpgradeHeader">更新扩展包</key>
     <key alias="packageUpgradeInstructions">更新说明</key>
@@ -948,42 +885,30 @@
     <key alias="paSimpleHelp">如果您只希望提供一个用户名和密码就能访问</key>
   </area>
   <area alias="publish">
-    <key alias="contentPublishedFailedAwaitingRelease">
-      <![CDATA[
+    <key alias="contentPublishedFailedAwaitingRelease"><![CDATA[
       %0% 无法发布, 因为该项在计划发布中。
-    ]]>
-    </key>
-    <key alias="contentPublishedFailedExpired">
-      <![CDATA[
+    ]]></key>
+    <key alias="contentPublishedFailedExpired"><![CDATA[
       %0% 无法发布, 因为该项已过期。
-    ]]>
-    </key>
-    <key alias="contentPublishedFailedInvalid">
-      <![CDATA[
+    ]]></key>
+    <key alias="contentPublishedFailedInvalid"><![CDATA[
        %0%不能发布，因为%1%字段不合验证规则。
-    ]]>
-    </key>
-    <key alias="contentPublishedFailedByEvent">
-      <![CDATA[
+    ]]></key>
+    <key alias="contentPublishedFailedByEvent"><![CDATA[
       %0% 无法发布，第三方组件造成失败。
-    ]]>
-    </key>
-    <key alias="contentPublishedFailedByParent">
-      <![CDATA[
+    ]]></key>
+    <key alias="contentPublishedFailedByParent"><![CDATA[
       %0% 不能发布，因为上级页面没有发布。
-    ]]>
-    </key>
+    ]]></key>
     <key alias="includeUnpublished">包含未发布的子项</key>
     <key alias="inProgress">正在发布，请稍候…</key>
     <key alias="inProgressCounter">%0% 中的 %1% 页面已发布…</key>
     <key alias="nodePublish">%0% 已发布</key>
     <key alias="nodePublishAll">%0% 及其子项已发布</key>
     <key alias="publishAll">发布 %0% 及其子项</key>
-    <key alias="publishHelp">
-      <![CDATA[点 <em>确定</em> 发布 <strong>%0%</strong><br/><br />
+    <key alias="publishHelp"><![CDATA[点 <em>确定</em> 发布 <strong>%0%</strong><br/><br />
        要发布当前页和所有子页，请选中 <em>全部发布</em> 发布所有子页。
-     ]]>
-    </key>
+     ]]></key>
   </area>
   <area alias="colorpicker">
     <key alias="noColors">您没有配置任何认可的颜色</key>
@@ -1032,6 +957,7 @@
     <key alias="help" version="7.0">帮助</key>
     <key alias="forms">窗体</key>
     <key alias="analytics">统计</key>
+    <key alias="GCS">GCS</key>
   </area>
   <area alias="help">
     <key alias="goTo">转到</key>
@@ -1169,27 +1095,21 @@
     <key alias="noMastertemplate">无主模板</key>
     <key alias="noMaster">无主</key>
     <key alias="renderBody">呈现子模板</key>
-    <key alias="renderBodyDesc">
-      <![CDATA[
+    <key alias="renderBodyDesc"><![CDATA[
      呈现子模板的内容, 通过插入
      <code>@RenderBody()</code>.
-      ]]>
-    </key>
+      ]]></key>
     <key alias="defineSection">定义命名节</key>
-    <key alias="defineSectionDesc">
-      <![CDATA[
+    <key alias="defineSectionDesc"><![CDATA[
          将模板的一部分定义为命名节, 将其包装在
           <code>@section { ... }</code>. 这可以呈现在
          此模板的父级的特定区域, 请使用 <code>@RenderSection</code>.
-      ]]>
-    </key>
+      ]]></key>
     <key alias="renderSection">呈现命名节</key>
-    <key alias="renderSectionDesc">
-      <![CDATA[
+    <key alias="renderSectionDesc"><![CDATA[
       呈现子模板的命名区域，请使用<code>@RenderSection(name)</code>.
       这将呈现子模板的一个区域, 它被包装在相应的 <code> @section [名称] {...} </code> 定义中.
-      ]]>
-    </key>
+      ]]></key>
     <key alias="sectionName">节名称</key>
     <key alias="sectionMandatory">节是必需的</key>
     <key alias="sectionMandatoryDesc">
@@ -1200,7 +1120,7 @@
     <key alias="itemsReturned">返回的项, 在</key>
     <key alias="iWant">我要</key>
     <key alias="allContent">所有内容</key>
-    <key alias="contentOfType">类型 &quot;%0%&quot;的内容</key>
+    <key alias="contentOfType">类型 "%0%"的内容</key>
     <key alias="from">from</key>
     <key alias="websiteRoot">我的网站</key>
     <key alias="where">where</key>
@@ -1228,14 +1148,13 @@
     <key alias="descending">descending</key>
     <key alias="template">模板</key>
   </area>
-
   <area alias="grid">
     <key alias="rte">Rich Text Editor</key>
     <key alias="media">Image</key>
     <key alias="macro">Macro</key>
     <key alias="embed">Embed</key>
     <key alias="headline">Headline</key>
-    <key alias="quote">Quote</key>  
+    <key alias="quote">Quote</key>
     <key alias="insertControl">选择内容类别</key>
     <key alias="chooseLayout">选择一项布局</key>
     <key alias="addRows">添加一行</key>
@@ -1270,7 +1189,6 @@
     <key alias="chooseDefault">选择默认值</key>
     <key alias="areAdded">已增加</key>
   </area>
-
   <area alias="contentTypeEditor">
     <key alias="compositions">组合</key>
     <key alias="noTabs">您没有添加任何选项卡</key>
@@ -1315,7 +1233,6 @@
     <key alias="memberCanEdit">成员可编辑</key>
     <key alias="showOnMemberProfile">显示成员配置文件</key>
   </area>
-
   <area alias="templateEditor">
     <key alias="addFallbackField">添加后备字段</key>
     <key alias="fallbackField">后备字段</key>
@@ -1357,12 +1274,10 @@
   </area>
   <area alias="translation">
     <key alias="assignedTasks">标记为您的任务</key>
-    <key alias="assignedTasksHelp">
-      <![CDATA[ 下面的翻译任务<strong>分配给您</strong>. 查看详情, 点击“详情”或页名。 
+    <key alias="assignedTasksHelp"><![CDATA[ 下面的翻译任务<strong>分配给您</strong>. 查看详情, 点击“详情”或页名。 
      如果需要XML格式，请点击“下载 XML”链接。<br/>
      关闭翻译任务，请返回详细视图点击“关闭”按钮。
-    ]]>
-    </key>
+    ]]></key>
     <key alias="closeTask">关闭任务</key>
     <key alias="details">翻译详情</key>
     <key alias="downloadAllAsXml">将翻译任务下载为xml</key>
@@ -1370,8 +1285,7 @@
     <key alias="DownloadXmlDTD">下载 XML DTD</key>
     <key alias="fields">字段</key>
     <key alias="includeSubpages">包含子页</key>
-    <key alias="mailBody">
-      <![CDATA[
+    <key alias="mailBody"><![CDATA[
      %0%：
 
      您好！这是一封自动邮件来提醒您注意，%2%的文档'%1%'
@@ -1385,17 +1299,14 @@
       Have a nice day!
 
       来自Umbraco 机器人的祝福
-    ]]>
-    </key>
+    ]]></key>
     <key alias="mailSubject">[%0%]翻译任务：%1%</key>
     <key alias="noTranslators">没有翻译员，请创建翻译员角色的用户。</key>
     <key alias="ownedTasks">您创建的任务</key>
-    <key alias="ownedTasksHelp">
-      <![CDATA[ 下面是<strong>您创建</strong>的页面. 查看详情, 点击“详情” 或页名. 
+    <key alias="ownedTasksHelp"><![CDATA[ 下面是<strong>您创建</strong>的页面. 查看详情, 点击“详情” 或页名. 
      如果需要XML格式，请点击“下载 Xml”链接。<br/>
      关闭翻译任务，请返回详细视图点击“关闭”按钮。
-    ]]>
-    </key>
+    ]]></key>
     <key alias="pageHasBeenSendToTranslation">页面'%0%'已经发送给翻译</key>
     <key alias="noLanguageSelected">请选择内容应翻译成的语言</key>
     <key alias="sendToTranslate">发送页面'%0%'以便翻译</key>
@@ -1520,7 +1431,6 @@
     <key alias="rectifySuccessMessage">Value was set to '%1%' for XPath '%2%' in configuration file '%3%'.</key>
     <key alias="checkErrorMessageDifferentExpectedValue">Expected value '%1%' for '%2%' in configuration file '%3%', but found '%0%'.</key>
     <key alias="checkErrorMessageUnexpectedValue">Found unexpected value '%0%' for '%2%' in configuration file '%3%'.</key>
-
     <!-- The following keys get these tokens passed in:
       0: Current value
       1: Recommended value
@@ -1531,7 +1441,6 @@
     <key alias="macroErrorModeCheckSuccessMessage">MacroErrors are set to '%0%'.</key>
     <key alias="macroErrorModeCheckErrorMessage">MacroErrors are set to '%0%' which will prevent some or all pages in your site from loading completely if there are any errors in macros. Rectifying this will set the value to '%1%'.</key>
     <key alias="macroErrorModeCheckRectifySuccessMessage">MacroErrors are now set to '%0%'.</key>
-
     <!-- The following keys get these tokens passed in:
       0: Current value
       1: Recommended value
@@ -1540,7 +1449,6 @@
     <key alias="trySkipIisCustomErrorsCheckSuccessMessage">Try Skip IIS Custom Errors is set to '%0%' and you're using IIS version '%1%'.</key>
     <key alias="trySkipIisCustomErrorsCheckErrorMessage">Try Skip IIS Custom Errors is currently '%0%'. It is recommended to set this to '%1%' for your IIS version (%2%).</key>
     <key alias="trySkipIisCustomErrorsCheckRectifySuccessMessage">Try Skip IIS Custom Errors successfully set to '%0%'.</key>
-
     <!-- The following keys get predefined tokens passed in that are not all the same, like above -->
     <key alias="configurationServiceFileNotFound">File does not exist: '%0%'.</key>
     <key alias="configurationServiceNodeNotFound"><![CDATA[Unable to find <strong>'%0%'</strong> in config file <strong>'%1%'</strong>.]]></key>
@@ -1555,7 +1463,6 @@
     <key alias="httpsCheckConfigurationRectifyNotPossible">The appSetting 'umbracoUseSSL' is set to 'false' in your web.config file. Once you access this site using the HTTPS scheme, that should be set to 'true'.</key>
     <key alias="httpsCheckConfigurationCheckResult">The appSetting 'umbracoUseSSL' is set to '%0%' in your web.config file, your cookies are %1% marked as secure.</key>
     <key alias="httpsCheckEnableHttpsError">Could not update the 'umbracoUseSSL' setting in your web.config file. Error: %0%</key>
-
     <!-- The following keys don't get tokens passed in -->
     <key alias="httpsCheckEnableHttpsButton">Enable HTTPS</key>
     <key alias="httpsCheckEnableHttpsDescription">Sets umbracoSSL setting to true in the appSettings of the web.config file.</key>
@@ -1588,7 +1495,6 @@
     <key alias="clickJackingSetHeaderInConfigDescription">Adds a value to the httpProtocol/customHeaders section of web.config to prevent the site being IFRAMEd by other websites.</key>
     <key alias="clickJackingSetHeaderInConfigSuccess">A setting to create a header preventing IFRAMEing of the site by other websites has been added to your web.config file.</key>
     <key alias="clickJackingSetHeaderInConfigError">Could not update web.config file. Error: %0%</key>
-
     <!-- The following key get these tokens passed in:
       0: Comma delimitted list of headers found
     -->
