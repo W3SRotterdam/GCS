@@ -6,6 +6,7 @@ Umbraco7/App_Data/TEMP/plugincache
 Umbraco7/App_Data/cache/
 Umbraco7/bin/W3S_GCS.dll
 Umbraco7/bin/W3S_GCS.pdb
+Umbraco7/bin/W3S_GCS.dll.config
 GCS/bin/
 GCS/obj/
 GCS/packages/
