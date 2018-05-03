@@ -10,8 +10,8 @@ This project was started since Google has announced that they will discontinue t
 3. Set-up a website in IIS and let the physical path point to the /Umbraco7 folder.
 4. Navigate to the URL you've configured (in bindings).
 5. Navigate to /umbraco and login using;
-    username: info@w3s.nl
-    password: googlecustomsearch
+    - username: info@w3s.nl
+    - password: googlecustomsearch
 6. The GCS section was already added to the administrator user group so you can navigate to the GCS section via the left nav panel.
 7. Navigate to `Settings` > tab `auth set-up` where you'll find some mandatory fields to fill in.
 
@@ -25,12 +25,13 @@ API Key:
 - Navigate to the root of the website where a seach input field will appear. 
 - Try any search query...
 
-The other fields are preconfigured just to set-up a working demo.
-Please skip to Configuration > Back office to get more information about the other types of configuration.
+The other fields that you'll find are preconfigured in this demo.
+Please skip to `Configuration` > `Back office` in this readme for more information.
 
 ### Installation
 #### Nuget 
 This plugin will is available via Nuget; https://www.nuget.org/packages/W3S-GCS/
+Run ```Install-Package W3S-GCS```
 
 ### Configuration
 #### Back office 
