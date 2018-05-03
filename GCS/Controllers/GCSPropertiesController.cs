@@ -292,17 +292,17 @@ namespace W3S_GCS.Controllers {
             List<Tab<ContentPropertyDisplay>> tabs = new List<Tab<ContentPropertyDisplay>> {
                 new Tab<ContentPropertyDisplay> {
                     Id = 0,
-                    Label = "Auth set-up (admin only)",
+                    Label = "Authentication",
                     Properties = authProperties
                 },
                 new Tab<ContentPropertyDisplay> {
                     Id = 1,
-                    Label = "Basic set-up",
+                    Label = "Set-up",
                     Properties = basicProperties
                 },
                 new Tab<ContentPropertyDisplay>() {
                     Id = 2,
-                    Label = "Basic filters",
+                    Label = "Filters",
                     Properties = filterProperties
                 },
                 new Tab<ContentPropertyDisplay>() {
@@ -319,7 +319,7 @@ namespace W3S_GCS.Controllers {
 
             ContentItemDisplay contentItemDisplay = new ContentItemDisplay();
             //contentItemDisplay.Id = 1;
-            contentItemDisplay.Name = "Settings (admin only)";
+            contentItemDisplay.Name = "Settings";
             contentItemDisplay.Tabs = tabs;
 
             var JsonSettings = new JsonSerializerSettings();
@@ -341,7 +341,7 @@ namespace W3S_GCS.Controllers {
 
             ContentItemDisplay contentItemDisplay = new ContentItemDisplay();
             //contentItemDisplay.Id = 1;
-            contentItemDisplay.Name = "Statistics (admin only)";
+            contentItemDisplay.Name = "Statistics";
             contentItemDisplay.Tabs = tabs;
 
             var JsonSettings = new JsonSerializerSettings();
