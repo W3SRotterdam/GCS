@@ -115,7 +115,6 @@
     <Content Include="App_Plugins\W3S_GCS\Backoffice\GCSTree\Readme.html" />
     <Content Include="App_Plugins\W3S_GCS\Backoffice\GCSTree\Stats.html" />
     <Content Include="App_Plugins\W3S_GCS\Content\css\gcs.css" />
-    <Content Include="App_Plugins\W3S_GCS\Scripts\development.controller.js" />
     <Content Include="App_Plugins\W3S_GCS\Scripts\gcsearch.min.js" />
     <Content Include="App_Plugins\W3S_GCS\Scripts\lib\showdown.js" />
     <Content Include="App_Plugins\W3S_GCS\Scripts\lib\showdown.min.js" />
@@ -129,7 +128,6 @@
     <Content Include="App_Plugins\W3S_GCS\Views\Partials\SearchSpelling.cshtml" />
     <Content Include="App_Plugins\W3S_GCS\Views\Partials\SearchFileTypeFilterSelect.cshtml" />
     <Content Include="App_Plugins\W3S_GCS\Views\Partials\SearchFileTypeFilterButtons.cshtml" />
-    <Content Include="App_Plugins\W3S_GCS\Backoffice\GCSTree\Development.html" />
     <Content Include="readme.txt" />
     <Content Include="W3S-GCS.nuspec" />
     <None Include="App_Plugins\W3S_GCS\README.md" />
@@ -200,7 +198,6 @@
     <Compile Include="Repositories\InstancesRepository.cs" />
     <Compile Include="Repositories\QueriesRepository.cs" />
     <Compile Include="Repositories\SettingsRepository.cs" />
-    <Compile Include="Services\MailService.cs" />
     <Compile Include="Services\NodeService.cs" />
     <Compile Include="Services\PaginationService.cs" />
     <Compile Include="Services\QueryParamsServices.cs" />
