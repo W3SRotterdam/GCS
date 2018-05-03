@@ -1,11 +1,11 @@
-﻿@inherits System.Web.Mvc.WebViewPage<W3S_GCS.Models.API.RootObject>
+﻿@inherits System.Web.Mvc.WebViewPage<GCS.Models.API.RootObject>
 
 <section class="gcs__results">
     <div class="gcs__results__row">
         <div class="gcs__results__row__col">
             @if (Model != null && Model.items != null && Model.items.Count != 0) {
                 <section class="gcs__results__list">
-                    @foreach (W3S_GCS.Models.API.Item result in Model.items) {
+                    @foreach (GCS.Models.API.Item result in Model.items) {
                         <div class="gcs__result__row">
                             <div class="gcs__result__thumnail">
                                 @if (!String.IsNullOrEmpty(result.GetImage)) {

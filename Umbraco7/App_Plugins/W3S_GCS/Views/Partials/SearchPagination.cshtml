@@ -1,4 +1,4 @@
-﻿@inherits System.Web.Mvc.WebViewPage<W3S_GCS.Models.Search.PaginationModel>
+﻿@inherits System.Web.Mvc.WebViewPage<GCS.Models.Search.PaginationModel>
 
 @if (Model != null) {
     <div class="gcs__pagination">
@@ -9,7 +9,7 @@
             <a href="@Model.FirstItemUrl" class="gcs__pagination__btn gcs__pagination__first" data-page=""><<</a>
             <a href="@Model.PreviousPageUrl" class="gcs__pagination__btn  gcs__pagination__previous" data-page=""><</a>
         }
-        @foreach (W3S_GCS.Models.Search.PagingItemModel pagingItem in Model.PagingRange) {
+        @foreach (GCS.Models.Search.PagingItemModel pagingItem in Model.PagingRange) {
             <a href="@pagingItem.Url" class="gcs__pagination__btn @(pagingItem.Active ? "active" : "")" data-page="@pagingItem.PageNumber">@pagingItem.PageNumber</a>
         }
         @if (Model.AtLastPage != true) {
