@@ -71,9 +71,3 @@ Copy the following snippet on your search results page.
 ```
 
 <br />
-
-### Umbraco login
-Login in the Umbraco backoffice with the following credentials:
-
-username: info@w3s.nl
-password: googlecustomsearch
