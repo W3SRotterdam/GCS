@@ -4,7 +4,6 @@
         "~/app_plugins/w3s_gcs/scripts/resources.js",
         "~/app_plugins/w3s_gcs/scripts/edit.controller.js",
         "~/app_plugins/w3s_gcs/scripts/stats.controller.js",
-        "~/app_plugins/w3s_gcs/scripts/development.controller.js",
         "~/app_plugins/w3s_gcs/scripts/readme.controller.js",
         "~/app_plugins/w3s_gcs/scripts/lib/showdown.min.js"
     ],

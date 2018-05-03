@@ -13,9 +13,6 @@ namespace W3S_GCS.Controllers.Trees {
             var nodes = new TreeNodeCollection();
             if (id == "-1") {
                 nodes.Add(this.CreateTreeNode("dashboard", id, queryStrings, "Settings", "icon-umb-settings", false, "/GCS/GCS/Edit/settings/1"));
-                if (Umbraco.UmbracoContext.Security.CurrentUser.Groups.Where(g => g.Alias == "administrator") != null) {
-                    nodes.Add(this.CreateTreeNode("dashboard", id, queryStrings, "Development", "icon-terminal", false, "/GCS/GCS/Development/development/1"));
-                }
                 nodes.Add(this.CreateTreeNode("dashboard", id, queryStrings, "Statistics", "icon-bars", false, "/GCS/GCS/Stats/statistics/1"));
                 if (Umbraco.UmbracoContext.Security.CurrentUser.Groups.Where(g => g.Alias == "administrator") != null) {
                     nodes.Add(this.CreateTreeNode("dashboard", id, queryStrings, "Readme", "icon-book-alt-2", false, "/GCS/GCS/ReadMe/readme/1"));

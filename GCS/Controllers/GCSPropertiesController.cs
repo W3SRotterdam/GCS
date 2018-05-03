@@ -31,9 +31,6 @@ namespace W3S_GCS.Controllers {
                 case "settings":
                     data = GetSettingsProperties();
                     break;
-                case "development":
-                    data = GetDevelopmentProperties();
-                    break;
                 case "statistics":
                     data = GetStatisticsProperties();
                     break;
@@ -336,39 +333,6 @@ namespace W3S_GCS.Controllers {
             ContentItemDisplay contentItemDisplay = new ContentItemDisplay();
             //contentItemDisplay.Id = 1;
             contentItemDisplay.Name = "Settings (admin only)";
-            contentItemDisplay.Tabs = tabs;
-
-            var JsonSettings = new JsonSerializerSettings();
-            JsonSettings.ContractResolver = new LowercaseContractResolver();
-            var json = JsonConvert.SerializeObject(contentItemDisplay, Formatting.Indented, JsonSettings);
-
-            return json;
-        }
-
-        private String GetDevelopmentProperties() {
-            List<ContentPropertyDisplay> advancedPropeties = new List<ContentPropertyDisplay> {
-                 new ContentPropertyDisplay {
-                    Alias = "testing",
-                    Description = "",
-                    HideLabel = false,
-                    Label = "Testing",
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.Id,
-                    View = "readonlyvalue"
-                },
-            };
-
-            List<Tab<ContentPropertyDisplay>> tabs = new List<Tab<ContentPropertyDisplay>> {
-                new Tab<ContentPropertyDisplay> {
-                    Id = 1,
-                    Label = "Query test",
-                    Properties = advancedPropeties
-                },
-            };
-
-            ContentItemDisplay contentItemDisplay = new ContentItemDisplay();
-            //contentItemDisplay.Id = 1;
-            contentItemDisplay.Name = "Development";
             contentItemDisplay.Tabs = tabs;
 
             var JsonSettings = new JsonSerializerSettings();

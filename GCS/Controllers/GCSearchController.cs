@@ -182,12 +182,6 @@ namespace W3S_GCS.Controllers {
                 StreamReader reader = new StreamReader(resStream);
                 ErrorResult errorResult = JsonConvert.DeserializeObject<ErrorResult>(reader.ReadToEnd());
 
-                if (errorResult.error.errors.Where(e => e.domain == "usageLimits").Any()) {
-                    MailService.Send(MailService.CreateQuotaLimitMessage(URL, HttpContext != null ? HttpContext.Request.Url.Host : "unknown"));
-                } else {
-                    MailService.Send(MailService.SendErrorMail(URL, ex));
-                }
-
                 success = false;
             }
 
