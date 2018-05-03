@@ -5,24 +5,6 @@ using System.Web.Routing;
 
 namespace W3S_GCS.Services {
     public class RenderViewService {
-        public static string RenderView(Controller controller, string action) {
-            using (StringWriter sw = new StringWriter()) {
-                ViewEngineResult vur = ViewEngines.Engines.FindPartialView(controller.ControllerContext, action);
-                ViewContext context = new ViewContext(controller.ControllerContext, vur.View, controller.ViewData, controller.TempData, sw);
-                vur.View.Render(context, sw);
-                return sw.GetStringBuilder().ToString();
-            }
-        }
-        public static string RenderView(Controller controller, string action, object model) {
-            controller.ViewData.Model = model;
-            using (StringWriter sw = new StringWriter()) {
-                ViewEngineResult vur = ViewEngines.Engines.FindPartialView(controller.ControllerContext, action);
-                ViewContext context = new ViewContext(controller.ControllerContext, vur.View, controller.ViewData, controller.TempData, sw);
-                vur.View.Render(context, sw);
-                return sw.GetStringBuilder().ToString();
-            }
-        }
-
         public static string GetRazorViewAsString(object model, string filePath) {
             StringWriter stringWriter = new StringWriter();
             HttpContextWrapper context = new HttpContextWrapper(HttpContext.Current);
