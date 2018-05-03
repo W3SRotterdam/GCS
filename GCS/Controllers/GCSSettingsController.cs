@@ -42,9 +42,10 @@ namespace W3S_GCS.App_Plugins.GCS.Controllers {
 
             if (currentDomain != null) {
                 currentNode = UmbracoContext.ContentCache.GetById(currentDomain.RootContentId.Value);
+                SearchSettings.RedirectNodeURL = NodeService.GetRedirectNodeURL(currentNode, SearchSettings.RedirectAlias);
+            } else {
+                SearchSettings.RedirectNodeURL = UmbracoContext.ContentCache.GetAtRoot().DescendantsOrSelf(SearchSettings.RedirectAlias).First().Url;
             }
-
-            SearchSettings.RedirectNodeURL = NodeService.GetRedirectNodeURL(currentNode, SearchSettings.RedirectAlias);
 
             JsonResult json = new JsonResult() {
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet,
