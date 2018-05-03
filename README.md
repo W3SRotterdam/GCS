@@ -28,17 +28,14 @@ Run ```Install-Package W3S-GCS```
 
 ### Configuration
 #### Back office 
-Before you begin to use this plugin some configuration needs to be performed. 
-In the backoffice navigate to the GCS section tab settings. 
+After you've installed this plugin some mandatory configuration needs to be performed. 
+In the backoffice navigate to the GCS section.
 
-- Base URL        >
-- CX Key          >
-- API Key         > 
-- Redirect alias  >
-- Development URL >
-
-#### Back-end / front-end
-The documentation below can also be reached from the GCS section in the backoffice or in via the source.
+- `Base URL`          > https://www.googleapis.com/customsearch/v1
+- `CX Key`            > The custom search engine ID to use for this request. Go to https://cse.google.com/all to get the token.
+- `API Key`           > JSON/Atom Custom Search API requires the use of an API key. Go to https://console.developers.google.com/apis/credentials to create an API key or to retrieve one.
+- `Redirect alias`    > Enter the document type alias of the search results page.
+- `Development URL`   > When working on a environment other than the production environment enter the absolute (including scheme) indexed domain name.
 
 ### Basic Installation
 A basic installation only needs two html elements to be inserted in your template alongside some classes.
