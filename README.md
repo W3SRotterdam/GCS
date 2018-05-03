@@ -12,27 +12,12 @@ Run ```Install-Package W3S-GCS```
 #### Umbraco package
 ...
 
-### DEMO (locally)
-1. Download (or fork) this project to your local machine.
-2. Open the .sln file with the Visual Studio IDE and build the project.
-3. Set-up a website in IIS and let the physical path point to the /Umbraco7 folder.
-4. Navigate to the URL you've configured (in bindings).
-5. Navigate to /umbraco and login using;
-    - username: info@w3s.nl
-    - password: googlecustomsearch
-6. The GCS section was already added to the administrator user group so you can navigate to the GCS section via the left nav panel.
-7. Navigate to `Settings` > tab `auth set-up` where you'll find some mandatory fields to fill in.
-8. `CX Key`: Create a new search engine via https://cse.google.com/all (Custom Search Engine ID). You'll find your Search engine id / cx key beneath menu item Setup.
-9. `API Key`: Create an API key via https://console.developers.google.com/apis/credentials. Activate the custom Search API via menu item Library.
-10. Navigate to the root of the website where a seach input field will appear and try any search query.
-
-The other fields that you'll find are preconfigured for the sake of this demo.
-Please skip to `How to configure this plugin?` below for more specific information on this topic.
-
 ### How to configure this plugin?
 Please follow the steps below to set-up a fully functioning GCS plugin.
 
-#### 1. Document types
+#### 0. Add section to a user group.
+
+#### 1. Create a search page
 
 #### 2. Back office configuration
 After you've installed this plugin some mandatory configuration needs to be performed. 
@@ -188,3 +173,20 @@ Allows to show a corrected query
 <span class="gcs gcs_spelling">No results were found with the given search term. Did you mean: </span>
 ```
 <br />
+
+### Running things locally
+1. Download (or fork) this project to your local machine.
+2. Open the .sln file with the Visual Studio IDE and build the project.
+3. Set-up a website in IIS and let the physical path point to the /Umbraco7 folder.
+4. Navigate to the URL you've configured (in bindings).
+5. Navigate to /umbraco and login using;
+    - username: info@w3s.nl
+    - password: googlecustomsearch
+6. The GCS section was already added to the administrator user group so you can navigate to the GCS section via the left nav panel.
+7. Navigate to `Settings` > tab `auth set-up` where you'll find some mandatory fields to fill in.
+8. `CX Key`: Create a new search engine via https://cse.google.com/all (Custom Search Engine ID). You'll find your Search engine id / cx key beneath menu item Setup.
+9. `API Key`: Create an API key via https://console.developers.google.com/apis/credentials. Activate the custom Search API via menu item Library.
+10. Navigate to the root of the website where a seach input field will appear and try any search query.
+
+The other fields that you'll find are preconfigured for the sake of this demo.
+Please skip to `How to configure this plugin?` below for more specific information on this topic.
