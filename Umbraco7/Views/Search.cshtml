@@ -8,15 +8,21 @@
 <section class="section">
 	<h1>Search results</h1>
 
+    <input type="text" class="gcs gcs_input" name="text" placeholder="Search" style="width:400px;color:#000">
+
     <ul>
         <li>Query: <div class="gcs gcs_searchquery"></div></li>
         <li>Time: <div class="gcs gcs_timing"></div></li>
         <li>Results count: <div class="gcs gcs_results_count"></div></li>
     </ul>
 
-    <span class="gcs gcs_filter_filetype" data-first-option="--Search by file type--"></span>
+    <span class="gcs gcs_filetype_filter_select" data-first-option="--Search by file type--"></span>
 
     <span class="gcs gcs_spelling">No results were found with the given search term. Did you mean: </span>
+
+    <div class="gcs gcs__preloadericon">
+        <img src="" />
+    </div>
 
     <div class="gcs gcs_results"></div>
 
