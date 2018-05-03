@@ -17,7 +17,6 @@
             pagination: $(".gcs_pagination"),
             infinitescroll: $(".gcs_infinite_scroll"),
             filter_filetype_select: $(".gcs_filetype_filter_select"),
-            filter_filetype_btns: $(".gcs_filetype_filter_buttons"),
             spelling: $(".gcs_spelling"),
             didyoumean: $(".gcs_didyoumean"),
             error: $(".gcs_error")
@@ -145,48 +144,28 @@
         if (gcs.settings.showFilterFileType) {
             $(gcs.elements.filter_filetype_select).show();
 
-            if (gcs.settings.filterSetupFileType == "lists") {
-                var select = $(gcs.elements.filter_filetype_select).find("select");
-                var firstoption = $(gcs.elements.filter_filetype_select).attr("data-first-option");
+            var select = $(gcs.elements.filter_filetype_select).find("select");
+            var firstoption = $(gcs.elements.filter_filetype_select).attr("data-first-option");
 
-                if (select.length <= 0) {
-                    $(gcs.elements.filter_filetype_select).append("<div class='gcs gcs_filetype_filter_select'>" + data.filetypefilter + "</div>");
-                }
-
-                if (gcs.fileTypeFilter != "") {
-                    $(".gcs_filetype_filter_select select").val(gcs.fileTypeFilter);
-                }
-
-                $($(".gcs_filetype_filter_select option")[0]).html(firstoption);
-
-                $(gcs.elements.filter_filetype_select).change(function () {
-                    gcs.fileTypeFilter = $(".gcs_filetype_filter_select option:selected").val();
-                    showLoader();
-                    gcs.resources.performSearch(gcs.query, gcs.startIndex).then(function (data) {
-                        $(gcs.elements.results).html("");
-                        setUpResult(data);
-                        hideLoader();
-                    });
-                });
+            if (select.length <= 0) {
+                $(gcs.elements.filter_filetype_select).append("<div class='gcs gcs_filetype_filter_select'>" + data.filetypefilter + "</div>");
             }
 
-            if (gcs.settings.filterSetupFileType == "buttons") {
-                var buttons = $(gcs.elements.filter_filetype_btns);
-
-                if (buttons.length > 0) {
-                    $(gcs.elements.filter_filetype_btns).html("<div class='gcs gcs_filetype_filter_buttons'>" + data.filetypefilter + "</div>");
-                }
-
-                $(".gcs_filetype_filter_buttons button").on("click", function (e) {
-                    gcs.fileTypeFilter = $(this).val();
-                    showLoader();
-                    gcs.resources.performSearch(gcs.query, gcs.startIndex).then(function (data) {
-                        $(gcs.elements.results).html("");
-                        setUpResult(data);
-                        hideLoader();
-                    });
-                });
+            if (gcs.fileTypeFilter != "") {
+                $(".gcs_filetype_filter_select select").val(gcs.fileTypeFilter);
             }
+
+            $($(".gcs_filetype_filter_select option")[0]).html(firstoption);
+
+            $(gcs.elements.filter_filetype_select).change(function () {
+                gcs.fileTypeFilter = $(".gcs_filetype_filter_select option:selected").val();
+                showLoader();
+                gcs.resources.performSearch(gcs.query, gcs.startIndex).then(function (data) {
+                    $(gcs.elements.results).html("");
+                    setUpResult(data);
+                    hideLoader();
+                });
+            });
         }
     }
 

@@ -127,7 +127,7 @@ namespace W3S_GCS.Controllers {
                     timing = obj.searchInformation.formattedSearchTime,
                     totalPages = Math.Ceiling((double)int.Parse(obj.searchInformation.totalResults) / int.Parse(settings.ItemsPerPage.ToString())),
                     pagination = settings.LoadMoreSetUp == "pagination" ? RenderViewService.GetRazorViewAsString(PaginationService.GetPaginationModel(Request, obj, settings.ItemsPerPage, model.StartIndex, model.Query, model.FileType, model.Section, settings.MaxPaginationPages), "~/App_Plugins/W3S_GCS/Views/Partials/SearchPagination.cshtml") : "",
-                    filetypefilter = settings.ShowFilterFileType ? RenderViewService.GetRazorViewAsString(new FileTypeFilter(), "~/App_Plugins/W3S_GCS/Views/Partials/SearchFileTypeFilter" + GetFilterSetupAction(settings.FilterSetupFileType) + ".cshtml") : "",
+                    filetypefilter = settings.ShowFilterFileType ? RenderViewService.GetRazorViewAsString(new FileTypeFilter(), "~/App_Plugins/W3S_GCS/Views/Partials/SearchFileTypeFilterSelect.cshtml") : "",
                     queryId = SearchEntry.Id
                 }
             };

@@ -195,19 +195,6 @@ namespace W3S_GCS.Controllers {
                     View = "boolean"
                 },
                 new ContentPropertyDisplay {
-                    Alias = "filterSetupFileType",
-                    Description = "Configure the way in which you want to show the file type filter",
-                    HideLabel = false,
-                    Config = new Dictionary<String, Object>() {
-                        { "items", new { Buttons = "Buttons", Lists = "Lists" } },
-                        { "multiple", "false" }
-                    },
-                    Label = "Filters file type set-up",
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.FilterSetupFileType,
-                    View = "Dropdown"
-                },
-                new ContentPropertyDisplay {
                         Alias = "excludeNodeIds",
                         Description = "Select the nodes to be excluded from the search results",
                         HideLabel = false,

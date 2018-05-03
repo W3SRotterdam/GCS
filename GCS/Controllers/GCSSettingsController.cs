@@ -65,7 +65,6 @@ namespace W3S_GCS.App_Plugins.GCS.Controllers {
                     excludeTerms = SearchSettings.ExcludeTerms,
                     excludeNodeIds = SearchSettings.ExcludeNodeIds,
                     showFilterFileType = SearchSettings.ShowFilterFileType,
-                    filterSetupFileType = SearchSettings.FilterSetupFileType,
                     showThumbnail = SearchSettings.ShowThumbnail,
                     thumbnailFallback = !String.IsNullOrEmpty(SearchSettings.ThumbnailFallbackGUID) ? NodeService.GetMediaPathByUdi(SearchSettings.ThumbnailFallbackGUID) : "",
                     preloaderIcon = !String.IsNullOrEmpty(SearchSettings.LoadIconGUID) ? NodeService.GetMediaPathByUdi(SearchSettings.LoadIconGUID) : "",
