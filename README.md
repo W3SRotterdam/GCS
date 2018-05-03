@@ -6,8 +6,11 @@ This project was started since Google has announced that they will discontinue t
 
 ## Installation
 #### Nuget 
-The plugin is available as Nuget package; https://www.nuget.org/packages/W3S-GCS/
-Run ```Install-Package W3S-GCS```
+The plugin is available as Nuget package; https://www.nuget.org/packages/W3S-GCS/ 
+<br />
+```
+Install-Package W3S-GCS
+```
 
 #### Umbraco package
 ...
@@ -15,7 +18,8 @@ Run ```Install-Package W3S-GCS```
 ### How to configure this plugin?
 Please follow the steps below to set-up a fully functioning GCS plugin.
 
-#### 0. Add section to a user group.
+#### 0. Add the GCS section to a user group.
+
 
 #### 1. Create a search page
 
