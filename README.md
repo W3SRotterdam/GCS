@@ -6,10 +6,9 @@ This project was started since Google has announced that they will discontinue t
 
 ### Set-up a DEMO
 
-#### Live
-Visit https://w3sgcs.w3s.nl
+Visit https://w3sgcs.w3s.nl for a live demo.
 
-#### Locally
+#### Setings things up locally
 1. Download (or fork) this project to your local machine.
 2. Open the .sln file with the Visual Studio IDE and build the project.
 3. Set-up a website in IIS and let the physical path point to the /Umbraco7 folder.
