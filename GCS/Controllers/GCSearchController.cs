@@ -23,7 +23,6 @@ namespace W3S_GCS.Controllers {
         private SettingsRepository SettingsRepository;
         private QueriesRepository QueriesRepository;
         private PaginationService PaginationService;
-        private MailService MailService;
         private NodeService NodeService;
         private List<String> APIFields = new List<String>() { "searchInformation", "spelling", "items(title,link,htmlSnippet,formattedUrl)" };
         private UmbracoHelper uh = new UmbracoHelper(UmbracoContext.Current);
@@ -32,7 +31,6 @@ namespace W3S_GCS.Controllers {
             QueriesRepository = new QueriesRepository();
             SettingsRepository = new SettingsRepository();
             PaginationService = new PaginationService();
-            MailService = new MailService();
             NodeService = new NodeService();
         }
 
