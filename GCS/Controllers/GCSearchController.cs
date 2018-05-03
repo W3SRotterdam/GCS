@@ -49,12 +49,12 @@ namespace W3S_GCS.Controllers {
             do {
                 retry = false;
                 IPublishedContent currentNode = UmbracoContext.ContentCache.GetById(model.CurrentNodeID);
-
                 IPublishedContent rootNode = uh.TypedContentAtRoot().FirstOrDefault(t => t.GetCulture().TwoLetterISOLanguageName == NodeService.GetCurrentCulture(currentNode).TwoLetterISOLanguageName);
+
                 if (rootNode == null) {
-                    //Edit: Niels - Bovenstaande werkt niet in multilanguage site zoals Goudappel. De UmbracoHelper zal altijd een node selecteren die op inherit language(nl ihgv.Goudappel) staat.Hierdoor werkt de zoek in engelstalige pagina's niet. Rootnode zoeken op basis van currentNode werkt wel zoals hieronder.
                     rootNode = currentNode.AncestorsOrSelf(2).FirstOrDefault();
                 }
+
                 if (!String.IsNullOrEmpty(model.Section)) {
                     IPublishedContent node = rootNode.Descendant(model.Section);
                     if (node != null) {
@@ -68,7 +68,6 @@ namespace W3S_GCS.Controllers {
                     FormattedQuery = String.Format("{0} filetype:{1}", FormattedQuery, model.FileType);
                 }
 
-                //string URL = string.Format("{0}?filter=1&key={1}&cx={2}&q={3}&start={4}&num={5}&fields={6}&prettyPrint=false", settings.BaseURL, settings.APIKey, settings.CXKey, query, startIndex, settings.ItemsPerPage, String.Join(",", APIFields));
                 string URL = string.Format("{0}?filter=1&key={1}&cx={2}&q={3}&start={4}&num={5}&prettyPrint=false", settings.BaseURL, settings.APIKey, settings.CXKey, FormattedQuery, model.StartIndex, settings.ItemsPerPage);
 
                 if (settings.DateRestrict != null && settings.DateRestrict.Value != null && String.IsNullOrEmpty(model.FileType)) {
