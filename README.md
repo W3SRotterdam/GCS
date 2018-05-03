@@ -111,7 +111,7 @@ If you want to allow your users to load more results via a button click then ins
 If you want to allow your users to load more results via pagination then insert the following snippet.
 
 ```
-<input type="button" class="gcs gcs_pagination" value="" />
+<div class="gcs gcs_pagination"></div>
 ```
 
 #### File type filter
