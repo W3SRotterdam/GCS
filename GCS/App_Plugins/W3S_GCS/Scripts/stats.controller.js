@@ -1,5 +1,4 @@
 ﻿var app = angular.module("umbraco");
-    //app.requires.push('chart.js');s
     app.controller("W3S.GCS.StatsController",
     function ($scope, $routeParams, $location, $http, GCSResources, notificationsService, editorState) {
         $scope.loaded = false;
@@ -39,10 +38,6 @@
 
             $scope.loaded = true;
         });
-
-        //GCSResources.GetStats(-1, -1).then(function (data) {
-        //    appendData(data);
-        //});
 
         function appendData(data) {
             $scope.stats = data.data;
