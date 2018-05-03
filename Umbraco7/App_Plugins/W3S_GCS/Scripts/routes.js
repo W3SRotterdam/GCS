@@ -88,18 +88,6 @@
             },
             resolve: canRoute(true)
         })
-        .when('/GCS/GCS/Development/:alias/:id', {
-            template: "<div ng-include='templateUrl'></div>",
-            controller: function ($scope, $route, $routeParams, treeService) {
-
-                $routeParams.method = "Development";
-                $routeParams.section = "GCS";
-                $routeParams.tree = "GCSTree";
-
-                $scope.templateUrl = "/app_plugins/" + "W3S_GCS" + "/backoffice/" + $routeParams.tree + "/" + $routeParams.method + ".html";
-            },
-            resolve: canRoute(true)
-        })
          .when('/GCS/GCS/ReadMe/:alias/:id', {
              template: "<div ng-include='templateUrl'></div>",
              controller: function ($scope, $route, $routeParams, treeService) {
