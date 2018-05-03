@@ -19,9 +19,10 @@ Install-Package W3S-GCS
 Please follow the steps below to set-up a fully functioning GCS plugin.
 
 #### 0. Add the GCS section to a user group.
-
+You will need to allow your current Umbraco User access to the GCS section via the Umbraco backoffice. You can find these settings at the Users section via the left navigational panel.
 
 #### 1. Create a search page
+GCS needs a page to display the search results. Therefore create a new document type with template in the umbraco backoffice.
 
 #### 2. Back office configuration
 After you've installed this plugin some mandatory configuration needs to be performed. 
