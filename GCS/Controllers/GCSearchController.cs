@@ -42,97 +42,124 @@ namespace W3S_GCS.Controllers {
             bool retry = false;
             String FormattedQuery = model.Query;
             String DevelopmentURL = settings.DevelopmentURL;
+            JsonResult json = new JsonResult();
 
-            //https://stackoverflow.com/questions/30611114/google-custom-search-engine-result-counts-changing-as-results-are-paged
-            do {
-                retry = false;
-                IPublishedContent currentNode = UmbracoContext.ContentCache.GetById(model.CurrentNodeID);
-                IPublishedContent rootNode = uh.TypedContentAtRoot().FirstOrDefault(t => t.GetCulture().TwoLetterISOLanguageName == NodeService.GetCurrentCulture(currentNode).TwoLetterISOLanguageName);
+            if (ValidateSettings(settings)) {
+                //https://stackoverflow.com/questions/30611114/google-custom-search-engine-result-counts-changing-as-results-are-paged
+                do {
+                    retry = false;
+                    IPublishedContent currentNode = UmbracoContext.ContentCache.GetById(model.CurrentNodeID);
+                    IPublishedContent rootNode = uh.TypedContentAtRoot().FirstOrDefault(t => t.GetCulture().TwoLetterISOLanguageName == NodeService.GetCurrentCulture(currentNode).TwoLetterISOLanguageName);
 
-                if (rootNode == null) {
-                    rootNode = currentNode.AncestorsOrSelf(2).FirstOrDefault();
-                }
-
-                if (!String.IsNullOrEmpty(model.Section)) {
-                    IPublishedContent node = rootNode.Descendant(model.Section);
-                    if (node != null) {
-                        FormattedQuery = String.Format("{0} site:{1}", model.Query, !String.IsNullOrEmpty(DevelopmentURL) ? Regex.Replace(node.UrlAbsolute(), @"http.*:\/\/" + HttpContext.Request.Url.DnsSafeHost, DevelopmentURL) : node.UrlAbsolute());
+                    if (rootNode == null) {
+                        rootNode = currentNode.AncestorsOrSelf(2).FirstOrDefault();
                     }
-                } else {
-                    FormattedQuery = String.Format("{0} site:{1}", model.Query, !String.IsNullOrEmpty(DevelopmentURL) ? DevelopmentURL : rootNode.UrlAbsolute());
-                }
 
-                if (!String.IsNullOrEmpty(model.FileType)) {
-                    FormattedQuery = String.Format("{0} filetype:{1}", FormattedQuery, model.FileType);
-                }
-
-                string URL = string.Format("{0}?filter=1&key={1}&cx={2}&q={3}&start={4}&num={5}&prettyPrint=false", settings.BaseURL, settings.APIKey, settings.CXKey, FormattedQuery, model.StartIndex, settings.ItemsPerPage);
-
-                if (settings.DateRestrict != null && settings.DateRestrict.Value != null && String.IsNullOrEmpty(model.FileType)) {
-                    URL += String.Format("&dateRestrict=d{0}", Math.Abs((DateTime.Now - settings.DateRestrict.Value).Days));
-                }
-
-                SearchResponse = SearchRequest(URL);
-
-                obj = JsonConvert.DeserializeObject<RootObject>(SearchResponse.Response);
-
-                if (obj != null) {
-                    retry = int.Parse(obj.searchInformation.totalResults) == 0 && model.StartIndex > 0 ? !retry : retry;
-                    model.StartIndex = retry ? model.StartIndex - settings.ItemsPerPage : model.StartIndex;
-                }
-            } while
-                (int.Parse(obj.searchInformation.totalResults) == 0 && model.StartIndex > 1 && retry);
-
-            if (settings != null && obj != null && obj.items != null && !String.IsNullOrEmpty(settings.ExcludeNodeIds)) {
-                List<String> urls = NodeService.GetAbsoluteURLByUdi(settings.ExcludeNodeIds);
-
-                if (urls != null) {
-                    foreach (var url in urls) {
-                        String _url = url;
-
-                        if (!String.IsNullOrEmpty(DevelopmentURL)) {
-                            _url = Regex.Replace(_url, @"http.*:\/\/" + HttpContext.Request.Url.DnsSafeHost, DevelopmentURL);
+                    if (!String.IsNullOrEmpty(model.Section)) {
+                        IPublishedContent node = rootNode.Descendant(model.Section);
+                        if (node != null) {
+                            FormattedQuery = String.Format("{0} site:{1}", model.Query, !String.IsNullOrEmpty(DevelopmentURL) ? Regex.Replace(node.UrlAbsolute(), @"http.*:\/\/" + HttpContext.Request.Url.DnsSafeHost, DevelopmentURL) : node.UrlAbsolute());
                         }
+                    } else {
+                        FormattedQuery = String.Format("{0} site:{1}", model.Query, !String.IsNullOrEmpty(DevelopmentURL) ? DevelopmentURL : rootNode.UrlAbsolute());
+                    }
 
-                        Item item = obj.items.FirstOrDefault(i => i.link == _url);
-                        if (item != null) {
-                            obj.items.Remove(item);
+                    if (!String.IsNullOrEmpty(model.FileType)) {
+                        FormattedQuery = String.Format("{0} filetype:{1}", FormattedQuery, model.FileType);
+                    }
+
+                    string URL = string.Format("{0}?filter=1&key={1}&cx={2}&q={3}&start={4}&num={5}&prettyPrint=false", settings.BaseURL, settings.APIKey, settings.CXKey, FormattedQuery, model.StartIndex, settings.ItemsPerPage);
+
+                    if (settings.DateRestrict != null && settings.DateRestrict.Value != null && String.IsNullOrEmpty(model.FileType)) {
+                        URL += String.Format("&dateRestrict=d{0}", Math.Abs((DateTime.Now - settings.DateRestrict.Value).Days));
+                    }
+
+                    SearchResponse = SearchRequest(URL);
+
+                    obj = JsonConvert.DeserializeObject<RootObject>(SearchResponse.Response);
+
+                    if (obj != null) {
+                        retry = int.Parse(obj.searchInformation.totalResults) == 0 && model.StartIndex > 0 ? !retry : retry;
+                        model.StartIndex = retry ? model.StartIndex - settings.ItemsPerPage : model.StartIndex;
+                    }
+                } while
+                    (int.Parse(obj.searchInformation.totalResults) == 0 && model.StartIndex > 1 && retry);
+
+                if (settings != null && obj != null && obj.items != null && !String.IsNullOrEmpty(settings.ExcludeNodeIds)) {
+                    List<String> urls = NodeService.GetAbsoluteURLByUdi(settings.ExcludeNodeIds);
+
+                    if (urls != null) {
+                        foreach (var url in urls) {
+                            String _url = url;
+
+                            if (!String.IsNullOrEmpty(DevelopmentURL)) {
+                                _url = Regex.Replace(_url, @"http.*:\/\/" + HttpContext.Request.Url.DnsSafeHost, DevelopmentURL);
+                            }
+
+                            Item item = obj.items.FirstOrDefault(i => i.link == _url);
+                            if (item != null) {
+                                obj.items.Remove(item);
+                            }
                         }
                     }
                 }
-            }
 
-            String TopResultURL = obj.items != null && obj.items.Count > 0 && obj.items.First() != null ? obj.items.First().formattedUrl : "";
+                String TopResultURL = obj.items != null && obj.items.Count > 0 && obj.items.First() != null ? obj.items.First().formattedUrl : "";
 
-            if (obj.spelling != null && !String.IsNullOrEmpty(obj.spelling.correctedQuery)) {
-                obj.spelling.correctedQuery = obj.spelling.correctedQuery.Replace(String.Format("site:{0}", DevelopmentURL), "");
-            }
-
-            SearchEntry SearchEntry = QueriesRepository.Create(new SearchEntry() {
-                Query = model.Query,
-                Date = DateTime.Now,
-                TotalCount = int.Parse(obj.searchInformation.totalResults),
-                Timing = double.Parse(obj.searchInformation.formattedSearchTime),
-                TopResultURL = TopResultURL,
-                CorrectedQuery = obj.spelling != null ? obj.spelling.correctedQuery : ""
-            });
-
-            JsonResult json = new JsonResult() {
-                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                Data = new {
-                    success = SearchResponse.Success,
-                    list = RenderViewService.GetRazorViewAsString(obj, "~/App_Plugins/W3S_GCS/Views/Partials/SearchResults.cshtml"),
-                    spelling = settings.ShowSpelling && obj.spelling != null && !String.IsNullOrEmpty(obj.spelling.correctedQuery) ? RenderViewService.GetRazorViewAsString(new SpellingModel() { CorrectedQuery = obj.spelling.correctedQuery, SearchURL = settings.RedirectNodeURL }, "~/App_Plugins/W3S_GCS/Views/Partials/SearchSpelling.cshtml") : "",
-                    totalCount = obj.searchInformation.totalResults,
-                    timing = obj.searchInformation.formattedSearchTime,
-                    totalPages = Math.Ceiling((double)int.Parse(obj.searchInformation.totalResults) / int.Parse(settings.ItemsPerPage.ToString())),
-                    pagination = settings.LoadMoreSetUp == "pagination" ? RenderViewService.GetRazorViewAsString(PaginationService.GetPaginationModel(Request, obj, settings.ItemsPerPage, model.StartIndex, model.Query, model.FileType, model.Section, settings.MaxPaginationPages), "~/App_Plugins/W3S_GCS/Views/Partials/SearchPagination.cshtml") : "",
-                    filetypefilter = settings.ShowFilterFileType ? RenderViewService.GetRazorViewAsString(new FileTypeFilter(), "~/App_Plugins/W3S_GCS/Views/Partials/SearchFileTypeFilterSelect.cshtml") : "",
-                    queryId = SearchEntry.Id
+                if (obj.spelling != null && !String.IsNullOrEmpty(obj.spelling.correctedQuery)) {
+                    obj.spelling.correctedQuery = obj.spelling.correctedQuery.Replace(String.Format("site:{0}", DevelopmentURL), "");
                 }
-            };
+
+                SearchEntry SearchEntry = QueriesRepository.Create(new SearchEntry() {
+                    Query = model.Query,
+                    Date = DateTime.Now,
+                    TotalCount = int.Parse(obj.searchInformation.totalResults),
+                    Timing = double.Parse(obj.searchInformation.formattedSearchTime),
+                    TopResultURL = TopResultURL,
+                    CorrectedQuery = obj.spelling != null ? obj.spelling.correctedQuery : ""
+                });
+
+                json = new JsonResult() {
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                    Data = new {
+                        success = SearchResponse.Success,
+                        list = RenderViewService.GetRazorViewAsString(obj, "~/App_Plugins/W3S_GCS/Views/Partials/SearchResults.cshtml"),
+                        spelling = settings.ShowSpelling && obj.spelling != null && !String.IsNullOrEmpty(obj.spelling.correctedQuery) ? RenderViewService.GetRazorViewAsString(new SpellingModel() { CorrectedQuery = obj.spelling.correctedQuery, SearchURL = settings.RedirectNodeURL }, "~/App_Plugins/W3S_GCS/Views/Partials/SearchSpelling.cshtml") : "",
+                        totalCount = obj.searchInformation.totalResults,
+                        timing = obj.searchInformation.formattedSearchTime,
+                        totalPages = Math.Ceiling((double)int.Parse(obj.searchInformation.totalResults) / int.Parse(settings.ItemsPerPage.ToString())),
+                        pagination = settings.LoadMoreSetUp == "pagination" ? RenderViewService.GetRazorViewAsString(PaginationService.GetPaginationModel(Request, obj, settings.ItemsPerPage, model.StartIndex, model.Query, model.FileType, model.Section, settings.MaxPaginationPages), "~/App_Plugins/W3S_GCS/Views/Partials/SearchPagination.cshtml") : "",
+                        filetypefilter = settings.ShowFilterFileType ? RenderViewService.GetRazorViewAsString(new FileTypeFilter(), "~/App_Plugins/W3S_GCS/Views/Partials/SearchFileTypeFilterSelect.cshtml") : "",
+                        queryId = SearchEntry.Id
+                    }
+                };
+            }
 
             return json;
+        }
+
+        public bool ValidateSettings(SearchSettings settings) {
+            bool valid = true;
+            if (String.IsNullOrEmpty(settings.CXKey)) {
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType, "GCS cx key is missing", null);
+                valid = !valid;
+            }
+
+            if (String.IsNullOrEmpty(settings.APIKey)) {
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType, "API key is missing", null);
+                valid = !valid;
+            }
+
+            if (String.IsNullOrEmpty(settings.BaseURL)) {
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType, "GCS base URL is missing", null);
+                valid = !valid;
+            }
+
+            if (String.IsNullOrEmpty(settings.RedirectAlias)) {
+                Logger.Error(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType, "GCS redirect alias is missing", null);
+                valid = !valid;
+            }
+            return valid;
         }
 
         public JsonResult ReadMe() {
