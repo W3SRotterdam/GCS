@@ -160,9 +160,9 @@
     <Compile Include="Controllers\Trees\GCSTreeController.cs" />
     <Compile Include="Converters\BooleanConverter.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Migrations\201805021419212_Initial.cs" />
-    <Compile Include="Migrations\201805021419212_Initial.Designer.cs">
-      <DependentUpon>201805021419212_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201805031136596_Initial.cs" />
+    <Compile Include="Migrations\201805031136596_Initial.Designer.cs">
+      <DependentUpon>201805031136596_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\API\Context.cs" />
@@ -204,8 +204,8 @@
     <Compile Include="ViewModels\SearchViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805021419212_Initial.resx">
-      <DependentUpon>201805021419212_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805031136596_Initial.resx">
+      <DependentUpon>201805031136596_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

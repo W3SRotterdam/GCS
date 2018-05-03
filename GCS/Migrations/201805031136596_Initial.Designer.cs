@@ -13,7 +13,7 @@ namespace W3S_GCS.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201805021419212_Initial"; }
+            get { return "201805031136596_Initial"; }
         }
         
         string IMigrationMetadata.Source
