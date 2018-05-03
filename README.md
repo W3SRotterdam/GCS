@@ -1,10 +1,15 @@
 # W3S GCS
 Google Custom Search plugin for Umbraco v7.x
 
-### About
+## About
 This project was started since Google has announced that they will discontinue their Site Search service as of april 2018. As an alternative this plugin for Umbraco uses the Google Custom Search API to retrieve search results and display them on a page.
 
-### Set-up a DEMO
+## Installation
+#### Nuget 
+The plugin is available as Nuget package; https://www.nuget.org/packages/W3S-GCS/
+Run ```Install-Package W3S-GCS```
+
+### DEMO (locally)
 1. Download (or fork) this project to your local machine.
 2. Open the .sln file with the Visual Studio IDE and build the project.
 3. Set-up a website in IIS and let the physical path point to the /Umbraco7 folder.
@@ -18,18 +23,17 @@ This project was started since Google has announced that they will discontinue t
 9. `API Key`: Create an API key via https://console.developers.google.com/apis/credentials. Activate the custom Search API via menu item Library.
 10. Navigate to the root of the website where a seach input field will appear and try any search query.
 
-The other fields that you'll find are preconfigured in this demo.
-Please skip to `Configuration` > `Back office` in this readme for more information.
+The other fields that you'll find are preconfigured for the sake of this demo.
+Please skip to `How to configure this plugin?` below for more specific information on this topic.
 
-### Installation
-#### Nuget 
-The plugin is available as Nuget package; https://www.nuget.org/packages/W3S-GCS/
-Run ```Install-Package W3S-GCS```
+### How to configure this plugin?
+Please follow the steps below to set-up a fully functioning GCS plugin.
 
-### Configuration
-#### Back office 
+#### 1. Document types
+
+#### 2. Back office configuration
 After you've installed this plugin some mandatory configuration needs to be performed. 
-In the backoffice navigate to the GCS section.
+In the backoffice navigate to the GCS section and configure the following fields:
 
 - `Base URL`          > https://www.googleapis.com/customsearch/v1
 - `CX Key`            > The custom search engine ID to use for this request. Go to https://cse.google.com/all to create a new search engine and retrieve the token id.
@@ -37,21 +41,59 @@ In the backoffice navigate to the GCS section.
 - `Redirect alias`    > Enter the document type alias of the search results page.
 - `Development URL`   > When working on a environment other than the production environment enter the absolute (including scheme) indexed domain name.
 
-#### Cultures & hostnames 
-The plugin requires for the domain names to be configured at the top level (homepage) of the content tree. 
+Other configuration fields are optional. For each field a short description of it's functionality is given below the label.
 
-### Basic Installation
-A basic installation only needs two html elements to be inserted in your template.
-You'll also need to reference the .js file that come alongside this package. 
+#### 3. Dependencies 
+You'll  need to reference the .js file that come alongside this package. 
 
-<br />
-
-#### Scripts
 Add a reference to the following script file either in a _layout.cshtml file or in a bundles file.
 ```
 <script src="~/App_Plugins/W3S_GCS/Scripts/gcsearch.min.js" type="text/javascript"></script>
 ```
 <br />
+
+#### 4. Templates
+A basic installation only needs two html elements to be inserted in your template.
+
+
+
+#### 5. Cultures & hostnames 
+The plugin requires the domain names to be configured at the top level (homepage) of the content tree. 
+
+#### 6. Styling 
+### Styling
+Below you can find an overview of all the classed that are use alongside a short description on what it does.
+
+
+| Class | Descriptions |
+| ------ | ------ |
+| .gcs | main class |
+| .gcs\_searchquery | placeholder where the search term will be appended to |
+| .gcs\_timing |  |
+| .gcs\_results\_count | total count of search results |
+| .gcs\_filter_filetype | file type filter | 
+| .gcs\_filter_documenttype | document type filter | 
+| .gcs\_spelling | Corrected query if available | 
+| .gcs\_no-results | message if no results were found |
+| .gcs\_results | results placeholder element |
+| .gcs\_input | input to enter search term |
+| .gcs\_btn | button to execute search |
+| .gcs\_results | placeholder to append results to |
+| .gcs\_loadmore | button to load more results |
+| .gcs\_pagination | paging unit |
+| .gcs\_gcs_error | error messages |
+| .gcs\_\_filters | |
+| .gcs\_doctypefilter\_btn | |
+| .gcs\_filetypefilter\_btn | |
+| .gcs\_pagination\_\_container | |
+| .gcs\_pagination\_\_title | |
+| .gcs\_results_partial\_\_list | |
+| .gcs\_\_result\_\_thumnail | |
+| .gcs\_\_result\_\_link | |
+| .gcs\_\_result\_\_title | |
+| .gcs\_\_result\_\_text | |
+| .gcs\_\_result\_\_text-link | |
+
 
 #### Search input
 To allow a user to search throughout your website you will need to add a input field on any desired page.
