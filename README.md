@@ -37,7 +37,7 @@ In the backoffice navigate to the GCS section.
 - `Redirect alias`    > Enter the document type alias of the search results page.
 - `Development URL`   > When working on a environment other than the production environment enter the absolute (including scheme) indexed domain name.
 
-Cultures & hostnames 
+#### Cultures & hostnames 
 The plugin needs a domain name configured.
 
 ### Basic Installation
