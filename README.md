@@ -37,6 +37,9 @@ In the backoffice navigate to the GCS section.
 - `Redirect alias`    > Enter the document type alias of the search results page.
 - `Development URL`   > When working on a environment other than the production environment enter the absolute (including scheme) indexed domain name.
 
+Cultures & hostnames 
+The plugin needs a domain name configured.
+
 ### Basic Installation
 A basic installation only needs two html elements to be inserted in your template alongside some classes.
 You'll also need to reference the .js file that come alongside this package. 
