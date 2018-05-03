@@ -23,7 +23,7 @@ Please skip to `Configuration` > `Back office` in this readme for more informati
 
 ### Installation
 #### Nuget 
-This plugin will is available via Nuget; https://www.nuget.org/packages/W3S-GCS/
+The plugin is available as Nuget package; https://www.nuget.org/packages/W3S-GCS/
 Run ```Install-Package W3S-GCS```
 
 ### Configuration
@@ -46,7 +46,7 @@ You'll also need to reference the .js file that come alongside this package.
 #### Scripts
 Add a reference to the following script file either in a _layout.cshtml file or in a bundles file.
 ```
-<script src="~/App_Plugins/GCS/Scripts/gcsearch.min.js" type="text/javascript"></script>
+<script src="~/App_Plugins/W3S_GCS/Scripts/gcsearch.min.js" type="text/javascript"></script>
 ```
 <br />
 
