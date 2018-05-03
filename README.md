@@ -5,10 +5,6 @@ Google Custom Search plugin for Umbraco v7.x
 This project was started since Google has announced that they will discontinue their Site Search service as of april 2018. As an alternative this plugin for Umbraco uses the Google Custom Search API to retrieve search results and display them on a page.
 
 ### Set-up a DEMO
-
-Visit https://w3sgcs.w3s.nl for a live demo.
-
-#### Setings things up locally
 1. Download (or fork) this project to your local machine.
 2. Open the .sln file with the Visual Studio IDE and build the project.
 3. Set-up a website in IIS and let the physical path point to the /Umbraco7 folder.
@@ -16,16 +12,15 @@ Visit https://w3sgcs.w3s.nl for a live demo.
 5. Navigate to /umbraco and login using;
     username: info@w3s.nl
     password: googlecustomsearch
-6. The GCS section is already added to the administrator user group. 
-   Navigate to the GCS section via the left nav panel.
+6. The GCS section was already added to the administrator user group so you can navigate to the GCS section via the left nav panel.
 7. Navigate to `Settings` > tab `auth set-up` where you'll find some mandatory fields to fill in.
 
-Mandatory fields:
+#### Mandatory fields:
 CX Key:
-- Create a new search engine via https://cse.google.com/all (Custom Search Engine ID). Do not forget to add the sites to search.
+Create a new search engine via https://cse.google.com/all (Custom Search Engine ID). You'll find your Search engine id / cx key beneath menu item `Setup`.
 
 API Key:
-- Create a API key https://console.developers.google.com/apis/credentials
+- Create an API key via https://console.developers.google.com/apis/credentials. Activate the custom Search API via `Library`.
 
 - Navigate to the root of the website where a seach input field will appear. 
 - Try any search query...
