@@ -9,6 +9,9 @@ This project was started since Google has announced that they will discontinue t
 The plugin is available as Nuget package; https://www.nuget.org/packages/W3S-GCS/
 Run ```Install-Package W3S-GCS```
 
+#### Umbraco package
+...
+
 ### DEMO (locally)
 1. Download (or fork) this project to your local machine.
 2. Open the .sln file with the Visual Studio IDE and build the project.
