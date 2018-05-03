@@ -8,15 +8,9 @@ using Umbraco.Core.Logging;
 namespace W3S_GCS.App_Plugins.GCS.Models {
     public class LanguageInstaller {
         private static bool _executed;
-
-        /// <summary>
-        /// We need to add the text label on the actions otherwise they don;t appear on the context menu,
-        /// Check each label and if not in the Umbraco langua file, add it to the actions node
-        /// </summary>
         public static void CheckAndInstallLanguageActions() {
             if (!_executed) {
                 InstallLanguageKey("sections", "GCS", "GCS");
-                //InstallLanguageKey(Constants.LanguageFileAreas.Actions, Constants.LanguageFileKeys.MediaSecurityMenuAction, Constants.TextResources.MediaSecurityMenuAction);
                 _executed = true;
             }
         }
@@ -27,10 +21,6 @@ namespace W3S_GCS.App_Plugins.GCS.Models {
 #pragma warning restore CS0618 // Type or member is obsolete
         }
 
-        /// <summary>
-        /// Loop through the language config folder and add language nodes to the language files
-        /// If the language is not in our language file install the english variant.
-        /// </summary>
         private static void InstallLanguageKey(string area, string key, string value) {
             if (KeyMissing(area, key)) {
                 var directory = HttpContext.Current.Server.MapPath(FormatUrl("/config/lang"));
@@ -38,7 +28,6 @@ namespace W3S_GCS.App_Plugins.GCS.Models {
 
                 foreach (var languagefile in languageFiles) {
                     try {
-                        //Strip 2digit langcode from filename
                         var langcode = "";
                         var lastIndex = (languagefile.Length - languagefile.LastIndexOf('\\')) - 1;
 
@@ -58,9 +47,6 @@ namespace W3S_GCS.App_Plugins.GCS.Models {
             }
         }
 
-        /// <summary>
-        /// Update a language file withe the language xml
-        /// </summary>
         private static void UpdateActionsForLanguageFile(string languageFile, string area, string key, string value) {
             var doc = XmlHelper.OpenAsXmlDocument(string.Format("{0}/config/lang/{1}", GlobalSettings.Path, languageFile));
             var actionNode = doc.SelectSingleNode(string.Format("//area[@alias='{0}']", area));
@@ -77,11 +63,6 @@ namespace W3S_GCS.App_Plugins.GCS.Models {
             doc.Save(HttpContext.Current.Server.MapPath(string.Format("{0}/config/lang/{1}", GlobalSettings.Path, languageFile)));
         }
 
-        /// <summary>
-        /// Returns the url with the correct Umbraco folder
-        /// </summary>
-        /// <param name="url">The URL.</param>
-        /// <returns></returns>
         private static string FormatUrl(string url) {
             return VirtualPathUtility.ToAbsolute(GlobalSettings.Path + url);
         }
