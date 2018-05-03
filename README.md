@@ -4,20 +4,45 @@ Google Custom Search plugin for Umbraco v7.x
 ### About
 This project was started since Google has announced that they will discontinue their Site Search service as of april 2018. As an alternative this plugin for Umbraco uses the Google Custom Search API to retrieve search results and display them on a page.
 
+### Set-up a DEMO
+1. Download (or fork) this project to your local machine.
+2. Open the .sln file with the Visual Studio IDE and build the project.
+3. Set-up a website in IIS and let the physical path point to the /Umbraco7 folder.
+4. Navigate to the URL you've configured (in bindings).
+5. Navigate to /umbraco and login using;
+    username: info@w3s.nl
+    password: googlecustomsearch
+6. The GCS section is already added to the administrator user group. 
+   Navigate to the GCS section via the left nav panel.
+7. Navigate to `Settings` > tab `auth set-up` where you'll find some mandatory fields to fill in.
+
+Mandatory fields:
+CX Key:
+- Create a new search engine via https://cse.google.com/all (Custom Search Engine ID). Do not forget to add the sites to search.
+
+API Key:
+- Create a API key https://console.developers.google.com/apis/credentials
+
+- Navigate to the root of the website where a seach input field will appear. 
+- Try any search query...
+
+The other fields are preconfigured just to set-up a working demo.
+Please skip to Configuration > Back office to get more information about the other types of configuration.
+
 ### Installation
 #### Nuget 
-This plugin will be made available via Nuget.
+This plugin will is available via Nuget; https://www.nuget.org/packages/W3S-GCS/
 
 ### Configuration
 #### Back office 
-Before you begin to use this plugin some configuration needs to be performed. In the backoffice navigate to the GCS section tab settings. 
+Before you begin to use this plugin some configuration needs to be performed. 
+In the backoffice navigate to the GCS section tab settings. 
 
 - Base URL        >
 - CX Key          >
 - API Key         > 
 - Redirect alias  >
 - Development URL >
-
 
 #### Back-end / front-end
 The documentation below can also be reached from the GCS section in the backoffice or in via the source.
@@ -53,14 +78,6 @@ Copy the following snippet on your search results page.
 ```
 
 <br />
-
-### Running locally
-- Download or fork this project.
-- Open the .sln file with the Visual Studio IDE. 
-- Set-up a website in IIS and let it point to the /Umbraco7 folder.
-- Navigate to the development URL you've configured and check if everything works. 
-- Navigate to /umbraco to login (use the credentials as stated below).
-- Add the GCS section to a desired user group
 
 ### Umbraco login
 Login in the Umbraco backoffice with the following credentials:
