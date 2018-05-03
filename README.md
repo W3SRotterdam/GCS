@@ -32,16 +32,16 @@ After you've installed this plugin some mandatory configuration needs to be perf
 In the backoffice navigate to the GCS section.
 
 - `Base URL`          > https://www.googleapis.com/customsearch/v1
-- `CX Key`            > The custom search engine ID to use for this request. Go to https://cse.google.com/all to get the token.
+- `CX Key`            > The custom search engine ID to use for this request. Go to https://cse.google.com/all to create a new search engine and retrieve the token id.
 - `API Key`           > JSON/Atom Custom Search API requires the use of an API key. Go to https://console.developers.google.com/apis/credentials to create an API key or to retrieve one.
 - `Redirect alias`    > Enter the document type alias of the search results page.
 - `Development URL`   > When working on a environment other than the production environment enter the absolute (including scheme) indexed domain name.
 
 #### Cultures & hostnames 
-The plugin needs a domain name configured.
+The plugin requires for the domain names to be configured at the top level (homepage) of the content tree. 
 
 ### Basic Installation
-A basic installation only needs two html elements to be inserted in your template alongside some classes.
+A basic installation only needs two html elements to be inserted in your template.
 You'll also need to reference the .js file that come alongside this package. 
 
 <br />
@@ -63,11 +63,83 @@ Copy the following snippet anywhere in one of your templates to add the input fi
 <br />
 
 #### Search results
-Secondly an element where the search results will be appended to needs to be iserted on your results page.
+Secondly an element where the search results will be appended to needs to be iserted on your search results page.
 Copy the following snippet on your search results page.
 
 ```
 <div class="gcs gcs_results"></div>
 ```
 
+<br />
+
+### Advanced Installation
+The basic installation covers a most fundamental implementation of the GCS module. 
+If you want to add more functionalities such as a lazy loader, pagination, search button etc. you can find the
+installation instructions here.
+
+
+#### Query text
+Allow to show the search term for which the current results are shown.
+Insert the following snippet.
+
+```
+<div class="gcs gcs_searchquery"></div>
+```
+
+#### Search timing
+Shows how long the search query took by inserting the following snippet.
+
+```
+<div class="gcs gcs_timing"></div>
+```
+
+#### Results count
+Shows the total results count
+
+```
+<div class="gcs gcs_results_count"></div>
+```
+
+#### Load more button
+If you want to allow your users to load more results via a button click then insert the following snippet.
+
+```
+<input type="button" class="gcs gcs_loadmore" value="" />
+```
+
+#### Load more pagination
+If you want to allow your users to load more results via pagination then insert the following snippet.
+
+```
+<input type="button" class="gcs gcs_pagination" value="" />
+```
+
+#### File type filter
+Allows to search based on file type. Insert the following snippet.
+
+```
+<span class="gcs gcs_filter_filetype" data-first-option="--Search by file type--"></span>
+```
+
+#### Document type filter 
+Allows to search based on document type. Insert the following snippet.
+
+```
+<span class="gcs gcs_filter_documenttype" data-first-option="--Search in area--"></span>
+```
+
+#### No results
+Allows to show a message if no results are found. Insert the following snippet.
+
+```
+<div class="gcs gcs_no-results">No results found.</div>
+```
+
+
+#### Spelling
+Allows to show a corrected query 
+
+```
+<span class="gcs gcs_spelling">No results were found with the given search term. Did you mean: </span>
+```
 <br />
