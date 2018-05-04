@@ -158,11 +158,11 @@ Show a preloader icon while the search results are retrieved.
 ### 6. Styling 
 To add an additional layer of styling please refer to this overview of all classes that are used throughout the plugin.
 
-| Class | Descriptions |
+| Class | Description |
 | ------ | ------ |
 | .gcs | main class |
 | .gcs\_searchquery | placeholder where the search term will be appended to |
-| .gcs\_timing |  |
+| .gcs\_timing | duration of the search |
 | .gcs\_results\_count | total count of search results |
 | .gcs\_filter_filetype | file type filter | 
 | .gcs\_filter_documenttype | document type filter | 
@@ -175,14 +175,12 @@ To add an additional layer of styling please refer to this overview of all class
 | .gcs\_loadmore | button to load more results |
 | .gcs\_pagination | paging unit |
 | .gcs\_gcs_error | error messages |
-| .gcs\_\_filters | |
-| .gcs\_doctypefilter\_btn | |
-| .gcs\_filetypefilter\_btn | |
-| .gcs\_pagination\_\_container | |
-| .gcs\_pagination\_\_title | |
-| .gcs\_results_partial\_\_list | |
-| .gcs\_\_result\_\_thumnail | |
-| .gcs\_\_result\_\_link | |
-| .gcs\_\_result\_\_title | |
-| .gcs\_\_result\_\_text | |
-| .gcs\_\_result\_\_text-link | |
+| .gcs\_\_filters | wrapper around the filters |
+| .gcs\_pagination\_\_container | container |
+| .gcs\_pagination\_\_title | * |
+| .gcs\_results_partial\_\_list | * |
+| .gcs\_\_result\_\_thumnail | * |
+| .gcs\_\_result\_\_link | * |
+| .gcs\_\_result\_\_title | * |
+| .gcs\_\_result\_\_text | * |
+| .gcs\_\_result\_\_text-link | * |
