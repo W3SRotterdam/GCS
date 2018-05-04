@@ -6,11 +6,10 @@ This project was started since Google has announced that they will discontinue t
 
 ## Installation
 ### Nuget 
-The plugin is available as Nuget package; https://www.nuget.org/packages/W3S-GCS/ 
+The plugin is also available as Nuget package; https://www.nuget.org/packages/W3S-GCS/ 
 <br />
-```
-Install-Package W3S-GCS
-```
+
+Run ``` Install-Package W3S-GCS ```in Package Manager Console.
 
 ### Umbraco package
 ...
@@ -80,15 +79,14 @@ If you want to add more functionalities such as a lazy loader, pagination, searc
 installation instructions below.
 
 #### Query text
-Allow to show the search term for which the current results are shown.
-Insert the following snippet.
+Allows to show the search term for which the current results are shown. Insert the following snippet.
 
 ```
 <div class="gcs gcs_searchquery"></div>
 ```
 
 #### Search timing
-Shows how long the search query took by inserting the following snippet.
+Show the search duration by inserting the following snippet.
 
 ```
 <div class="gcs gcs_timing"></div>
@@ -115,32 +113,47 @@ If you want to allow your users to load more results via pagination then insert 
 <div class="gcs gcs_pagination"></div>
 ```
 
+#### Load more infinite scroll
+If you want to allow your users to load more results via infinite scroll then insert the following snippet.
+
+```
+<div class="gcs gcs_infinite_scroll"></div>
+```
+
 #### File type filter
 Allows to search based on file type. Insert the following snippet.
 
 ```
-<span class="gcs gcs_filter_filetype_select" data-first-option="--Search by file type--"></span>
+<span class="gcs gcs_filetype_filter_select" data-first-option="--Search by file type--"></span>
 ```
 
 #### No results
-Allows to show a message if no results are found. Insert the following snippet.
+Show a message if no search results are found. Insert the following snippet.
 
 ```
 <div class="gcs gcs_no-results">No results found.</div>
 ```
 
-
 #### Spelling
-Allows to show a corrected query 
+Show a corrected query 
 
 ```
 <span class="gcs gcs_spelling">No results were found with the given search term. Did you mean: </span>
 ```
 <br />
 
+#### Preloader icon
+Show a preloader icon while the search results are retrieved.
+
+```
+<div class="gcs gcs__preloadericon">
+    <img src="" />
+</div>
+```
+
 #### 6. Styling 
 ### Styling
-Overview of all the classes that are uses throughout the GCS plugin alongside a short description
+To add additional styling please refer to this overview of all classes that are used throughout the plugin.
 
 | Class | Descriptions |
 | ------ | ------ |
