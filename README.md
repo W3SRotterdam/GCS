@@ -17,14 +17,8 @@ Login to the umbraco backoffice, navigate to the developers section search for `
 After you've installed this plugin some mandatory configuration fields inside the GCS section needs to be set.
 In the Umbraco backoffice navigate to GCS and configure the following fields:
 
-- `Base URL`          > https://www.googleapis.com/customsearch/v1
 - `CX Key`            > The custom search engine ID to use for this request. Visit https://cse.google.com/all to create a new search engine and retrieve the token id.
 - `API Key`           > JSON/Atom Custom Search API requires the use of an API key. Go to https://console.developers.google.com/apis/credentials to create an API key or to retrieve one. Do not forget to enable the Google Custom Search API via Library.
-- `Redirect alias`    > Enter the document type alias of the search results page you've created earlier.
-- `Development URL`   > When working on a environment other than your live environment enter the absolute (including scheme) indexed domain name.
-
-#### 3. Add domains to the cultures & hostnames 
-The plugin requires the domain names to be configured at the top level (homepage) of the content tree.
 
 <br />
 
