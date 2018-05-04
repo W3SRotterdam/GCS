@@ -110,6 +110,10 @@
     <Reference Include="Umbraco.Core">
       <HintPath>..\Umbraco7\bin\Umbraco.Core.dll</HintPath>
     </Reference>
+    <Reference Include="umbraco.DataLayer, Version=1.0.6684.15729, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Umbraco7\bin\umbraco.DataLayer.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Plugins\W3S_GCS\Backoffice\GCSTree\Readme.html" />
@@ -159,6 +163,7 @@
     <Compile Include="Controllers\GCSStatisticsController.cs" />
     <Compile Include="Controllers\Trees\GCSTreeController.cs" />
     <Compile Include="Converters\BooleanConverter.cs" />
+    <Compile Include="Installer\PackageActions.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Migrations\201805031136596_Initial.cs" />
     <Compile Include="Migrations\201805031136596_Initial.Designer.cs">
@@ -208,10 +213,7 @@
       <DependentUpon>201805031136596_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SQL\MicrosoftSqlServer\" />
-    <Folder Include="SQL\SqlServerCompact\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
