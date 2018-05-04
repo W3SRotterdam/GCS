@@ -20,8 +20,6 @@ In the Umbraco backoffice navigate to GCS and configure the following fields:
 - `CX Key`            > The custom search engine ID to use for this request. Visit https://cse.google.com/all to create a new search engine and retrieve the token id.
 - `API Key`           > JSON/Atom Custom Search API requires the use of an API key. Go to https://console.developers.google.com/apis/credentials to create an API key or to retrieve one. Do not forget to enable the Google Custom Search API via Library.
 
-<br />
-
 ### Using Nuget 
 The plugin is available as Nuget package; https://www.nuget.org/packages/W3S-GCS/ 
 Please follow the steps below to set-up a fully functioning GCS plugin.
