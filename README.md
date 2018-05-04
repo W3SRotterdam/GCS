@@ -27,7 +27,6 @@ In the Umbraco backoffice navigate to GCS and configure the following fields:
 The plugin requires the domain names to be configured at the top level (homepage) of the content tree.
 
 <br />
-<br />
 
 ### Using Nuget 
 The plugin is available as Nuget package; https://www.nuget.org/packages/W3S-GCS/ 
@@ -64,7 +63,6 @@ Next to jQuery add a reference to the following script file either in a _layout.
 ```
 <script src="~/App_Plugins/W3S_GCS/Scripts/gcsearch.min.js" type="text/javascript"></script>
 ```
-<br />
 
 #### 4. Add domains to the cultures & hostnames 
 The plugin requires the domain names to be configured at the top level (homepage) of the content tree. 
@@ -79,7 +77,6 @@ Copy the following snippet anywhere in one of your templates to add a search inp
 ```
 <input type="text" class="gcs gcs_input" name="text" placeholder="">
 ```
-<br />
 
 ##### Search results
 Secondly, to append the search results, add the following element to your search results template.
@@ -88,8 +85,6 @@ Secondly, to append the search results, add the following element to your search
 <div class="gcs gcs_results"></div>
 ```
 
-<br />
-<br />
 <br />
 
 This basic installation covers a most fundamental implementation of the GCS module. 
@@ -158,7 +153,6 @@ Show a corrected query
 ```
 <span class="gcs gcs_spelling">No results were found with the given search term. Did you mean: </span>
 ```
-<br />
 
 #### Preloader icon
 Show a preloader icon while the search results are retrieved.
@@ -169,9 +163,8 @@ Show a preloader icon while the search results are retrieved.
 </div>
 ```
 
-#### 6. Styling 
-### Styling
-To add additional styling please refer to this overview of all classes that are used throughout the plugin.
+### 6. Styling 
+To add an additional layer of styling please refer to this overview of all classes that are used throughout the plugin.
 
 | Class | Descriptions |
 | ------ | ------ |
