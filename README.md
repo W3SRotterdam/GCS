@@ -7,7 +7,6 @@ This project was started since Google has announced that they will discontinue t
 ## Installation
 This plugin is made available via `Nuget` to be intalled directly in your project. 
 It's also made available as an `Umbraco package` to be directly installed via the backoffice.
-If you wish to set-up a `local` demo skip to: "running things locally".
 
 ### Via the Umbraco backoffice
 
@@ -195,20 +194,3 @@ To add an additional layer of styling please refer to this overview of all class
 | .gcs\_\_result\_\_title | |
 | .gcs\_\_result\_\_text | |
 | .gcs\_\_result\_\_text-link | |
-
-### Running things locally
-1. Download (or fork) this project to your local machine.
-2. Open the .sln file with the Visual Studio IDE and build the project.
-3. Set-up a website in IIS and let the physical path point to the /Umbraco7 folder.
-4. Navigate to the URL you've configured (in bindings).
-5. Navigate to /umbraco and login using;
-    - username: info@w3s.nl
-    - password: googlecustomsearch
-6. The GCS section was already added to the administrator user group so you can navigate to the GCS section via the left nav panel.
-7. Navigate to `Settings` > tab `auth set-up` where you'll find some mandatory fields to fill in.
-8. `CX Key`: Create a new search engine via https://cse.google.com/all (Custom Search Engine ID). You'll find your Search engine id / cx key beneath menu item Setup.
-9. `API Key`: Create an API key via https://console.developers.google.com/apis/credentials. Activate the custom Search API via menu item Library.
-10. Navigate to the root of the website where a seach input field will appear and try any search query.
-
-The other fields that you'll find are preconfigured for the sake of this demo.
-Please skip to `How to configure this plugin?` below for more specific information on this topic.
