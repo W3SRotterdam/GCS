@@ -14,7 +14,7 @@
 	<tags>google custom search api umbraco plugin</tags>
   </metadata>
   <files>
-		<file src="readme.txt" target="" />
+		<file src="w3sgcs_readme.txt" target="" />
 		<file src="App_Plugins\W3S_GCS\**" target="content\App_Plugins" />
 		<file src="App_Plugins\W3S_GCS\**" target="content\App_plugins" />
 		<file src="bin\W3S_GCS.dll" target="lib\net45" />
