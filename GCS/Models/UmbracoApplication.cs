@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-using Umbraco.Core;
+﻿using Umbraco.Core;
 using W3S_GCS.App_Plugins.GCS.Models;
 using W3S_GCS.App_Start;
 
@@ -11,10 +10,13 @@ namespace W3S_GCS.Models {
             base.ApplicationStarting(httpApplication, applicationContext);
 
             WebApiConfig.Register(System.Web.Http.GlobalConfiguration.Configuration);
-            Database.SetInitializer<DBEntities>(new MigrateDatabaseToLatestVersion<DBEntities, W3S_GCS.Migrations.Configuration>());
-            using (DBEntities db = new DBEntities()) {
-                db.Database.Initialize(true);
-            }
+
+            //only run once for dev purposes..
+
+            //Database.SetInitializer<DBEntities>(new MigrateDatabaseToLatestVersion<DBEntities, W3S_GCS.Migrations.Configuration>());
+            //using (DBEntities db = new DBEntities()) {
+            //    db.Database.Initialize(true);
+            //}
 
             LanguageInstaller.CheckAndInstallLanguageActions();
         }
