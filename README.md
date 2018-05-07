@@ -14,7 +14,7 @@ It's also made available via `Nuget` to be intalled directly into your project.
 Login to the Umbraco backoffice and navigate to the Developers section. Search for `w3s-gcs` and install the package.
 
 #### 2. Back office configuration
-After you've installed this plugin some mandatory configuration fields inside the GCS section needs to be done.
+After you've installed this plugin some mandatory configuration inside the GCS section needs to be done.
 In the Umbraco backoffice navigate to GCS and configure the following fields:
 
 - `CX Key`            > The custom search engine ID to use for this request. Visit https://cse.google.com/all to create a new search engine and retrieve the token id.
