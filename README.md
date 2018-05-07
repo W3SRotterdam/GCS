@@ -161,11 +161,11 @@ To add an additional layer of styling please refer to this overview of all class
 | Class | Description |
 | ------ | ------ |
 | .gcs | main class |
-
+|  |  |
 | **two basic markup elements** | * |
 | .gcs_input | input to enter search term |
 | .gcs_results | gcs results container |
-
+|  |  |
 | **optional elements** | * |
 | .gcs_searchquery | placeholder where the search term will be appended to |
 | .gcs_timing | duration of the search |
@@ -178,7 +178,7 @@ To add an additional layer of styling please refer to this overview of all class
 | .gcs_pagination | paging unit |
 | .gcs_infinite_scroll | infinite scroller |
 | .gcs_gcs_error | error messages |
-
+|  |  |
 | **rendered template > results** | * |
 | .gcs__results__row | results placeholder element row |
 | .gcs__results__row__col | results placeholder element row col |
@@ -191,5 +191,19 @@ To add an additional layer of styling please refer to this overview of all class
 | .gcs__result__text | html formatted body text of a single instance of the search results |
 | .gcs__result__text__plain | plain body text of a single instance of the search results |
 | .gcs__result__url | url of a single instance of the search results |
-
-| **rendered template > results** | * |
+|  |  |
+| **rendered template > spelling** | * |
+| .gcs__correctedquery | placeholder for the corrected query |
+|  |  |
+| **rendered template > pagination** | * |
+| .gcs__pagination | container of the pagination |
+| .gcs__pagination__title | page title  |
+| .gcs__pagination__btn | pagination button |
+| .gcs__pagination__first | go to the first page |
+| .gcs__pagination__previous | go to the previous page  |
+| .gcs__pagination__next | go to the next page |
+| .gcs__pagination__last | go to the last page |
+|  |  |
+| **rendered template > filetype filter** | * |
+| .gcs__filetypefilter | container of the filetype filter |
+| .gcs__filetypefilter__select | select element |
