@@ -31,7 +31,8 @@ namespace W3S_GCS.Installer {
                 if (GetGCSDataBaseExists()) {
                     throw new Exception("Table already exists.");
                 } else {
-                    _sqlHelper.ExecuteNonQuery(GetQuery());
+                    _sqlHelper.ExecuteNonQuery(GetInitializationQuery());
+                    _sqlHelper.ExecuteNonQuery(GetSeederQuery());
                 }
                 return true;
             } catch {
@@ -82,7 +83,7 @@ namespace W3S_GCS.Installer {
             return true;
         }
 
-        private static string GetQuery() {
+        private static string GetInitializationQuery() {
             return @"CREATE TABLE [dbo.SearchEntries] (
 	                     [Id] int NOT NULL IDENTITY (1,1)
 	                    ,[Query] nvarchar(4000) NULL
@@ -130,6 +131,23 @@ namespace W3S_GCS.Installer {
 		                ,[DevelopmentURL] nvarchar(4000) NULL
 	                )
                 )";
+        }
+
+        private static string GetSeederQuery() {
+            return @"
+                UPDATE dbo.SearchSettings
+                SET BaseURL = https://www.googleapis.com/customsearch/v1, 
+                RedirectAlias = search, 
+                ItemsPerPage = 10, 
+                LoadMoreSetUp = button,
+                MaxPaginationPages = 6,
+                ShowQuery = 1
+                ShowTiming =  1
+                ShowTotalCount = 1
+                ShowSpelling = 1
+                KeepQuery = 1
+                ShowThumbnail = 1 
+            ";
         }
     }
 }
