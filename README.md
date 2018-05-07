@@ -161,30 +161,35 @@ To add an additional layer of styling please refer to this overview of all class
 | Class | Description |
 | ------ | ------ |
 | .gcs | main class |
-| .gcs__results | results placeholder element |
+
+| **two basic markup elements** | * |
+| .gcs_input | input to enter search term |
+| .gcs_results | gcs results container |
+
+| **optional elements** | * |
+| .gcs_searchquery | placeholder where the search term will be appended to |
+| .gcs_timing | duration of the search |
+| .gcs_results_count | total count of search results |
+| .gcs_filetype_filter_select | select element of the filetype filter |
+| .gcs_spelling | corrected query if available | 
+| .gcs__preloadericon | preloader icon shown when results are loaded | 
+| .gcs_no-results | message if no results were found |
+| .gcs_loadmore | button to load more results |
+| .gcs_pagination | paging unit |
+| .gcs_infinite_scroll | infinite scroller |
+| .gcs_gcs_error | error messages |
+
+| **rendered template > results** | * |
 | .gcs__results__row | results placeholder element row |
-| .gcs__results__row__col | results placeholder element row |
+| .gcs__results__row__col | results placeholder element row col |
+| .gcs__results__list | placeholder to append results to |
+| .gcs__result__thumnail | thumbnail image either from gcs api or fallback image |
+| .gcs__result__thumnail__image | the actual thumbnail image  |
+| .gcs__result | single result container  |
+| .gcs__result__link | link to a single instance of the search results  |
+| .gcs__result__title | title of a single instance of the search results  |
+| .gcs__result__text | html formatted body text of a single instance of the search results |
+| .gcs__result__text__plain | plain body text of a single instance of the search results |
+| .gcs__result__url | url of a single instance of the search results |
 
-| .gcs\_searchquery | placeholder where the search term will be appended to |
-| .gcs\_timing | duration of the search |
-| .gcs\_results\_count | total count of search results |
-| .gcs\_filter_filetype | file type filter | 
-| .gcs\_filter_documenttype | document type filter | 
-| .gcs\_spelling | Corrected query if available | 
-| .gcs\_no-results | message if no results were found |
-
-| .gcs\_input | input to enter search term |
-| .gcs\_btn | button to execute search |
-| .gcs\_results | placeholder to append results to |
-| .gcs\_loadmore | button to load more results |
-| .gcs\_pagination | paging unit |
-| .gcs\_gcs_error | error messages |
-| .gcs\_\_filters | wrapper around the filters |
-| .gcs\_pagination\_\_container | container |
-| .gcs\_pagination\_\_title | * |
-| .gcs\_results_partial\_\_list | * |
-| .gcs\_\_result\_\_thumnail | * |
-| .gcs\_\_result\_\_link | * |
-| .gcs\_\_result\_\_title | * |
-| .gcs\_\_result\_\_text | * |
-| .gcs\_\_result\_\_text-link | * |
+| **rendered template > results** | * |
