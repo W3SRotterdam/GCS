@@ -161,6 +161,10 @@ To add an additional layer of styling please refer to this overview of all class
 | Class | Description |
 | ------ | ------ |
 | .gcs | main class |
+| .gcs__results | results placeholder element |
+| .gcs__results__row | results placeholder element row |
+| .gcs__results__row__col | results placeholder element row |
+
 | .gcs\_searchquery | placeholder where the search term will be appended to |
 | .gcs\_timing | duration of the search |
 | .gcs\_results\_count | total count of search results |
@@ -168,7 +172,7 @@ To add an additional layer of styling please refer to this overview of all class
 | .gcs\_filter_documenttype | document type filter | 
 | .gcs\_spelling | Corrected query if available | 
 | .gcs\_no-results | message if no results were found |
-| .gcs\_results | results placeholder element |
+
 | .gcs\_input | input to enter search term |
 | .gcs\_btn | button to execute search |
 | .gcs\_results | placeholder to append results to |
