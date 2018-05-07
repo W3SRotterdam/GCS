@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -10,7 +9,6 @@ using System.Web.Mvc;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
-using W3S_GCS.Models;
 using W3S_GCS.Models.API;
 using W3S_GCS.Models.Dtos;
 using W3S_GCS.Models.Filters;
@@ -217,16 +215,16 @@ namespace W3S_GCS.Controllers {
             };
         }
 
-        [HttpGet]
-        public JsonResult Update() {
-            Database.SetInitializer<DBEntities>(new MigrateDatabaseToLatestVersion<DBEntities, W3S_GCS.Migrations.Configuration>());
-            using (DBEntities db = new DBEntities()) {
-                db.Database.Initialize(true);
-            }
-            return new JsonResult() {
-                Data = "MigrationUpdate",
-                JsonRequestBehavior = JsonRequestBehavior.AllowGet
-            };
-        }
+        //[HttpGet]
+        //public JsonResult Update() {
+        //    Database.SetInitializer<DBEntities>(new MigrateDatabaseToLatestVersion<DBEntities, W3S_GCS.Migrations.Configuration>());
+        //    using (DBEntities db = new DBEntities()) {
+        //        db.Database.Initialize(true);
+        //    }
+        //    return new JsonResult() {
+        //        Data = "MigrationUpdate",
+        //        JsonRequestBehavior = JsonRequestBehavior.AllowGet
+        //    };
+        //}
     }
 }
