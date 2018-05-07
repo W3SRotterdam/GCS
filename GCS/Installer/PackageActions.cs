@@ -1,7 +1,6 @@
 ﻿using System;
+using System.Linq;
 using System.Xml;
-using umbraco.BusinessLogic;
-using umbraco.DataLayer;
 using umbraco.interfaces;
 using Umbraco.Core;
 using Umbraco.Core.Logging;
@@ -9,7 +8,11 @@ using Umbraco.Core.Persistence;
 
 namespace W3S_GCS.Installer {
     public class PackageActions : IPackageAction {
-        static ISqlHelper _sqlHelper { get { return Application.SqlHelper; } }
+        static UmbracoDatabase _umDb {
+            get {
+                return ApplicationContext.Current.DatabaseContext.Database;
+            }
+        }
         static readonly DatabaseProviders DatabaseProvider = ApplicationContext.Current.DatabaseContext.DatabaseProvider;
 
         public string Alias() {
@@ -31,8 +34,8 @@ namespace W3S_GCS.Installer {
                 if (GetGCSDataBaseExists()) {
                     throw new Exception("Table already exists.");
                 } else {
-                    _sqlHelper.ExecuteNonQuery(GetInitializationQuery());
-                    _sqlHelper.ExecuteNonQuery(GetSeederQuery());
+                    _umDb.Query<bool>(GetInitializationQuery());
+                    _umDb.Query<bool>(GetSeederQuery());
                 }
                 return true;
             } catch {
@@ -41,8 +44,8 @@ namespace W3S_GCS.Installer {
         }
 
         public bool GetGCSDataBaseExists() {
-            string query = "SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = @tableName";
-            return _sqlHelper.ExecuteScalar<int>(query, _sqlHelper.CreateParameter("tableName", "dbo.[dbo.SearchInstances]")) == 1;
+            string query = "SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = [dbo.SearchInstances]";
+            return _umDb.Query<int>(query).FirstOrDefault() == 1;
         }
 
         //private static string GetFolderName() {
