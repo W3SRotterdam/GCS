@@ -5,24 +5,24 @@ Google Custom Search plugin for Umbraco v7.x
 This project was started since Google has announced that they will discontinue their Site Search service as of april 2018. As an alternative this plugin for Umbraco uses the Google Custom Search API to retrieve search results and display them on a page.
 
 ## Installation
-This plugin is made available via `Nuget` to be intalled directly in your project. 
-It's also made available as an `Umbraco package` to be directly installed via the backoffice.
+This plugin is made available as an `Umbraco package` to be directly installed via the backoffice.
+It's also made available via `Nuget` to be intalled directly into your project. 
 
-### Via the Umbraco backoffice
+### Umbraco package
 
 #### 1. Install the package
-Login to the umbraco backoffice, navigate to the developers section search for `w3s-gcs` and install the package.
+Login to the Umbraco backoffice and navigate to the Developers section. Search for `w3s-gcs` and install the package.
 
 #### 2. Back office configuration
-After you've installed this plugin some mandatory configuration fields inside the GCS section needs to be set.
+After you've installed this plugin some mandatory configuration inside the GCS section needs to be done.
 In the Umbraco backoffice navigate to GCS and configure the following fields:
 
 - `CX Key`            > The custom search engine ID to use for this request. Visit https://cse.google.com/all to create a new search engine and retrieve the token id.
 - `API Key`           > JSON/Atom Custom Search API requires the use of an API key. Go to https://console.developers.google.com/apis/credentials to create an API key or to retrieve one. Do not forget to enable the Google Custom Search API via Library.
 
 ### Using Nuget 
-The plugin is available as Nuget package; https://www.nuget.org/packages/W3S-GCS/ 
-Please follow the steps below to set-up a fully functioning GCS plugin.
+The plugin is also available as Nuget package; https://www.nuget.org/packages/W3S-GCS/ 
+Please follow the instructions below to set-up a fully functioning GCS plugin inside you Umbraco project.
 
 Run ``` Install-Package W3S-GCS ```in Package Manager Console.
 
@@ -161,26 +161,49 @@ To add an additional layer of styling please refer to this overview of all class
 | Class | Description |
 | ------ | ------ |
 | .gcs | main class |
-| .gcs\_searchquery | placeholder where the search term will be appended to |
-| .gcs\_timing | duration of the search |
-| .gcs\_results\_count | total count of search results |
-| .gcs\_filter_filetype | file type filter | 
-| .gcs\_filter_documenttype | document type filter | 
-| .gcs\_spelling | Corrected query if available | 
-| .gcs\_no-results | message if no results were found |
-| .gcs\_results | results placeholder element |
-| .gcs\_input | input to enter search term |
-| .gcs\_btn | button to execute search |
-| .gcs\_results | placeholder to append results to |
-| .gcs\_loadmore | button to load more results |
-| .gcs\_pagination | paging unit |
-| .gcs\_gcs_error | error messages |
-| .gcs\_\_filters | wrapper around the filters |
-| .gcs\_pagination\_\_container | container |
-| .gcs\_pagination\_\_title | * |
-| .gcs\_results_partial\_\_list | * |
-| .gcs\_\_result\_\_thumnail | * |
-| .gcs\_\_result\_\_link | * |
-| .gcs\_\_result\_\_title | * |
-| .gcs\_\_result\_\_text | * |
-| .gcs\_\_result\_\_text-link | * |
+|  |  |
+| **two basic markup elements** | * |
+| .gcs_input | input to enter search term |
+| .gcs_results | gcs results container |
+|  |  |
+| **optional elements** | * |
+| .gcs_searchquery | placeholder where the search term will be appended to |
+| .gcs_timing | duration of the search |
+| .gcs_results_count | total count of search results |
+| .gcs_filetype_filter_select | select element of the filetype filter |
+| .gcs_spelling | corrected query if available | 
+| .gcs__preloadericon | preloader icon shown when results are loaded | 
+| .gcs_no-results | message if no results were found |
+| .gcs_loadmore | button to load more results |
+| .gcs_pagination | paging unit |
+| .gcs_infinite_scroll | infinite scroller |
+| .gcs_gcs_error | error messages |
+|  |  |
+| **rendered template > results** | * |
+| .gcs__results__row | results placeholder element row |
+| .gcs__results__row__col | results placeholder element row col |
+| .gcs__results__list | placeholder to append results to |
+| .gcs__result__thumnail | thumbnail image either from gcs api or fallback image |
+| .gcs__result__thumnail__image | the actual thumbnail image  |
+| .gcs__result | single result container  |
+| .gcs__result__link | link to a single instance of the search results  |
+| .gcs__result__title | title of a single instance of the search results  |
+| .gcs__result__text | html formatted body text of a single instance of the search results |
+| .gcs__result__text__plain | plain body text of a single instance of the search results |
+| .gcs__result__url | url of a single instance of the search results |
+|  |  |
+| **rendered template > spelling** | * |
+| .gcs__correctedquery | placeholder for the corrected query |
+|  |  |
+| **rendered template > pagination** | * |
+| .gcs__pagination | container of the pagination |
+| .gcs__pagination__title | page title  |
+| .gcs__pagination__btn | pagination button |
+| .gcs__pagination__first | go to the first page |
+| .gcs__pagination__previous | go to the previous page  |
+| .gcs__pagination__next | go to the next page |
+| .gcs__pagination__last | go to the last page |
+|  |  |
+| **rendered template > filetype filter** | * |
+| .gcs__filetypefilter | container of the filetype filter |
+| .gcs__filetypefilter__select | select element |
