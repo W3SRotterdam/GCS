@@ -35,7 +35,9 @@ namespace W3S_GCS.Installer {
                     throw new Exception("Table already exists.");
                 } else {
                     _umDb.Query<bool>(GetInitializationQuery());
-                    _umDb.Query<bool>(GetSeederQuery());
+                    _umDb.Query<bool>(GetSeederQuery(), new {
+                        dateNow = DateTime.Now.ToString()
+                    });
                 }
                 return true;
             } catch {
@@ -137,19 +139,34 @@ namespace W3S_GCS.Installer {
         }
 
         private static string GetSeederQuery() {
+            var dateNow = DateTime.Now.ToString();
+
             return @"
-                UPDATE dbo.SearchSettings
-                SET BaseURL = https://www.googleapis.com/customsearch/v1, 
-                RedirectAlias = search, 
-                ItemsPerPage = 10, 
-                LoadMoreSetUp = button,
-                MaxPaginationPages = 6,
-                ShowQuery = 1
-                ShowTiming =  1
-                ShowTotalCount = 1
-                ShowSpelling = 1
-                KeepQuery = 1
-                ShowThumbnail = 1 
+                INSERT INTO dbo.SearchSettings (BaseURL, CXKey, APIKey, ItemsPerPage, LoadMoreSetUp, ShowQuery, ShowTiming, ShowTotalCount, ShowSpelling, KeepQuery, ShowThumbnail)
+                VALUES(
+                    BaseURL = 'https://www.googleapis.com/customsearch/v1', 
+                    RedirectAlias = 'search', 
+                    ItemsPerPage = 10, 
+                    LoadMoreSetUp = 'button',
+                    MaxPaginationPages = 6,
+                    ShowQuery = 1
+                    ShowTiming =  1
+                    ShowTotalCount = 1
+                    ShowSpelling = 1
+                    KeepQuery = 1
+                    ShowThumbnail = 1
+                )
+
+                INSERT INTO dbo.SearchInstances (Name, DateCreated, SettingsId)
+                VALUES (
+                    'GCS 1', @dateNow, 1
+                )
+
+                INSERT INTO dbo.umbracoUserGroup2App (userGroupId, app)
+                VALUES (
+                    (SELECT Id from dbo.umbracoUserGroup WHERE userGroupAlias = 'admin'), 
+	                'GCS'
+                )
             ";
         }
     }
