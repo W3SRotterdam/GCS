@@ -5,14 +5,29 @@ using umbraco.interfaces;
 using Umbraco.Core;
 using Umbraco.Core.Logging;
 using Umbraco.Core.Persistence;
+using W3S_GCS.Models.Dtos;
 
 namespace W3S_GCS.Installer {
     public class PackageActions : IPackageAction {
+
+        static DatabaseContext _dbCtx {
+            get {
+                return ApplicationContext.Current.DatabaseContext;
+            }
+        }
+
         static UmbracoDatabase _umDb {
             get {
                 return ApplicationContext.Current.DatabaseContext.Database;
             }
         }
+
+        static DatabaseSchemaHelper _dbH {
+            get {
+                return new DatabaseSchemaHelper(_dbCtx.Database, ApplicationContext.Current.ProfilingLogger.Logger, _dbCtx.SqlSyntax);
+            }
+        }
+
         static readonly DatabaseProviders DatabaseProvider = ApplicationContext.Current.DatabaseContext.DatabaseProvider;
 
         public string Alias() {
@@ -29,24 +44,69 @@ namespace W3S_GCS.Installer {
             }
         }
 
-        public bool InitDatabase() {
+        public static bool InitDatabase() {
             try {
-                if (GetGCSDataBaseExists()) {
+                //if (GetGCSDataBaseExists()) {
+                //    throw new Exception("Table already exists.");
+                if (_dbH.TableExist("gcs_searchsettings") || _dbH.TableExist("gcs_searchinstance") && _dbH.TableExist("gcs_searchentry")) {
                     throw new Exception("Table already exists.");
                 } else {
-                    _umDb.Query<bool>(GetInitializationQuery());
-                    _umDb.Query<bool>(GetSeederQuery(), new {
-                        dateNow = DateTime.Now.ToString()
+                    _dbH.CreateTable<SearchEntry>(false);
+                    _dbH.CreateTable<SearchSettings>(false);
+
+                    var settings = _umDb.Insert(new SearchSettings() {
+                        APIKey = "",
+                        CurrentURL = "",
+                        CXKey = "",
+                        DateCreated = DateTime.Now,
+                        DevelopmentURL = "",
+                        ExcludeNodeIds = "",
+                        ExcludeTerms = "",
+                        LastUpdated = DateTime.Now,
+                        DateRestrict = new DateTime(1970, 1, 1, 12, 0, 0, 0),
+                        LoadIconGUID = "",
+                        RedirectNodeURL = "",
+                        ShowFilterFileType = false,
+                        ThumbnailFallbackGUID = "",
+                        BaseURL = "https://www.googleapis.com/customsearch/v1",
+                        RedirectAlias = "search",
+                        ItemsPerPage = 10,
+                        LoadMoreSetUp = "button",
+                        MaxPaginationPages = 6,
+                        ShowQuery = true,
+                        ShowTiming = true,
+                        ShowTotalCount = true,
+                        ShowSpelling = true,
+                        KeepQuery = true,
+                        ShowThumbnail = true,
+
                     });
+
+                    _dbH.CreateTable<SearchInstance>(false);
+
+                    int adminId = _umDb.Query<int>(@"SELECT Id from umbracoUserGroup WHERE userGroupAlias = 'admin'").FirstOrDefault();
+                    _dbCtx.Database.Execute(@"insert umbracoUserGroup2App values(1, 'GCS')", adminId, "GCS");
+
+                    _umDb.Insert(new SearchInstance() {
+                        SettingsId = Int32.Parse(settings.ToString()),
+                        DateCreated = DateTime.Now.ToString(),
+                        Name = "GCS " + settings.ToString()
+                    });
+
+                    //_umDb.Query<bool>(GetInitializationQuery());
+                    //_umDb.Query<bool>(GetSeederQuery(), new {
+                    //    dateNow = DateTime.Now.ToString()
+                    //});
                 }
                 return true;
-            } catch {
+            } catch (Exception ex) {
+                LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "Db check error", ex);
                 return false;
             }
         }
 
-        public bool GetGCSDataBaseExists() {
-            string query = "SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = [dbo.SearchInstances]";
+        public static bool GetGCSDataBaseExists() {
+            string query = "SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'searchsettings'";
             return _umDb.Query<int>(query).FirstOrDefault() == 1;
         }
 
@@ -88,8 +148,8 @@ namespace W3S_GCS.Installer {
             return true;
         }
 
-        private static string GetInitializationQuery() {
-            return @"CREATE TABLE [dbo.SearchEntries] (
+        private static Sql GetInitializationQuery() {
+            return new Sql(@"CREATE TABLE dbo.SearchEntries (
 	                     [Id] int NOT NULL IDENTITY (1,1)
 	                    ,[Query] nvarchar(4000) NULL
 	                    ,[Date] datetime NOT NULL DEFAULT (getdate())
@@ -102,7 +162,7 @@ namespace W3S_GCS.Installer {
 	                    ,[CorrectedQuery] nvarchar(4000) NULL
                     )
 
-                    CREATE TABLE [dbo.SearchInstances] (
+                    CREATE TABLE dbo.SearchInstances (
 	                     [Id] int NOT NULL IDENTITY (1,1)
 	                    ,[Name] nvarchar(4000) NULL
 	                    ,[DateCreated] nvarchar(4000) NULL
@@ -135,7 +195,7 @@ namespace W3S_GCS.Installer {
 		                ,[DateCreated] datetime NOT NULL DEFAULT (getdate())
 		                ,[DevelopmentURL] nvarchar(4000) NULL
 	                )
-                )";
+                )");
         }
 
         private static string GetSeederQuery() {

@@ -7,6 +7,7 @@ using Umbraco.Core.Models;
 using Umbraco.Core.Services;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
+using W3S_GCS.Installer;
 using W3S_GCS.Models.Dtos;
 using W3S_GCS.Repositories;
 using W3S_GCS.Services;
@@ -27,6 +28,9 @@ namespace W3S_GCS.App_Plugins.GCS.Controllers {
 
         [HttpPost]
         public JsonResult Get(SearchSettings model) {
+
+            PackageActions.InitDatabase();
+
             IPublishedContent currentNode = null;
             SearchSettings SearchSettings = SettingsRepository.Get();
 
@@ -44,7 +48,11 @@ namespace W3S_GCS.App_Plugins.GCS.Controllers {
                 currentNode = UmbracoContext.ContentCache.GetById(currentDomain.RootContentId.Value);
                 SearchSettings.RedirectNodeURL = NodeService.GetRedirectNodeURL(currentNode, SearchSettings.RedirectAlias);
             } else {
-                SearchSettings.RedirectNodeURL = UmbracoContext.ContentCache.GetAtRoot().DescendantsOrSelf(SearchSettings.RedirectAlias).First().Url;
+                IPublishedContent searchPage = UmbracoContext.ContentCache.GetAtRoot().FirstOrDefault().DescendantOrSelf(SearchSettings.RedirectAlias);
+
+                if (searchPage != null) {
+                    SearchSettings.RedirectNodeURL = UmbracoContext.ContentCache.GetAtRoot().FirstOrDefault().DescendantOrSelf(SearchSettings.RedirectAlias).Url;
+                }
             }
 
             JsonResult json = new JsonResult() {

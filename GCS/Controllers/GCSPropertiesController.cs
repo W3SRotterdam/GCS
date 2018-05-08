@@ -19,10 +19,10 @@ namespace W3S_GCS.Controllers {
             InstancesRepository = new InstancesRepository();
             settings = SettingsRepository.Get();
 
-            if (settings == null) {
-                settings = SettingsRepository.Create();
-                InstancesRepository.CreateWithSettingsId(settings.Id);
-            }
+            //if (settings == null) {
+            //    settings = SettingsRepository.Initiate();
+            //    InstancesRepository.CreateWithSettingsId(settings.Id);
+            //}
         }
 
         public String Get(String alias = "") {
