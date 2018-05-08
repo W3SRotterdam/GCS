@@ -39,11 +39,11 @@ Secondly, to append the search results the following element is already added to
 <div class="gcs gcs_results"></div>
 ```
 
+<br />
 
 This above basic installation covers a most fundamental implementation of the GCS module. More functionalities are available such as a lazy loader, pagination, search button etc.
 The elements below are already added to the template that belongs to the `Search` document type.
 
-<br />
 <br />
 
 #### Optional functionalities
