@@ -55,7 +55,6 @@
 //                        ShowSpelling = c.Boolean(nullable: false),
 //                        KeepQuery = c.Boolean(nullable: false),
 //                        ShowFilterFileType = c.Boolean(nullable: false),
-//                        ExcludeTerms = c.String(maxLength: 4000),
 //                        ExcludeNodeIds = c.String(maxLength: 4000),
 //                        DateRestrict = c.DateTime(),
 //                        ShowThumbnail = c.Boolean(nullable: false),

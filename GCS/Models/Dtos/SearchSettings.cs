@@ -42,7 +42,6 @@ namespace W3S_GCS.Models.Dtos {
         public Boolean KeepQuery { get; set; }
         [JsonConverter(typeof(BooleanConverter))]
         public Boolean ShowFilterFileType { get; set; }
-        public String ExcludeTerms { get; set; }
         public String ExcludeNodeIds { get; set; }
         public DateTime? DateRestrict { get; set; }
         [JsonConverter(typeof(BooleanConverter))]

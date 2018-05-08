@@ -61,7 +61,6 @@ namespace W3S_GCS.Installer {
                         DateCreated = DateTime.Now,
                         DevelopmentURL = "",
                         ExcludeNodeIds = "",
-                        ExcludeTerms = "",
                         LastUpdated = DateTime.Now,
                         DateRestrict = new DateTime(1970, 1, 1, 12, 0, 0, 0),
                         LoadIconGUID = "",
@@ -185,7 +184,6 @@ namespace W3S_GCS.Installer {
 		                ,[ShowSpelling] bit NOT NULL DEFAULT ((0))
 		                ,[KeepQuery] bit NOT NULL DEFAULT ((0))
 		                ,[ShowFilterFileType] bit NOT NULL DEFAULT ((0))
-		                ,[ExcludeTerms] nvarchar(4000) NULL
 		                ,[ExcludeNodeIds] nvarchar(4000) NULL
 		                ,[DateRestrict] datetime NOT NULL DEFAULT (getdate())
 		                ,[ShowThumbnail] bit NOT NULL DEFAULT ((0))
