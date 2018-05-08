@@ -1,4 +1,7 @@
-﻿# W3S GCS
+﻿
+
+# ![alt text](https://w3s.nl/Content/img/w3s-logo.png "W3S") GCS 
+
 Google Custom Search plugin for Umbraco v7.x
 
 ## About
