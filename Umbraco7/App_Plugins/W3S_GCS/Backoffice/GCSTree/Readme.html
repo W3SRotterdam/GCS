@@ -11,7 +11,7 @@
         <umb-tab-view>
             <umb-tab id="tab{{tab.id}}" rel="{{tab.id}}" ng-repeat="tab in content.tabs">
                 <div class="umb-pane">
-                    <div id="readme">
+                    <div id="readme" class="gcs__readme__container">
                         <div ng-bind-html="readme"></div>
                     </div>
                 </div>
@@ -19,3 +19,5 @@
         </umb-tab-view>
     </umb-panel>
 </div>
+
+

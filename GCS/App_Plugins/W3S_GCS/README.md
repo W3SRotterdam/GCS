@@ -4,10 +4,14 @@
 
 Google Custom Search plugin for Umbraco v7.x
 
+<br/>
+
 ## About
 This project was started since Google has announced that they will discontinue their Site Search service as of april 2018. As an alternative this plugin for Umbraco uses the Google Custom Search API to retrieve search results and display them on a page.
 
-Developed by https://w3s.nl
+Developed by **<https://w3s.nl>**
+
+<br/>
 
 ## Installation
 
@@ -15,49 +19,43 @@ Developed by https://w3s.nl
 After you've installed this plugin some mandatory configuration needs to be done.
 In the Umbraco backoffice navigate to GCS and configure the following fields:
 
-- `CX Key`            > The custom search engine ID to use for this request. Visit https://cse.google.com/all to create a new search engine and retrieve the token id.
-- `API Key`           > JSON/Atom Custom Search API requires the use of an API key. Go to https://console.developers.google.com/apis/credentials to create an API key or to retrieve one. Do not forget to enable the Google Custom Search API via Library.
+- `CX Key`            > The custom search engine ID to use for this request. Visit **<https://cse.google.com/all>** to create a new search engine and retrieve the token id.
+- `API Key`           > JSON/Atom Custom Search API requires the use of an API key. Go to **<https://console.developers.google.com/apis/credentials>** to create an API key or to retrieve one. Do not forget to enable the Google Custom Search API via Library.
 
-### 2. Single domain configuration
+### 2 A Single domain configuration
 If you're running an umbraco installation with just one website follow these steps:
 
-- 1 Allow the `Search` document type to be created underneath the root node of your website. This can be done via the `Developers` section.
-- 2 Add the search page to the node tree.
+- 1 Allow the `Search` document type to be created underneath the root node of your website. This can be done via the `Developer` section.
+- 2 Add the search page to directly beneath the root node of your website. 
 
 
-### 3. Multiple domain configuration
-If you're running a single umbraco installation which serves multiple websites follow these steps:
+### 2 B Multiple domain configuration
+If you're running an umbraco installation which serves multiple websites follow these steps:
 
 - 1 Check if the domain names are correctly configured at the top level (homepage) of the content tree. This can be done in the context menu via `Culture and Hostnames`.
 - 2 Allow the `Search` document type to be created underneath the root nodes of your website.
 - 3 Add a search node below each root node of the domain to allow search results to be appended.
 
-### 4. Configure the templates
-A basic installation of GCS needs two html elements to be inserted in the template files.
 
-##### 3.1 Search input
-To allow a user to search throughout your website you will need to add a input field on any desired page.
+### 3. Test
+
+Navigate to the search page you've just created and give it a try.
+
+You can add a search input anywhere in one of your website templates file where it will automatically redirect to the corresponding search page after a query.
 Copy the following snippet anywhere in one of your templates to add a search input field. 
 
 ```
 <input type="text" class="gcs gcs_input" name="text" placeholder="">
 ```
 
-##### 3.2 Search results
-Secondly, to append the search results the following element is already added to the template that belongs to the `Search` document type.
+<br/>
 
-```
-<div class="gcs gcs_results"></div>
-```
 
-<br />
+### 4. Configure the templates
+The above basic installation covers a most fundamental implementation of the GCS module. If you wish to add more functionalities such as lazy loading, pagination, corrected queries etc.
+you can add additional elements to your search template file.
 
-The above basic installation covers a most fundamental implementation of the GCS module. More functionalities are available such as a lazy loader, pagination, search button etc.
-The elements below are already added to the template that belongs to the `Search` document type.
-
-<br />
-
-#### Optional functionalities
+(The elements below are already added to the template that belongs to the `Search` document type.)
 
 #### Query text
 Allows to show the search term for which the current results are shown. Insert the following snippet.
@@ -133,7 +131,8 @@ Show a preloader icon while the search results are retrieved.
 
 
 ### 5. Styling 
-To add an additional layer of styling please refer to this overview of all classes that are used throughout the plugin.
+To add an additional layer of styling navigate to '`stylesheets` > `w3s-gcs`.  
+Below you may can an overview of all classes used throughout the plugin:
 
 | Class | Description |
 | ------ | ------ |
