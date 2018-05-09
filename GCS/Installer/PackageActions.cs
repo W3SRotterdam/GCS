@@ -84,7 +84,7 @@ namespace W3S_GCS.Installer {
                     _dbH.CreateTable<SearchInstance>(false);
 
                     int adminId = _umDb.Query<int>(@"SELECT Id from umbracoUserGroup WHERE userGroupAlias = 'admin'").FirstOrDefault();
-                    _dbCtx.Database.Execute(@"insert umbracoUserGroup2App values(1, 'GCS')", adminId, "GCS");
+                    _dbCtx.Database.Execute(@"insert umbracoUserGroup2App values(@0, @1)", adminId, "GCS");
 
                     _umDb.Insert(new SearchInstance() {
                         SettingsId = Int32.Parse(settings.ToString()),
