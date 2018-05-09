@@ -58,8 +58,8 @@ namespace W3S_GCS.App_Plugins.GCS.Controllers {
                 Data = new {
                     id = SearchSettings.Id,
                     baseUrl = SearchSettings.BaseURL,
-                    cxKey = SearchSettings.CXKey,
-                    apiKey = SearchSettings.APIKey,
+                    //cxKey = SearchSettings.CXKey,
+                    //apiKey = SearchSettings.APIKey,
                     itemsPerPage = SearchSettings.ItemsPerPage,
                     redirectPath = !String.IsNullOrEmpty(SearchSettings.RedirectNodeURL) ? SearchSettings.RedirectNodeURL : "",
                     excludeUrls = !String.IsNullOrEmpty(SearchSettings.ExcludeNodeIds) ? String.Join(",", NodeService.GetPathsByUdi(SearchSettings.ExcludeNodeIds)) : "",
