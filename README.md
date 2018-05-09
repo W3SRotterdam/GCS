@@ -6,7 +6,7 @@ This project was started since Google has announced that they will discontinue t
 
 ## Installation
 This plugin is made available as an `Umbraco package` to be directly installed via the backoffice.
-It's also made available via `Nuget` to be installed directly into your project. 
+It's also made available via `Nuget` to be added directly to your project. 
 
 ### Umbraco package
 
@@ -14,7 +14,7 @@ It's also made available via `Nuget` to be installed directly into your project.
 Login to the Umbraco backoffice and navigate to the Developers section. Search for `w3s google custom search` and install the package.
 After installation the GCS section is allowed for the administrator (alias: admin) group. If you're user account belongs to another user group the allow the GCS to be displayed.
 
-For more information about installation and configuration navigate to the readme that's available at the plugin section itself.
+For more information about configuration navigate to `GCS` > `Readme`.
 
 ### Using Nuget 
 The plugin is also available as Nuget package; https://www.nuget.org/packages/W3S-GCS/ 
