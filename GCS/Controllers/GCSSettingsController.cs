@@ -44,10 +44,12 @@ namespace W3S_GCS.App_Plugins.GCS.Controllers {
                 currentNode = UmbracoContext.ContentCache.GetById(currentDomain.RootContentId.Value);
                 SearchSettings.RedirectNodeURL = NodeService.GetRedirectNodeURL(currentNode, SearchSettings.RedirectAlias);
             } else {
-                IPublishedContent searchPage = UmbracoContext.ContentCache.GetAtRoot().FirstOrDefault().DescendantOrSelf(SearchSettings.RedirectAlias);
+                IPublishedContent rootNode = UmbracoContext.ContentCache.GetAtRoot().FirstOrDefault();
+                IPublishedContent searchPage = rootNode.DescendantOrSelf(SearchSettings.RedirectAlias);
 
                 if (searchPage != null) {
-                    SearchSettings.RedirectNodeURL = UmbracoContext.ContentCache.GetAtRoot().FirstOrDefault().DescendantOrSelf(SearchSettings.RedirectAlias).Url;
+                    currentNode = rootNode;
+                    SearchSettings.RedirectNodeURL = searchPage.Url;
                 }
             }
 

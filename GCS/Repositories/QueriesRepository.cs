@@ -21,7 +21,9 @@ namespace W3S_GCS.Repositories {
         }
 
         public SearchEntry Create(SearchEntry entry) {
-            _umDb.Save(entry);
+            if (!String.IsNullOrEmpty(entry.Query)) {
+                _umDb.Save(entry);
+            }
             return entry;
             //using (DBEntities db = new DBEntities()) {
             //    SearchEntry SearchEntry = db.SearchEntries.Add(entry);

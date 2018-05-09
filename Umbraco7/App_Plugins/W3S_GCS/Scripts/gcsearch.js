@@ -59,7 +59,7 @@
 
         addInputListeners();
 
-        if ($($(gcs.elements.results)[0]).is(":empty")) {
+        if ($($(gcs.elements.results)[0]).is(":empty") && gcs.query != "" && gcs.query != undefined && gcs.query != null) {
             showLoader();
             gcs.resources.performSearch(gcs.query, gcs.startIndex).then(function (data) {
                 setUpResult(data);
