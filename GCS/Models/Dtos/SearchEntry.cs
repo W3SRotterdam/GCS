@@ -15,10 +15,15 @@ namespace W3S_GCS.Models.Dtos {
         public DateTime Date { get; set; }
         public Int32 TotalCount { get; set; }
         public double Timing { get; set; }
+        [NullSetting(NullSetting = NullSettings.Null)]
         public String TopResultURL { get; set; }
+        [NullSetting(NullSetting = NullSettings.Null)]
         public String ClickURL { get; set; }
+        [NullSetting(NullSetting = NullSettings.Null)]
         public String ClickTitle { get; set; }
+        [NullSetting(NullSetting = NullSettings.Null)]
         public String HTMLSnippet { get; set; }
+        [NullSetting(NullSetting = NullSettings.Null)]
         public String CorrectedQuery { get; set; }
     }
 }
