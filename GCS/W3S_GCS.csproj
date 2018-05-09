@@ -169,6 +169,7 @@
     <Compile Include="Models\API\Spelling.cs" />
     <Compile Include="Models\DBEntities.cs" />
     <Compile Include="Models\Dtos\SearchEntry.cs" />
+    <Compile Include="Models\Dtos\SearchEntryStat.cs" />
     <Compile Include="Models\Dtos\SearchInstance.cs" />
     <Compile Include="Models\Dtos\SearchSettings.cs" />
     <Compile Include="Models\Enums\LoadMoreEnum.cs" />

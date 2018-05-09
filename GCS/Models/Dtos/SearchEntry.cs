@@ -25,5 +25,7 @@ namespace W3S_GCS.Models.Dtos {
         public String HTMLSnippet { get; set; }
         [NullSetting(NullSetting = NullSettings.Null)]
         public String CorrectedQuery { get; set; }
+        [Ignore]
+        public int Count { get; set; }
     }
 }

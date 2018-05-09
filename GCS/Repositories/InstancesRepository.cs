@@ -14,7 +14,7 @@ namespace W3S_GCS.Repositories {
         }
 
         public SearchInstance Get() {
-            return _umDb.Query<SearchInstance>("SELECT * FROM gcs_searchinstances").FirstOrDefault();
+            return _umDb.Query<SearchInstance>("SELECT * FROM gcs_searchinstance").FirstOrDefault();
             //using (DBEntities db = new DBEntities()) {
             //    return db.SearchInstance.FirstOrDefault();
             //}
