@@ -6,7 +6,7 @@ This project was started since Google has announced that they will discontinue t
 
 ## Installation
 This plugin is made available as an `Umbraco package` to be directly installed via the backoffice.
-It's also made available via `Nuget` to be intalled directly into your project. 
+It's also made available via `Nuget` to be installed directly into your project. 
 
 ### Umbraco package
 
