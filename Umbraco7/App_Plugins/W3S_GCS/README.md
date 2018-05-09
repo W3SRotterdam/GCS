@@ -12,16 +12,27 @@ Developed by https://w3s.nl
 ## Installation
 
 ### 1. Back office configuration
-After you've installed this plugin some mandatory configuration inside the GCS section needs to be done.
+After you've installed this plugin some mandatory configuration needs to be done.
 In the Umbraco backoffice navigate to GCS and configure the following fields:
 
 - `CX Key`            > The custom search engine ID to use for this request. Visit https://cse.google.com/all to create a new search engine and retrieve the token id.
 - `API Key`           > JSON/Atom Custom Search API requires the use of an API key. Go to https://console.developers.google.com/apis/credentials to create an API key or to retrieve one. Do not forget to enable the Google Custom Search API via Library.
 
-### 2. Add search node to the tree
-Allow the `Search` document type to be created underneath content of any desired type in the `Developers` section. Then add a search page to the node tree.
+### 2. Single domain configuration
+If you're running an umbraco installation with just one website follow these steps:
 
-### 3. Configure the templates
+- 1 Allow the `Search` document type to be created underneath the root node of your website. This can be done via the `Developers` section.
+- 2 Add the search page to the node tree.
+
+
+### 3. Multiple domain configuration
+If you're running a single umbraco installation which serves multiple websites follow these steps:
+
+- 1 Check if the domain names are correctly configured at the top level (homepage) of the content tree. This can be done in the context menu via `Culture and Hostnames`.
+- 2 Allow the `Search` document type to be created underneath the root nodes of your website.
+- 3 Add a search node below each root node of the domain to allow search results to be appended.
+
+### 4. Configure the templates
 A basic installation of GCS needs two html elements to be inserted in the template files.
 
 ##### 3.1 Search input
@@ -120,8 +131,6 @@ Show a preloader icon while the search results are retrieved.
 </div>
 ```
 
-### 4. Add domains to the cultures & hostnames 
-The plugin requires the domain names to be configured at the top level (homepage) of the content tree if you wish to search through multiple domains.
 
 ### 5. Styling 
 To add an additional layer of styling please refer to this overview of all classes that are used throughout the plugin.
