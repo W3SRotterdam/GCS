@@ -52,7 +52,7 @@ Secondly, to append the search results the following element is already added to
 
 <br />
 
-This above basic installation covers a most fundamental implementation of the GCS module. More functionalities are available such as a lazy loader, pagination, search button etc.
+The above basic installation covers a most fundamental implementation of the GCS module. More functionalities are available such as a lazy loader, pagination, search button etc.
 The elements below are already added to the template that belongs to the `Search` document type.
 
 <br />
