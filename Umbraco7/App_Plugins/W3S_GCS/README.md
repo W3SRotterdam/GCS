@@ -21,12 +21,13 @@ In the Umbraco backoffice navigate to GCS and configure the following fields:
 
 - `CX Key`            > The custom search engine ID to use for this request. Visit **<https://cse.google.com/all>** to create a new search engine and retrieve the token id.
 - `API Key`           > JSON/Atom Custom Search API requires the use of an API key. Go to **<https://console.developers.google.com/apis/credentials>** to create an API key or to retrieve one. Do not forget to enable the Google Custom Search API via Library.
+- `Development URL`  > If the application is running on a development domain enter the URL of the domain you which to search (as configured in the custom search engine). Note that this is only intended for testing purposes. When running a umbraco application with multiple websites refer to "2B Multiple domain configuration"
 
 ### 2 A Single domain configuration
 If you're running an umbraco installation with just one website follow these steps:
 
 - 1 Allow the `Search` document type to be created underneath the root node of your website. This can be done via the `Developer` section.
-- 2 Add the search page to directly beneath the root node of your website. 
+- 2 Add the search page to directly beneath the root node of your website.  
 
 
 ### 2 B Multiple domain configuration
@@ -51,7 +52,9 @@ Copy the following snippet anywhere in one of your templates to add a search inp
 <br/>
 
 
-### 4. Configure the templates
+## Optional
+
+### 1. Further template configuration
 The above basic installation covers a most fundamental implementation of the GCS module. If you wish to add more functionalities such as lazy loading, pagination, corrected queries etc.
 you can add additional elements to your search template file.
 
@@ -130,7 +133,7 @@ Show a preloader icon while the search results are retrieved.
 ```
 
 
-### 5. Styling 
+### 2. Styling 
 To add an additional layer of styling navigate to '`stylesheets` > `w3s-gcs`.  
 Below you may can an overview of all classes used throughout the plugin:
 
