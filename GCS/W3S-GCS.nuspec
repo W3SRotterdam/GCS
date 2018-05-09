@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>W3S-GCS</id>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <title>W3S</title>
     <authors>W3S Google Custom Search</authors>
     <owners>W3S</owners>
