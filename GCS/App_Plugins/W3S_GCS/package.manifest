@@ -5,7 +5,7 @@
         "~/app_plugins/w3s_gcs/scripts/edit.controller.js",
         "~/app_plugins/w3s_gcs/scripts/stats.controller.js",
         "~/app_plugins/w3s_gcs/scripts/readme.controller.js",
-        "~/app_plugins/w3s_gcs/scripts/lib/showdown.min.js"
+        "~/app_plugins/w3s_gcs/scripts/lib/showdown.js"
     ],
     "css": [
         "~/app_plugins/w3s_gcs/content/css/gcs.css"
