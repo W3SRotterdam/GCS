@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Net.Http.Formatting;
+﻿using System.Net.Http.Formatting;
 using Umbraco.Web.Models.Trees;
 using Umbraco.Web.Mvc;
 using Umbraco.Web.Trees;
@@ -14,9 +13,7 @@ namespace W3S_GCS.Controllers.Trees {
             if (id == "-1") {
                 nodes.Add(this.CreateTreeNode("dashboard", id, queryStrings, "Settings", "icon-umb-settings", false, "/GCS/GCS/Edit/settings/1"));
                 nodes.Add(this.CreateTreeNode("dashboard", id, queryStrings, "Statistics", "icon-bars", false, "/GCS/GCS/Stats/statistics/1"));
-                if (Umbraco.UmbracoContext.Security.CurrentUser.Groups.Where(g => g.Alias == "administrator") != null) {
-                    nodes.Add(this.CreateTreeNode("dashboard", id, queryStrings, "Readme", "icon-book-alt-2", false, "/GCS/GCS/ReadMe/readme/1"));
-                }
+                nodes.Add(this.CreateTreeNode("dashboard", id, queryStrings, "Readme", "icon-book-alt-2", false, "/GCS/GCS/ReadMe/readme/1"));
             }
 
             return nodes;
