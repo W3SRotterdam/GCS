@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 using umbraco.interfaces;
@@ -36,10 +37,10 @@ namespace W3S_GCS.Installer {
 
         public bool Execute(string packageName, XmlNode xmlData) {
             try {
-                LogHelper.Info(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "Executing package actions");
+                LogHelper.Info(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "GCS Executing package actions");
                 return InitDatabase();
             } catch (Exception ex) {
-                LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "INSTALL Package Error", ex);
+                LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "GCS INSTALL Package Error", ex);
                 return false;
             }
         }
@@ -58,57 +59,65 @@ namespace W3S_GCS.Installer {
                 }
             } else if (_dbCtx.Database.Query<object>(@"SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'umbracoUser2app'").Count() > 0) {
                 int adminId = _umDb.Query<int>(@"SELECT Id from umbracoUserType WHERE userTypeAlias = 'admin'").FirstOrDefault();
+                List<int> userIds = _umDb.Query<int>(@"SELECT Id from umbracoUser WHERE userType = @0", adminId).ToList();
 
-                if (adminId > 0) {
-                    if (_dbCtx.Database.Query<object>(@"SELECT * FROM umbracoUser2app WHERE user = @0 AND app = @1)", adminId, "GCS").Count() < 1) {
-                        _dbCtx.Database.Execute(@"insert umbracoUser2app values(@0, @1)", adminId, "GCS");
+                if (userIds.Count > 0) {
+
+                    foreach (var id in userIds) {
+                        if (_dbCtx.Database.Query<object>(@"SELECT * FROM umbracoUser2app WHERE [user] = @0 AND app = @1", id, "GCS").Count() < 1) {
+                            _dbCtx.Database.Execute(@"insert umbracoUser2app values(@0, @1)", id, "GCS");
+                        }
                     }
                 }
             }
 
             if (!_dbH.TableExist("gcs_searchsettings") && !_dbH.TableExist("gcs_searchinstance") && !_dbH.TableExist("gcs_searchentry")) {
-                _dbH.CreateTable<SearchEntry>(false);
-                _dbH.CreateTable<SearchSettings>(false);
+                try {
+                    _dbH.CreateTable<SearchEntry>(false);
+                    _dbH.CreateTable<SearchSettings>(false);
 
-                var settings = _umDb.Insert(new SearchSettings() {
-                    APIKey = "",
-                    CurrentURL = "",
-                    CXKey = "",
-                    DateCreated = DateTime.Now,
-                    DevelopmentURL = "",
-                    ExcludeNodeIds = "",
-                    LastUpdated = DateTime.Now,
-                    DateRestrict = new DateTime(1970, 1, 1, 12, 0, 0, 0),
-                    LoadIconGUID = "",
-                    RedirectNodeURL = "",
-                    ShowFilterFileType = false,
-                    ThumbnailFallbackGUID = "",
-                    BaseURL = "https://www.googleapis.com/customsearch/v1",
-                    RedirectAlias = "search",
-                    ItemsPerPage = 10,
-                    LoadMoreSetUp = "button",
-                    MaxPaginationPages = 6,
-                    ShowQuery = true,
-                    ShowTiming = true,
-                    ShowTotalCount = true,
-                    ShowSpelling = true,
-                    KeepQuery = true,
-                    ShowThumbnail = true,
+                    var settings = _umDb.Insert(new SearchSettings() {
+                        APIKey = "",
+                        CurrentURL = "",
+                        CXKey = "",
+                        DateCreated = DateTime.Now,
+                        DevelopmentURL = "",
+                        ExcludeNodeIds = "",
+                        LastUpdated = DateTime.Now,
+                        DateRestrict = new DateTime(1970, 1, 1, 12, 0, 0, 0),
+                        LoadIconGUID = "",
+                        RedirectNodeURL = "",
+                        ShowFilterFileType = false,
+                        ThumbnailFallbackGUID = "",
+                        BaseURL = "https://www.googleapis.com/customsearch/v1",
+                        RedirectAlias = "search",
+                        ItemsPerPage = 10,
+                        LoadMoreSetUp = "button",
+                        MaxPaginationPages = 6,
+                        ShowQuery = true,
+                        ShowTiming = true,
+                        ShowTotalCount = true,
+                        ShowSpelling = true,
+                        KeepQuery = true,
+                        ShowThumbnail = true,
 
-                });
+                    });
 
-                _dbH.CreateTable<SearchInstance>(false);
+                    _dbH.CreateTable<SearchInstance>(false);
 
-                _umDb.Insert(new SearchInstance() {
-                    SettingsId = Int32.Parse(settings.ToString()),
-                    DateCreated = DateTime.Now.ToString(),
-                    Name = "GCS " + settings.ToString()
-                });
+                    _umDb.Insert(new SearchInstance() {
+                        SettingsId = Int32.Parse(settings.ToString()),
+                        DateCreated = DateTime.Now.ToString(),
+                        Name = "GCS " + settings.ToString()
+                    });
 
-                //_umDb.Query<bool>(GetInitializationQuery());
-                //_umDb.Query<bool>(GetSeederQuery(), new {
-                //    dateNow = DateTime.Now.ToString()
-                //});
+                    //_umDb.Query<bool>(GetInitializationQuery());
+                    //_umDb.Query<bool>(GetSeederQuery(), new {
+                    //    dateNow = DateTime.Now.ToString()
+                    //});
+                } catch (Exception ex) {
+                    LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "GCS db Error", ex);
+                }
             }
 
             return true;

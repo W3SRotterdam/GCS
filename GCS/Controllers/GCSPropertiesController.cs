@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
+using Umbraco.Core.Logging;
 using Umbraco.Web.Models.ContentEditing;
 using Umbraco.Web.Mvc;
 using W3S_GCS.Models.Dtos;
@@ -44,289 +45,308 @@ namespace W3S_GCS.Controllers {
         }
 
         private String GetSettingsProperties() {
-            List<ContentPropertyDisplay> authProperties = new List<ContentPropertyDisplay> {
-                new ContentPropertyDisplay {
-                    Alias = "baseUrl",
-                    Description = "Enter the Google Custom Search API base URL. For more information visit <a href='https://developers.google.com/custom-search/json-api/v1/overview'>Google Custom Search JSON/Atom API.</a>",
-                    HideLabel = false,
-                    Label = "BaseURL",
-                    Validation = new PropertyTypeValidation {Mandatory = true, Pattern = null},
-                    View = "textbox",
-                    Value = settings.BaseURL
-                },
-                new ContentPropertyDisplay {
-                    Alias = "cxKey",
-                    Description = "The custom search engine ID to use for this request. Go to <a href='https://cse.google.com/all' target='_blank'>Google CS console</a> to get the token.",
-                    HideLabel = false,
-                    Label = "CX Key",
-                    Validation = new PropertyTypeValidation {Mandatory = true, Pattern = null},
-                    Value = settings.CXKey,
-                    View = "textbox"
-                },
-                new ContentPropertyDisplay {
-                    Alias = "apiKey",
-                    Description = "JSON/Atom Custom Search API requires the use of an API key. Go to <a href='https://console.developers.google.com/apis/credentials' target='_blank'>Google API console</a>  to create an API key or to retrieve one.",
-                    HideLabel = false,
-                    Label = "API Key",
-                    Validation = new PropertyTypeValidation {Mandatory = true, Pattern = null},
-                    Value = settings.APIKey,
-                    View = "textbox"
-                },
-                new ContentPropertyDisplay {
-                    Alias = "redirectAlias",
-                    Description = "Enter the document type alias of the search results page.",
-                    HideLabel = false,
-                    Label = "Redirect alias",
-                    Validation = new PropertyTypeValidation {Mandatory = true, Pattern = null},
-                    Value = settings.RedirectAlias,
-                    View = "textbox"
-                },
-                new ContentPropertyDisplay {
-                    Alias = "developmentURL",
-                    Description = "When working on a environment other than the production environment enter the absolute (including scheme) indexed domain name.",
-                    HideLabel = false,
-                    Label = "Development URL",
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.DevelopmentURL,
-                    View = "textbox"
-                },
-            };
-
-            List<ContentPropertyDisplay> basicProperties = new List<ContentPropertyDisplay> {
-                new ContentPropertyDisplay {
-                    Alias = "itemsPerPage",
-                    Description = "The number of search results displayed per page.",
-                    HideLabel = false,
-                    Config = new Dictionary<String, Object>() {
-                        { "minNumber", "1" },
-                        { "maxNumber", "99" }
+            try {
+                List<ContentPropertyDisplay> authProperties = new List<ContentPropertyDisplay> {
+                    new ContentPropertyDisplay {
+                        Alias = "baseUrl",
+                        Description = "Enter the Google Custom Search API base URL. For more information visit <a href='https://developers.google.com/custom-search/json-api/v1/overview'>Google Custom Search JSON/Atom API.</a>",
+                        HideLabel = false,
+                        Label = "BaseURL",
+                        Validation = new PropertyTypeValidation {Mandatory = true, Pattern = null},
+                        View = "textbox",
+                        Value = settings.BaseURL
                     },
-                    Label = "Items per page",
-                    Validation = new PropertyTypeValidation {Mandatory = true, Pattern = null},
-                    Value = settings.ItemsPerPage,
-                    View = "integer"
-                },
-                new ContentPropertyDisplay {
-                    Alias = "loadMoreSetUp",
-                    Description = "Configure the way in which you want your users to load more search results.",
-                    HideLabel = false,
-                    Config = new Dictionary<String, Object>() {
-                        { "items", new { Button = "Button", Pagination = "Pagination", Infinite = "Infinite scroll" } },
-                        { "multiple", "false" }
+                    new ContentPropertyDisplay {
+                        Alias = "cxKey",
+                        Description = "The custom search engine ID to use for this request. Go to <a href='https://cse.google.com/all' target='_blank'>Google CS console</a> to get the token.",
+                        HideLabel = false,
+                        Label = "CX Key",
+                        Validation = new PropertyTypeValidation {Mandatory = true, Pattern = null},
+                        Value = settings.CXKey,
+                        View = "textbox"
                     },
-                    Label = "Load more set-up",
-                    Validation = new PropertyTypeValidation {Mandatory = true, Pattern = null},
-                    Value = settings.LoadMoreSetUp,
-                    View = "Dropdown"
-                },
-                new ContentPropertyDisplay {
-                    Alias = "maxPaginationPages",
-                    Description = "Configure the maximum amount of total pages (before and after the current active page) will be shown.",
-                    HideLabel = false,
-                    Label = "Maximum pagination pages",
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.MaxPaginationPages,
-                    View = "integer"
-                },
-                new ContentPropertyDisplay {
-                    Alias = "showQuery",
-                    Description = "Show the search term.",
-                    HideLabel = false,
-                    Label = "Show search term",
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.ShowQuery? "1" : "0",
-                    View = "boolean"
-                },
-                new ContentPropertyDisplay {
-                    Alias = "showTiming",
-                    Description = "Shows how long the search query took.",
-                    HideLabel = false,
-                    Label = "Show timing",
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.ShowTiming? "1" : "0",
-                    View = "boolean"
-                },
-                new ContentPropertyDisplay {
-                    Alias = "showTotalCount",
-                    Description = "Shows the total amount of search results.",
-                    HideLabel = false,
-                    Label = "Show total count",
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.ShowTotalCount? "1" : "0",
-                    View = "boolean"
-                },
-                new ContentPropertyDisplay {
-                    Alias = "showSpelling",
-                    Description = "Show a possible corrected query.",
-                    HideLabel = false,
-                    Label = "Show spelling",
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.ShowSpelling? "1" : "0",
-                    View = "boolean"
-                },
-                new ContentPropertyDisplay {
-                    Alias = "keepQuery",
-                    Description = "Keep the query in the input field after the search reqeusted is submitted and results are returned.",
-                    HideLabel = false,
-                    Label = "Keep query",
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.KeepQuery? "1" : "0",
-                    View = "boolean"
-                }
-            };
+                    new ContentPropertyDisplay {
+                        Alias = "apiKey",
+                        Description = "JSON/Atom Custom Search API requires the use of an API key. Go to <a href='https://console.developers.google.com/apis/credentials' target='_blank'>Google API console</a>  to create an API key or to retrieve one.",
+                        HideLabel = false,
+                        Label = "API Key",
+                        Validation = new PropertyTypeValidation {Mandatory = true, Pattern = null},
+                        Value = settings.APIKey,
+                        View = "textbox"
+                    },
+                    new ContentPropertyDisplay {
+                        Alias = "redirectAlias",
+                        Description = "Enter the document type alias of the search results page.",
+                        HideLabel = false,
+                        Label = "Redirect alias",
+                        Validation = new PropertyTypeValidation {Mandatory = true, Pattern = null},
+                        Value = settings.RedirectAlias,
+                        View = "textbox"
+                    },
+                    new ContentPropertyDisplay {
+                        Alias = "developmentURL",
+                        Description = "When working on a environment other than the production environment enter the absolute (including scheme) indexed domain name.",
+                        HideLabel = false,
+                        Label = "Development URL",
+                        Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
+                        Value = settings.DevelopmentURL,
+                        View = "textbox"
+                    },
+                };
 
-            List<ContentPropertyDisplay> filterProperties = new List<ContentPropertyDisplay> {
-                new ContentPropertyDisplay {
-                    Alias = "dateRestrict",
-                    Description = "Restricts results based on a given date. Only results will be shown which are created on or later than the specified date.",
-                    HideLabel = false,
-                    Label = "Date restriction",
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.DateRestrict,
-                    View = "datePicker"
-                },
-                new ContentPropertyDisplay {
-                    Alias = "showFilterFileType",
-                    Description = "Shows a filter to search through specific file types such as PDF or .docx",
-                    HideLabel = false,
-                    Label = "Show file type filter",
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.ShowFilterFileType ? "1" : "0",
-                    View = "boolean"
-                },
-                new ContentPropertyDisplay {
-                        Alias = "excludeNodeIds",
-                        Description = "Select the nodes to be excluded from the search results",
+                List<ContentPropertyDisplay> basicProperties = new List<ContentPropertyDisplay> {
+                    new ContentPropertyDisplay {
+                        Alias = "itemsPerPage",
+                        Description = "The number of search results displayed per page.",
                         HideLabel = false,
                         Config = new Dictionary<String, Object>() {
-                            { "multiPicker", "1" },
-                            { "showOpenButton", "0" },
-                            { "showEditButton", "0" },
-                            { "showPathOnHover", "0" },
-                            { "startNode",  new Dictionary<String, Object>() { { "query", "" }, { "type", "content" }, { "id", "-1" } } },
-                            { "startNodeId", "-1" },
-                            { "idType", "udi" }
-                           },
-                        Editor = "Umbraco.ContentPicker2",
-                        Label = "Exclude nodes",
+                            { "minNumber", "1" },
+                            { "maxNumber", "99" }
+                        },
+                        Label = "Items per page",
+                        Validation = new PropertyTypeValidation {Mandatory = true, Pattern = null},
+                        Value = settings.ItemsPerPage,
+                        View = "integer"
+                    },
+                    new ContentPropertyDisplay {
+                        Alias = "loadMoreSetUp",
+                        Description = "Configure the way in which you want your users to load more search results.",
+                        HideLabel = false,
+                        Config = new Dictionary<String, Object>() {
+                            { "items", new { Button = "Button", Pagination = "Pagination", Infinite = "Infinite scroll" } },
+                            { "multiple", "false" }
+                        },
+                        Label = "Load more set-up",
+                        Validation = new PropertyTypeValidation {Mandatory = true, Pattern = null},
+                        Value = settings.LoadMoreSetUp,
+                        View = "Dropdown"
+                    },
+                    new ContentPropertyDisplay {
+                        Alias = "maxPaginationPages",
+                        Description = "Configure the maximum amount of total pages (before and after the current active page) will be shown.",
+                        HideLabel = false,
+                        Label = "Maximum pagination pages",
                         Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                        Value = settings.ExcludeNodeIds,
-                        View = "contentpicker"
-                },
-            };
-
-            List<ContentPropertyDisplay> stylingFilterProperties = new List<ContentPropertyDisplay> {
-                new ContentPropertyDisplay {
-                    Alias = "showThumbnail",
-                    Description = "Shows the thumbnail image that is stored in GCS metadata.",
-                    HideLabel = false,
-                    Label = "Show thumbnail",
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.ShowThumbnail ? "1" : "0",
-                    View = "boolean"
-                },
-                new ContentPropertyDisplay {
-                    Label = "Thumbnail fallback",
-                    Description = "Image to show when no suitable thumbnail image is found is GCS metadata.",
-                    View = "mediapicker",
-                    Config = new Dictionary<String, Object>() {
-                        { "startNodeId", -1 },
-                        { "idType", "udi" },
-                        { "multiPicker", "" },
-                        { "startNodeIsVirtual", false },
-                        { "onlyImages", "" },
-                        { "disableFolderSelect", "" }
+                        Value = settings.MaxPaginationPages,
+                        View = "integer"
                     },
-                    HideLabel = false,
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.ThumbnailFallbackGUID,
-                    Alias = "thumbnailFallbackGUID",
-                    Editor = "Umbraco.MediaPicker2",
-                },
-                new ContentPropertyDisplay {
-                    Alias = "loadIconGUID",
-                    Description = "Preloader icon.",
-                    Config = new Dictionary<String, Object>() {
-                        { "startNodeId", -1 },
-                        { "idType", "udi" }
+                    new ContentPropertyDisplay {
+                        Alias = "showQuery",
+                        Description = "Show the search term.",
+                        HideLabel = false,
+                        Label = "Show search term",
+                        Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
+                        Value = settings.ShowQuery? "1" : "0",
+                        View = "boolean"
                     },
-                    Editor = "Umbraco.MediaPicker2",
-                    HideLabel = false,
-                    Label = "Preloader icon",
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.LoadIconGUID,
-                    View = "mediapicker"
-                }
-            };
+                    new ContentPropertyDisplay {
+                        Alias = "showTiming",
+                        Description = "Shows how long the search query took.",
+                        HideLabel = false,
+                        Label = "Show timing",
+                        Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
+                        Value = settings.ShowTiming? "1" : "0",
+                        View = "boolean"
+                    },
+                    new ContentPropertyDisplay {
+                        Alias = "showTotalCount",
+                        Description = "Shows the total amount of search results.",
+                        HideLabel = false,
+                        Label = "Show total count",
+                        Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
+                        Value = settings.ShowTotalCount? "1" : "0",
+                        View = "boolean"
+                    },
+                    new ContentPropertyDisplay {
+                        Alias = "showSpelling",
+                        Description = "Show a possible corrected query.",
+                        HideLabel = false,
+                        Label = "Show spelling",
+                        Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
+                        Value = settings.ShowSpelling? "1" : "0",
+                        View = "boolean"
+                    },
+                    new ContentPropertyDisplay {
+                        Alias = "keepQuery",
+                        Description = "Keep the query in the input field after the search reqeusted is submitted and results are returned.",
+                        HideLabel = false,
+                        Label = "Keep query",
+                        Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
+                        Value = settings.KeepQuery? "1" : "0",
+                        View = "boolean"
+                    }
+                };
 
-            List<ContentPropertyDisplay> genericProperties = new List<ContentPropertyDisplay> {
-                new ContentPropertyDisplay {
-                    Alias = "lastUpdated",
-                    Description = "",
-                    HideLabel = false,
-                    Label = "Last updated",
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.LastUpdated != null ? settings.LastUpdated.Value.ToString("yyyy-MM-dd") : "",
-                    View = "readonlyvalue"
-                },
-                new ContentPropertyDisplay {
-                    Alias = "dateCreated",
-                    Description = "",
-                    HideLabel = false,
-                    Label = "Date Created",
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.DateCreated != null ? settings.DateCreated.Value.ToString("yyyy-MM-dd") : "",
-                    View = "readonlyvalue"
-                },
-                 new ContentPropertyDisplay {
-                    Alias = "id",
-                    Description = "",
-                    HideLabel = false,
-                    Label = "Settings ID",
-                    Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
-                    Value = settings.Id.ToString(),
-                    View = "readonlyvalue"
-                },
-            };
+                List<ContentPropertyDisplay> filterProperties = new List<ContentPropertyDisplay> {
+                    new ContentPropertyDisplay {
+                        Alias = "dateRestrict",
+                        Description = "Restricts results based on a given date. Only results will be shown which are created on or later than the specified date.",
+                        HideLabel = false,
+                        Label = "Date restriction",
+                        Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
+                        Value = settings.DateRestrict,
+                        View = "datePicker"
+                    },
+                    new ContentPropertyDisplay {
+                        Alias = "showFilterFileType",
+                        Description = "Shows a filter to search through specific file types such as PDF or .docx",
+                        HideLabel = false,
+                        Label = "Show file type filter",
+                        Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
+                        Value = settings.ShowFilterFileType ? "1" : "0",
+                        View = "boolean"
+                    },
+                    new ContentPropertyDisplay {
+                            Alias = "excludeNodeIds",
+                            Description = "Select the nodes to be excluded from the search results",
+                            HideLabel = false,
+                            Config = new Dictionary<String, Object>() {
+                                { "multiPicker", "1" },
+                                { "showOpenButton", "0" },
+                                { "showEditButton", "0" },
+                                { "showPathOnHover", "0" },
+                                { "startNode",  new Dictionary<String, Object>() { { "query", "" }, { "type", "content" }, { "id", "-1" } } },
+                                { "startNodeId", "-1" },
+                                { "idType", "udi" }
+                               },
+                            Editor = "Umbraco.ContentPicker2",
+                            Label = "Exclude nodes",
+                            Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
+                            Value = settings.ExcludeNodeIds,
+                            View = "contentpicker"
+                    },
+                };
 
-            List<Tab<ContentPropertyDisplay>> tabs = new List<Tab<ContentPropertyDisplay>> {
-                new Tab<ContentPropertyDisplay> {
-                    Id = 0,
-                    Label = "Authentication",
-                    Properties = authProperties
-                },
-                new Tab<ContentPropertyDisplay> {
-                    Id = 1,
-                    Label = "Set-up",
-                    Properties = basicProperties
-                },
-                new Tab<ContentPropertyDisplay>() {
-                    Id = 2,
-                    Label = "Filters",
-                    Properties = filterProperties
-                },
-                new Tab<ContentPropertyDisplay>() {
-                    Id = 3,
-                    Label = "Styling",
-                    Properties = stylingFilterProperties
-                },
-                new Tab<ContentPropertyDisplay>() {
-                    Id = 4,
-                    Label = "Generic",
-                    Properties = genericProperties
-                },
-            };
+                List<ContentPropertyDisplay> stylingFilterProperties = new List<ContentPropertyDisplay> {
+                    new ContentPropertyDisplay {
+                        Alias = "showThumbnail",
+                        Description = "Shows the thumbnail image that is stored in GCS metadata.",
+                        HideLabel = false,
+                        Label = "Show thumbnail",
+                        Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
+                        Value = settings.ShowThumbnail ? "1" : "0",
+                        View = "boolean"
+                    },
+                    new ContentPropertyDisplay {
+                        Label = "Thumbnail fallback",
+                        Description = "Image to show when no suitable thumbnail image is found is GCS metadata.",
+                        View = "mediapicker",
+                        Config = new Dictionary<String, Object>() {
+                            { "startNodeId", -1 },
+                            { "idType", "udi" },
+                            { "multiPicker", "" },
+                            { "startNodeIsVirtual", false },
+                            { "onlyImages", "" },
+                            { "disableFolderSelect", "" }
+                        },
+                        HideLabel = false,
+                        Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
+                        Value = settings.ThumbnailFallbackGUID,
+                        Alias = "thumbnailFallbackGUID",
+                        Editor = "Umbraco.MediaPicker2",
+                    },
+                    new ContentPropertyDisplay {
+                        Alias = "loadIconGUID",
+                        Description = "Preloader icon.",
+                        Config = new Dictionary<String, Object>() {
+                            { "startNodeId", -1 },
+                            { "idType", "udi" }
+                        },
+                        Editor = "Umbraco.MediaPicker2",
+                        HideLabel = false,
+                        Label = "Preloader icon",
+                        Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
+                        Value = settings.LoadIconGUID,
+                        View = "mediapicker"
+                    }
+                };
 
-            ContentItemDisplay contentItemDisplay = new ContentItemDisplay();
-            //contentItemDisplay.Id = 1;
-            contentItemDisplay.Name = "Settings";
-            contentItemDisplay.Tabs = tabs;
+                List<ContentPropertyDisplay> genericProperties = new List<ContentPropertyDisplay> {
+                    new ContentPropertyDisplay {
+                        Alias = "lastUpdated",
+                        Description = "",
+                        HideLabel = false,
+                        Label = "Last updated",
+                        Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
+                        Value = settings.LastUpdated != null ? settings.LastUpdated.Value.ToString("yyyy-MM-dd") : "",
+                        View = "readonlyvalue"
+                    },
+                    new ContentPropertyDisplay {
+                        Alias = "dateCreated",
+                        Description = "",
+                        HideLabel = false,
+                        Label = "Date Created",
+                        Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
+                        Value = settings.DateCreated != null ? settings.DateCreated.Value.ToString("yyyy-MM-dd") : "",
+                        View = "readonlyvalue"
+                    },
+                     new ContentPropertyDisplay {
+                        Alias = "id",
+                        Description = "",
+                        HideLabel = false,
+                        Label = "Settings ID",
+                        Validation = new PropertyTypeValidation {Mandatory = false, Pattern = null},
+                        Value = settings.Id.ToString(),
+                        View = "readonlyvalue"
+                    },
+                };
 
-            var JsonSettings = new JsonSerializerSettings();
-            JsonSettings.ContractResolver = new LowercaseContractResolver();
-            var json = JsonConvert.SerializeObject(contentItemDisplay, Formatting.Indented, JsonSettings);
+                List<Tab<ContentPropertyDisplay>> tabs = new List<Tab<ContentPropertyDisplay>> {
+                    new Tab<ContentPropertyDisplay> {
+                        Id = 0,
+                        Label = "Authentication",
+                        Properties = authProperties
+                    },
+                    new Tab<ContentPropertyDisplay> {
+                        Id = 1,
+                        Label = "Set-up",
+                        Properties = basicProperties
+                    },
+                    new Tab<ContentPropertyDisplay>() {
+                        Id = 2,
+                        Label = "Filters",
+                        Properties = filterProperties
+                    },
+                    new Tab<ContentPropertyDisplay>() {
+                        Id = 3,
+                        Label = "Styling",
+                        Properties = stylingFilterProperties
+                    },
+                    new Tab<ContentPropertyDisplay>() {
+                        Id = 4,
+                        Label = "Generic",
+                        Properties = genericProperties
+                    },
+                };
 
-            return json;
+                ContentItemDisplay contentItemDisplay = new ContentItemDisplay();
+                //contentItemDisplay.Id = 1;
+                contentItemDisplay.Name = "Settings";
+                contentItemDisplay.Tabs = tabs;
+
+                var JsonSettings = new JsonSerializerSettings();
+                JsonSettings.ContractResolver = new LowercaseContractResolver();
+                var json = JsonConvert.SerializeObject(contentItemDisplay, Formatting.Indented, JsonSettings);
+
+                return json;
+            } catch (Exception ex) {
+                LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "GCS Error Get Properties", ex);
+
+                ContentItemDisplay contentItemDisplay = new ContentItemDisplay();
+                contentItemDisplay.Name = "Settings";
+                contentItemDisplay.Tabs = new List<Tab<ContentPropertyDisplay>> {
+                     new Tab<ContentPropertyDisplay>() {
+                        Id = 1,
+                        Label = "Settings",
+                    }
+                };
+
+                var JsonSettings = new JsonSerializerSettings();
+                JsonSettings.ContractResolver = new LowercaseContractResolver();
+                var json = JsonConvert.SerializeObject(contentItemDisplay, Formatting.Indented, JsonSettings);
+
+                return json;
+            }
         }
 
         private String GetStatisticsProperties() {

@@ -236,11 +236,18 @@ namespace W3S_GCS.Controllers {
             };
         }
 
-        public bool CheckDb() {
+        public JsonResult CheckDb() {
+            bool success = false;
             if (_dbCtx.Database.Query<object>(@"SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'gcs_searchsettings'").Count() > 0) {
-                return true;
+                success = true;
             }
-            return false;
+
+            return new JsonResult() {
+                Data = new {
+                    Success = success
+                },
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
         }
 
         public bool InitDb() {
