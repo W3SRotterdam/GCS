@@ -4,13 +4,13 @@
         $scope.dbError = false;
 
         GCSResources.CheckDb().then(function (data) {
-            if (data.Success == true) {
+            console.log("checkdb data", data);
+            if (data.data.Success == true) {
                 $scope.dbError = false;
             } else {
                 $scope.dbError = true;
             }
         });
-
 
         $scope.initDb = function (e) {
             GCSResources.InitDb().then(function (data) {
