@@ -14,7 +14,7 @@
 
         $scope.initDb = function (e) {
             GCSResources.InitDb().then(function (data) {
-
+                location.reload()
             });
         };
 
