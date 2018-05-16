@@ -18,6 +18,12 @@
         },
         GetReadMe: function () {
             return $http.get("/umbraco/surface/GCSearch/ReadMe");
+        },
+        CheckDb: function () {
+            return $http.get("/umbraco/surface/GCSearch/CheckDb");
+        },
+        InitDb: function () {
+            return $http.get("/umbraco/surface/GCSearch/InitDb");
         }
     };
 });

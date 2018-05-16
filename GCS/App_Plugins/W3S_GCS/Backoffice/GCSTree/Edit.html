@@ -17,6 +17,20 @@
                         <umb-editor model="property"></umb-editor>
                     </umb-property>
                 </div>
+                <div>
+                    <div ng-if="dbError">
+                        <p>The database was not correctly configured. Please check if the database user has the permission to write to the database and insert new tables.</p>
+                        <p>Required roled:</p>
+                        <ul>
+                            <li>db_datareader</li>
+                            <li>db_datawriter</li>
+                            <li>db_ddladmin</li>
+                        </ul>
+                        <button class="btn btn-success" ng-click="initDb">
+                            Reinitialize database
+                        </button>
+                    </div>
+                </div>
                 <div class="btn__save" detect-fold>
                     <div class="btn-group">
                         <button data-hotkey="ctrl+s" class="btn btn-success">

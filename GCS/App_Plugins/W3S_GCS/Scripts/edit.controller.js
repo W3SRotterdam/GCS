@@ -1,6 +1,19 @@
 ﻿angular.module("umbraco").controller("W3S.GCS.EditController",
     function ($scope, $routeParams, $location, $http, GCSResources, notificationsService, editorState) {
         $scope.loaded = false;
+        $scope.dbError = false;
+
+        GCSResources.CheckDb().then(function (data) {
+            if (!data.data) {
+                $scope.dbError = true
+            }
+        });
+
+        $scope.initDb = function (e) {
+            GCSResources.InitDb().then(function (data) {
+
+            });
+        };
 
         GCSResources.GetProperties($routeParams.alias).then(function (data) {
             $scope.content = data.data;

@@ -45,63 +45,73 @@ namespace W3S_GCS.Installer {
         }
 
         public static bool InitDatabase() {
-            try {
-                //if (GetGCSDataBaseExists()) {
-                //    throw new Exception("Table already exists.");
-                if (_dbH.TableExist("gcs_searchsettings") || _dbH.TableExist("gcs_searchinstance") && _dbH.TableExist("gcs_searchentry")) {
-                    throw new Exception("Table already exists.");
-                } else {
-                    _dbH.CreateTable<SearchEntry>(false);
-                    _dbH.CreateTable<SearchSettings>(false);
+            //if (GetGCSDataBaseExists()) {
+            //    throw new Exception("Table already exists.");
 
-                    var settings = _umDb.Insert(new SearchSettings() {
-                        APIKey = "",
-                        CurrentURL = "",
-                        CXKey = "",
-                        DateCreated = DateTime.Now,
-                        DevelopmentURL = "",
-                        ExcludeNodeIds = "",
-                        LastUpdated = DateTime.Now,
-                        DateRestrict = new DateTime(1970, 1, 1, 12, 0, 0, 0),
-                        LoadIconGUID = "",
-                        RedirectNodeURL = "",
-                        ShowFilterFileType = false,
-                        ThumbnailFallbackGUID = "",
-                        BaseURL = "https://www.googleapis.com/customsearch/v1",
-                        RedirectAlias = "search",
-                        ItemsPerPage = 10,
-                        LoadMoreSetUp = "button",
-                        MaxPaginationPages = 6,
-                        ShowQuery = true,
-                        ShowTiming = true,
-                        ShowTotalCount = true,
-                        ShowSpelling = true,
-                        KeepQuery = true,
-                        ShowThumbnail = true,
+            if (_dbCtx.Database.Query<object>(@"SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'umbracoUserGroup2App'").Count() > 0) {
+                int adminId = _umDb.Query<int>(@"SELECT Id from umbracoUserGroup WHERE userGroupAlias = 'admin'").FirstOrDefault();
 
-                    });
-
-                    _dbH.CreateTable<SearchInstance>(false);
-
-                    int adminId = _umDb.Query<int>(@"SELECT Id from umbracoUserGroup WHERE userGroupAlias = 'admin'").FirstOrDefault();
-                    _dbCtx.Database.Execute(@"insert umbracoUserGroup2App values(@0, @1)", adminId, "GCS");
-
-                    _umDb.Insert(new SearchInstance() {
-                        SettingsId = Int32.Parse(settings.ToString()),
-                        DateCreated = DateTime.Now.ToString(),
-                        Name = "GCS " + settings.ToString()
-                    });
-
-                    //_umDb.Query<bool>(GetInitializationQuery());
-                    //_umDb.Query<bool>(GetSeederQuery(), new {
-                    //    dateNow = DateTime.Now.ToString()
-                    //});
+                if (adminId > 0) {
+                    if (_dbCtx.Database.Query<object>(@"SELECT * FROM umbracoUserGroup2App WHERE userGroupId = @0 AND app = @1", adminId, "GCS").Count() < 1) {
+                        _dbCtx.Database.Execute(@"insert umbracoUserGroup2App values(@0, @1)", adminId, "GCS");
+                    }
                 }
-                return true;
-            } catch (Exception ex) {
-                LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "Db check error", ex);
-                return false;
+            } else if (_dbCtx.Database.Query<object>(@"SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'umbracoUser2app'").Count() > 0) {
+                int adminId = _umDb.Query<int>(@"SELECT Id from umbracoUserType WHERE userTypeAlias = 'admin'").FirstOrDefault();
+
+                if (adminId > 0) {
+                    if (_dbCtx.Database.Query<object>(@"SELECT * FROM umbracoUser2app WHERE user = @0 AND app = @1)", adminId, "GCS").Count() < 1) {
+                        _dbCtx.Database.Execute(@"insert umbracoUser2app values(@0, @1)", adminId, "GCS");
+                    }
+                }
             }
+
+            if (!_dbH.TableExist("gcs_searchsettings") && !_dbH.TableExist("gcs_searchinstance") && !_dbH.TableExist("gcs_searchentry")) {
+                _dbH.CreateTable<SearchEntry>(false);
+                _dbH.CreateTable<SearchSettings>(false);
+
+                var settings = _umDb.Insert(new SearchSettings() {
+                    APIKey = "",
+                    CurrentURL = "",
+                    CXKey = "",
+                    DateCreated = DateTime.Now,
+                    DevelopmentURL = "",
+                    ExcludeNodeIds = "",
+                    LastUpdated = DateTime.Now,
+                    DateRestrict = new DateTime(1970, 1, 1, 12, 0, 0, 0),
+                    LoadIconGUID = "",
+                    RedirectNodeURL = "",
+                    ShowFilterFileType = false,
+                    ThumbnailFallbackGUID = "",
+                    BaseURL = "https://www.googleapis.com/customsearch/v1",
+                    RedirectAlias = "search",
+                    ItemsPerPage = 10,
+                    LoadMoreSetUp = "button",
+                    MaxPaginationPages = 6,
+                    ShowQuery = true,
+                    ShowTiming = true,
+                    ShowTotalCount = true,
+                    ShowSpelling = true,
+                    KeepQuery = true,
+                    ShowThumbnail = true,
+
+                });
+
+                _dbH.CreateTable<SearchInstance>(false);
+
+                _umDb.Insert(new SearchInstance() {
+                    SettingsId = Int32.Parse(settings.ToString()),
+                    DateCreated = DateTime.Now.ToString(),
+                    Name = "GCS " + settings.ToString()
+                });
+
+                //_umDb.Query<bool>(GetInitializationQuery());
+                //_umDb.Query<bool>(GetSeederQuery(), new {
+                //    dateNow = DateTime.Now.ToString()
+                //});
+            }
+
+            return true;
         }
 
         public static bool GetGCSDataBaseExists() {

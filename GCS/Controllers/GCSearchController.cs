@@ -6,9 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Web.Mvc;
+using Umbraco.Core;
 using Umbraco.Core.Models;
+using Umbraco.Core.Persistence;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
+using W3S_GCS.Installer;
 using W3S_GCS.Models.API;
 using W3S_GCS.Models.Dtos;
 using W3S_GCS.Models.Filters;
@@ -24,6 +27,24 @@ namespace W3S_GCS.Controllers {
         private NodeService NodeService;
         private List<String> APIFields = new List<String>() { "searchInformation", "spelling", "items(title,link,htmlSnippet,formattedUrl)" };
         private UmbracoHelper uh = new UmbracoHelper(UmbracoContext.Current);
+
+        static DatabaseContext _dbCtx {
+            get {
+                return ApplicationContext.Current.DatabaseContext;
+            }
+        }
+
+        static UmbracoDatabase _umDb {
+            get {
+                return ApplicationContext.Current.DatabaseContext.Database;
+            }
+        }
+
+        static DatabaseSchemaHelper _dbH {
+            get {
+                return new DatabaseSchemaHelper(_dbCtx.Database, ApplicationContext.Current.ProfilingLogger.Logger, _dbCtx.SqlSyntax);
+            }
+        }
 
         public GCSearchController() {
             QueriesRepository = new QueriesRepository();
@@ -214,6 +235,18 @@ namespace W3S_GCS.Controllers {
                 Success = success
             };
         }
+
+        public bool CheckDb() {
+            if (_dbCtx.Database.Query<object>(@"SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'gcs_searchsettings'").Count() > 0) {
+                return true;
+            }
+            return false;
+        }
+
+        public bool InitDb() {
+            return PackageActions.InitDatabase();
+        }
+
 
         //[HttpGet]
         //public JsonResult Update() {
