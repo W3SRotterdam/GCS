@@ -27,6 +27,7 @@
             GCSResources.SaveSettings(populatePayload()).then(function (data) {
                 if (data.data.success) {
                     notificationsService.success("Succesfully saved settings.");
+                    $scope.gcs_edit.$setPristine();
                 } else {
                     notificationsService.error("Something went wrong. Please check if all mandatory fields are set.");
                 }
