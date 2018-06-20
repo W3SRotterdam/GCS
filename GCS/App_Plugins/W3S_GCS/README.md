@@ -151,7 +151,7 @@ Below you may can an overview of all classes used throughout the plugin:
 | .gcs\_searchquery | placeholder where the search term will be appended to |
 | .gcs\_timing | duration of the search |
 | .gcs\_results_count | total count of search results |
-| .gcs\_filetype_filter_select | select element of the filetype filter |
+| .gcs\_filetype_filter\_select | select element of the filetype filter |
 | .gcs\_spelling | corrected query if available | 
 | .gcs\_\_preloadericon | preloader icon shown when results are loaded | 
 | .gcs\_no-results | message if no results were found |
