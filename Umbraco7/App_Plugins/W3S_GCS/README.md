@@ -17,7 +17,7 @@ Developed by **<https://w3s.nl>**
 
 ### 1. Back office configuration
 After you've installed this plugin some mandatory configuration needs to be performed.
-Whilst in the Umbraco backoffice navigate to GCS > Settings and configure the following fields:
+Whilst in the Umbraco backoffice navigate to GCS > Settings and fill in the following fields:
 
 - `CX Key`            > The custom search engine ID to use for this request. Visit **<https://cse.google.com/all>** to create a new search engine and retrieve the token id.
 - `API Key`           > JSON/Atom Custom Search API requires the use of an API key. Visit **<https://console.developers.google.com/apis/credentials>** to create an API key or to retrieve an exisiting one. Do not forget to enable the Google Custom Search API via Library.
@@ -26,8 +26,8 @@ Whilst in the Umbraco backoffice navigate to GCS > Settings and configure the fo
 ### 2 A Single domain configuration
 If you're running an umbraco installation serving just one website then follow these steps:
 
-- 1 Allow the `Search` document type to be created in the content tree. This may me done via the `Settings` section.
-- 2 Add the search page beneath a node of your choice in the content tree.
+- 1 Allow the `Search` document type to be created in the content tree. This may me done via the `Settings` section. Click the document type of your choice, select permissions and allow the search child node to the list of allowed node types.
+- 2 Add the search page beneath a node of your choice in the content tree via the `Content` section.
 
 
 ### 2 B Multiple domain configuration
