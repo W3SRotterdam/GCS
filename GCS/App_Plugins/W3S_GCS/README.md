@@ -21,14 +21,12 @@ Whilst in the Umbraco backoffice navigate to GCS > Settings and configure the fo
 
 - `CX Key`            > The custom search engine ID to use for this request. Visit **<https://cse.google.com/all>** to create a new search engine and retrieve the token id.
 - `API Key`           > JSON/Atom Custom Search API requires the use of an API key. Visit **<https://console.developers.google.com/apis/credentials>** to create an API key or to retrieve an exisiting one. Do not forget to enable the Google Custom Search API via Library.
-
-Optional:
-- `Development URL`  > If the application is running on a development domain enter the URL of the domain you which to search (as configured in the custom search engine). Note that this is only intended for testing purposes. When running a umbraco application with multiple websites refer to "2B Multiple domain configuration"
+- `Development URL`  > Is the application running on a development environment/domain or in the development environment in Umbraco Cloud? Then enter the URL of the domain you which to search (as configured in the custom search engine > `Sites to search`)."
 
 ### 2 A Single domain configuration
 If you're running an umbraco installation serving just one website then follow these steps:
 
-- 1 Allow the `Search` document type to be created in the content tree. This may me done via the `Developer` section.
+- 1 Allow the `Search` document type to be created in the content tree. This may me done via the `Settings` section.
 - 2 Add the search page beneath a node of your choice in the content tree.
 
 
@@ -36,7 +34,7 @@ If you're running an umbraco installation serving just one website then follow t
 If you're running an umbraco installation which serves multiple websites follow these steps:
 
 - 1 Check if the domain names are correctly configured at the top level (homepage) of the content tree. This may be done in the context menu via `Culture and Hostnames`.
-- 2 Allow the `Search` document type to be created in the content tree. This may me done via the `Developer` section.
+- 2 Allow the `Search` document type to be created in the content tree. This may me done via the `Settings` section.
 - 3 Add a search node below each root node of the domain to allow search results to be appended.
 
 
