@@ -4,7 +4,6 @@
         $scope.dbError = false;
 
         GCSResources.CheckDb().then(function (data) {
-            console.log("checkdb data", data);
             if (data.data.Success == true) {
                 $scope.dbError = false;
             } else {
@@ -14,7 +13,7 @@
 
         $scope.initDb = function (e) {
             GCSResources.InitDb().then(function (data) {
-                location.reload()
+                location.reload();
             });
         };
 

@@ -4,37 +4,37 @@
 
 Google Custom Search plugin for Umbraco v7.x
 
-<br/>
 
 ## About
-This project was started since Google has announced that they will discontinue their Site Search service as of april 2018. As an alternative this plugin for Umbraco uses the Google Custom Search API to retrieve search results and display them on a page.
+This project was started since Google announced that they discontinued their Site Search service as of april 2018. As an alternative this plugin for Umbraco utilizes the Google Custom Search API to retrieve search results and display them on a page.
 
 Developed by **<https://w3s.nl>**
 
-<br/>
 
 ## Installation
 
 ### 1. Back office configuration
-After you've installed this plugin some mandatory configuration needs to be done.
-In the Umbraco backoffice navigate to GCS and configure the following fields:
+After you've installed this plugin some mandatory configuration needs to be performed.
+Whilst in the Umbraco backoffice navigate to GCS > Settings and configure the following fields:
 
 - `CX Key`            > The custom search engine ID to use for this request. Visit **<https://cse.google.com/all>** to create a new search engine and retrieve the token id.
-- `API Key`           > JSON/Atom Custom Search API requires the use of an API key. Go to **<https://console.developers.google.com/apis/credentials>** to create an API key or to retrieve one. Do not forget to enable the Google Custom Search API via Library.
+- `API Key`           > JSON/Atom Custom Search API requires the use of an API key. Visit **<https://console.developers.google.com/apis/credentials>** to create an API key or to retrieve an exisiting one. Do not forget to enable the Google Custom Search API via Library.
+
+Optional:
 - `Development URL`  > If the application is running on a development domain enter the URL of the domain you which to search (as configured in the custom search engine). Note that this is only intended for testing purposes. When running a umbraco application with multiple websites refer to "2B Multiple domain configuration"
 
 ### 2 A Single domain configuration
-If you're running an umbraco installation with just one website follow these steps:
+If you're running an umbraco installation serving just one website then follow these steps:
 
-- 1 Allow the `Search` document type to be created underneath the root node of your website. This can be done via the `Developer` section.
-- 2 Add the search page to directly beneath the root node of your website.  
+- 1 Allow the `Search` document type to be created in the content tree. This may me done via the `Developer` section.
+- 2 Add the search page beneath a node of your choice in the content tree.
 
 
 ### 2 B Multiple domain configuration
 If you're running an umbraco installation which serves multiple websites follow these steps:
 
-- 1 Check if the domain names are correctly configured at the top level (homepage) of the content tree. This can be done in the context menu via `Culture and Hostnames`.
-- 2 Allow the `Search` document type to be created underneath the root nodes of your website.
+- 1 Check if the domain names are correctly configured at the top level (homepage) of the content tree. This may be done in the context menu via `Culture and Hostnames`.
+- 2 Allow the `Search` document type to be created in the content tree. This may me done via the `Developer` section.
 - 3 Add a search node below each root node of the domain to allow search results to be appended.
 
 
@@ -43,16 +43,15 @@ If you're running an umbraco installation which serves multiple websites follow 
 Navigate to the search page you've just created and give it a try.
 
 You can add a search input anywhere in one of your website templates file where it will automatically redirect to the corresponding search page after a query.
-Copy the following snippet anywhere in one of your templates to add a search input field. 
+Copy the following snippet to one of your templates to add a new search input field. 
 
 ```
 <input type="text" class="gcs gcs_input" name="text" placeholder="">
 ```
 
-<br/>
 
 
-## Optional
+## Optional set-up
 
 ### 1. Further template configuration
 The above basic installation covers a most fundamental implementation of the GCS module. If you wish to add more functionalities such as lazy loading, pagination, corrected queries etc.
