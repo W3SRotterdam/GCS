@@ -42,12 +42,23 @@ If you're running an umbraco installation which serves multiple websites follow 
 
 Navigate to the search page you've just created and give it a try.
 
+<br/>
+
 You can add a search input anywhere in one of your website templates file where it will automatically redirect to the corresponding search page after a query.
-Copy the following snippet to one of your templates to add a new search input field. 
+Be sure to reference jquery and the gcsearch js files in your master or shared template.
+
+
+```
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" type="text/javascript"></script>
+<script src="~/App_Plugins/W3S_GCS/Scripts/gcsearch.js" type="text/javascript"></script>
+```
+
+Next, copy the following snippet to one of your templates to add a new search input field. 
 
 ```
 <input type="text" class="gcs gcs_input" name="text" placeholder="">
 ```
+
 
 <br/>
 
