@@ -4,12 +4,14 @@
 
 Google Custom Search plugin for Umbraco v7.x
 
+<br/>
 
 ## About
 This project was started since Google announced that they discontinued their Site Search service as of april 2018. As an alternative this plugin for Umbraco utilizes the Google Custom Search API to retrieve search results and display them on a page.
 
 Developed by **<https://w3s.nl>**
 
+<br/>
 
 ## Installation
 
@@ -49,7 +51,7 @@ Copy the following snippet to one of your templates to add a new search input fi
 <input type="text" class="gcs gcs_input" name="text" placeholder="">
 ```
 
-
+<br/>
 
 ## Optional set-up
 
@@ -131,9 +133,10 @@ Show a preloader icon while the search results are retrieved.
 </div>
 ```
 
+<br/>
 
 ### 2. Styling 
-To add an additional layer of styling navigate to '`stylesheets` > `w3s-gcs`.  
+To add an additional layer of styling navigate to `stylesheets` > `w3s-gcs`.  
 Below you may can an overview of all classes used throughout the plugin:
 
 | Class | Description |
@@ -141,47 +144,47 @@ Below you may can an overview of all classes used throughout the plugin:
 | .gcs | main class |
 |  |  |
 | **two basic markup elements** | * |
-| .gcs_input | input to enter search term |
-| .gcs_results | gcs results container |
+| .gcs\_input | input to enter search term |
+| .gcs\_results | gcs results container |
 |  |  |
 | **optional elements** | * |
-| .gcs_searchquery | placeholder where the search term will be appended to |
-| .gcs_timing | duration of the search |
-| .gcs_results_count | total count of search results |
-| .gcs_filetype_filter_select | select element of the filetype filter |
-| .gcs_spelling | corrected query if available | 
-| .gcs__preloadericon | preloader icon shown when results are loaded | 
-| .gcs_no-results | message if no results were found |
-| .gcs_loadmore | button to load more results |
-| .gcs_pagination | paging unit |
-| .gcs_infinite_scroll | infinite scroller |
-| .gcs_gcs_error | error messages |
+| .gcs\_searchquery | placeholder where the search term will be appended to |
+| .gcs\_timing | duration of the search |
+| .gcs\_results_count | total count of search results |
+| .gcs\_filetype_filter_select | select element of the filetype filter |
+| .gcs\_spelling | corrected query if available | 
+| .gcs\_\_preloadericon | preloader icon shown when results are loaded | 
+| .gcs\_no-results | message if no results were found |
+| .gcs\_loadmore | button to load more results |
+| .gcs\_pagination | paging unit |
+| .gcs\_infinite_scroll | infinite scroller |
+| .gcs\_gcs_error | error messages |
 |  |  |
 | **rendered template > results** | * |
-| .gcs__results__row | results placeholder element row |
-| .gcs__results__row__col | results placeholder element row col |
-| .gcs__results__list | placeholder to append results to |
-| .gcs__result__thumnail | thumbnail image either from gcs api or fallback image |
-| .gcs__result__thumnail__image | the actual thumbnail image  |
-| .gcs__result | single result container  |
-| .gcs__result__link | link to a single instance of the search results  |
-| .gcs__result__title | title of a single instance of the search results  |
-| .gcs__result__text | html formatted body text of a single instance of the search results |
-| .gcs__result__text__plain | plain body text of a single instance of the search results |
-| .gcs__result__url | url of a single instance of the search results |
+| .gcs\_\_results\_\_row | results placeholder element row |
+| .gcs\_\_results\_\_row\_\_col | results placeholder element row col |
+| .gcs\_\_results\_\_list | placeholder to append results to |
+| .gcs\_\_result\_\_thumnail | thumbnail image either from gcs api or fallback image |
+| .gcs\_\_result\_\_thumnail\_\_image | the actual thumbnail image  |
+| .gcs\_\_result | single result container  |
+| .gcs\_\_result\_\_link | link to a single instance of the search results  |
+| .gcs\_\_result\_\_title | title of a single instance of the search results  |
+| .gcs\_\_result\_\_text | html formatted body text of a single instance of the search results |
+| .gcs\_\_result\_\_text\_\_plain | plain body text of a single instance of the search results |
+| .gcs\_\_result\_\_url | url of a single instance of the search results |
 |  |  |
 | **rendered template > spelling** | * |
-| .gcs__correctedquery | placeholder for the corrected query |
+| .gcs\_\_correctedquery | placeholder for the corrected query |
 |  |  |
 | **rendered template > pagination** | * |
-| .gcs__pagination | container of the pagination |
-| .gcs__pagination__title | page title  |
-| .gcs__pagination__btn | pagination button |
-| .gcs__pagination__first | go to the first page |
-| .gcs__pagination__previous | go to the previous page  |
-| .gcs__pagination__next | go to the next page |
-| .gcs__pagination__last | go to the last page |
+| .gcs\_\_pagination | container of the pagination |
+| .gcs\_\_pagination\_\_title | page title  |
+| .gcs\_\_pagination\_\_btn | pagination button |
+| .gcs\_\_pagination\_\_first | go to the first page |
+| .gcs\_\_pagination\_\_previous | go to the previous page  |
+| .gcs\_\_pagination\_\_next | go to the next page |
+| .gcs\_\_pagination\_\_last | go to the last page |
 |  |  |
 | **rendered template > filetype filter** | * |
-| .gcs__filetypefilter | container of the filetype filter |
-| .gcs__filetypefilter__select | select element |
+| .gcs\_\_filetypefilter | container of the filetype filter |
+| .gcs\_\_filetypefilter\_\_select | select element |
