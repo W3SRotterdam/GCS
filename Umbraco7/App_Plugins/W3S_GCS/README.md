@@ -21,7 +21,7 @@ Whilst in the Umbraco backoffice navigate to GCS > Settings and fill in the foll
 
 - `CX Key`            > The custom search engine ID to use for this request. Visit **<https://cse.google.com/all>** to create a new search engine and retrieve the token id.
 - `API Key`           > JSON/Atom Custom Search API requires the use of an API key. Visit **<https://console.developers.google.com/apis/credentials>** to create an API key or to retrieve an exisiting one. Do not forget to enable the Google Custom Search API via Library.
-- `Development URL`  > Is the application running on a development environment/domain or in the development environment in Umbraco Cloud? Then enter the URL of the domain you which to search (as configured in the custom search engine > `Sites to search`)."
+- `Development URL`  > Is the application running on a development domain or the development environment in Umbraco Cloud? Then enter the URL of the domain you which to search (as configured in the custom search engine > `Sites to search`).
 
 ### 2 A Single domain configuration
 If you're running an umbraco installation serving just one website then follow these steps:
