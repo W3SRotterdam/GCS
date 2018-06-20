@@ -4,6 +4,8 @@ Google Custom Search plugin for Umbraco v7.x
 ## About
 This project was started since Google has announced that they will discontinue their Site Search service as of april 2018. As an alternative this plugin for Umbraco uses the Google Custom Search API to retrieve search results and display them on a page.
 
+Developed by W3S > https://w3s.nl/ We are builders and creators of online platforms with multiple user groups, self-service portals and e-commerce systems.
+
 ## Installation
 This plugin is made available as an `Umbraco package` to be directly installed via the backoffice.
 It's also made available via `Nuget` to be added directly to your project. 
