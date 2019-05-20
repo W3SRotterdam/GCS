@@ -92,10 +92,12 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="umbraco">
+    <Reference Include="umbraco, Version=1.0.6684.15731, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Umbraco7\bin\umbraco.dll</HintPath>
     </Reference>
-    <Reference Include="Umbraco.Core">
+    <Reference Include="Umbraco.Core, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Umbraco7\bin\Umbraco.Core.dll</HintPath>
     </Reference>
     <Reference Include="umbraco.DataLayer, Version=1.0.6684.15729, Culture=neutral, processorArchitecture=MSIL">
@@ -220,14 +222,14 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>XCOPY "$(ProjectDir)bin\W3S_GCS.*" "$(ProjectDir)..\Umbraco7\bin\" /y /e /f
-XCOPY "$(ProjectDir)bin\EntityFramework.*" "$(ProjectDir)..\Umbraco7\bin\" /y /e /f
-XCOPY "$(ProjectDir)App_Plugins\*.js" "$(ProjectDir)..\Umbraco7\App_Plugins\" /y /e /f
-XCOPY "$(ProjectDir)App_Plugins\*.html" "$(ProjectDir)..\Umbraco7\App_Plugins\" /y /e /f
-XCOPY "$(ProjectDir)App_Plugins\*.manifest" "$(ProjectDir)..\Umbraco7\App_Plugins\" /y /e /f
-XCOPY "$(ProjectDir)App_Plugins\*.css" "$(ProjectDir)..\Umbraco7\App_Plugins\" /y /e /f
-XCOPY "$(ProjectDir)App_Plugins\*.md" "$(ProjectDir)..\Umbraco7\App_Plugins\" /y /e /f
-XCOPY "$(ProjectDir)App_Plugins\W3S_GCS\Views\Partials\*.*" "$(ProjectDir)..\Umbraco7\App_Plugins\W3S_GCS\Views\Partials\" /y /f</PostBuildEvent>
+    <PostBuildEvent>XCOPY "$(ProjectDir)bin\W3S_GCS.*" "$(ProjectDir)..\Umbraco8\bin\" /y /e /f
+XCOPY "$(ProjectDir)bin\EntityFramework.*" "$(ProjectDir)..\Umbraco8\bin\" /y /e /f
+XCOPY "$(ProjectDir)App_Plugins\*.js" "$(ProjectDir)..\Umbraco8\App_Plugins\" /y /e /f
+XCOPY "$(ProjectDir)App_Plugins\*.html" "$(ProjectDir)..\Umbraco8\App_Plugins\" /y /e /f
+XCOPY "$(ProjectDir)App_Plugins\*.manifest" "$(ProjectDir)..\Umbraco8\App_Plugins\" /y /e /f
+XCOPY "$(ProjectDir)App_Plugins\*.css" "$(ProjectDir)..\Umbraco8\App_Plugins\" /y /e /f
+XCOPY "$(ProjectDir)App_Plugins\*.md" "$(ProjectDir)..\Umbraco8\App_Plugins\" /y /e /f
+XCOPY "$(ProjectDir)App_Plugins\W3S_GCS\Views\Partials\*.*" "$(ProjectDir)..\Umbraco8\App_Plugins\W3S_GCS\Views\Partials\" /y /f</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
