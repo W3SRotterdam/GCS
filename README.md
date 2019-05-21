@@ -2,7 +2,7 @@
 Google Custom Search plugin for Umbraco v8.x. 
 Running this solutuion requires you to run visual studio edition 2017 or higher.
 
-Looking for the Umbraco v7.x version? See: https://github.com/W3S-uORM/GCS/blob/umbraco-v7
+Looking for the Umbraco v7.x version? See: https://github.com/W3S-uORM/GCS/tree/umbraco-v7
 
 ## About
 This project was started since Google has announced that they will discontinue their Site Search service as of april 2018. As an alternative this plugin for Umbraco uses the Google Custom Search API to retrieve search results and display them on a page.
