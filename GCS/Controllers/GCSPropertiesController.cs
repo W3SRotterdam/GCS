@@ -321,7 +321,7 @@ namespace W3S_GCS.Controllers {
 
                 ContentItemDisplay contentItemDisplay = new ContentItemDisplay();
                 //contentItemDisplay.Id = 1;
-                contentItemDisplay.Name = "Settings";
+                contentItemDisplay.ContentTypeName = "Settings";
                 contentItemDisplay.Tabs = tabs;
 
                 var JsonSettings = new JsonSerializerSettings();
@@ -330,7 +330,7 @@ namespace W3S_GCS.Controllers {
 
                 return json;
             } catch (Exception ex) {
-                LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "GCS Error Get Properties", ex);
+                //LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "GCS Error Get Properties", ex);
 
                 ContentItemDisplay contentItemDisplay = new ContentItemDisplay();
                 contentItemDisplay.Name = "Settings";

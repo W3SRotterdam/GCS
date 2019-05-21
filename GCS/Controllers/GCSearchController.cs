@@ -6,10 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Web.Mvc;
-using Umbraco.Core;
-using Umbraco.Core.Models;
+using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Core.Persistence;
+using Umbraco.Core.Scoping;
 using Umbraco.Web;
+using Umbraco.Web.Composing;
 using Umbraco.Web.Mvc;
 using W3S_GCS.Installer;
 using W3S_GCS.Models.API;
@@ -21,36 +22,20 @@ using W3S_GCS.Services;
 
 namespace W3S_GCS.Controllers {
     public class GCSearchController : SurfaceController {
+        private IScopeProvider _scopeProvider;
         private SettingsRepository SettingsRepository;
         private QueriesRepository QueriesRepository;
         private PaginationService PaginationService;
         private NodeService NodeService;
         private List<String> APIFields = new List<String>() { "searchInformation", "spelling", "items(title,link,htmlSnippet,formattedUrl)" };
-        private UmbracoHelper uh = new UmbracoHelper(UmbracoContext.Current);
+        UmbracoHelper uh = Current.UmbracoHelper;
 
-        static DatabaseContext _dbCtx {
-            get {
-                return ApplicationContext.Current.DatabaseContext;
-            }
-        }
-
-        static UmbracoDatabase _umDb {
-            get {
-                return ApplicationContext.Current.DatabaseContext.Database;
-            }
-        }
-
-        static DatabaseSchemaHelper _dbH {
-            get {
-                return new DatabaseSchemaHelper(_dbCtx.Database, ApplicationContext.Current.ProfilingLogger.Logger, _dbCtx.SqlSyntax);
-            }
-        }
-
-        public GCSearchController() {
+        public GCSearchController(IScopeProvider scopeProvider) {
             QueriesRepository = new QueriesRepository();
             SettingsRepository = new SettingsRepository();
             PaginationService = new PaginationService();
             NodeService = new NodeService();
+            _scopeProvider = scopeProvider;
         }
 
         [HttpPost]
@@ -68,7 +53,7 @@ namespace W3S_GCS.Controllers {
                 do {
                     retry = false;
                     IPublishedContent currentNode = UmbracoContext.ContentCache.GetById(model.CurrentNodeID);
-                    IPublishedContent rootNode = uh.TypedContentAtRoot().FirstOrDefault(t => t.GetCulture().TwoLetterISOLanguageName == NodeService.GetCurrentCulture(currentNode).TwoLetterISOLanguageName);
+                    IPublishedContent rootNode = uh.ContentAtRoot().FirstOrDefault(t => t.GetCulture().Culture == NodeService.GetCurrentCulture(currentNode).Culture);
 
                     if (rootNode == null) {
                         rootNode = currentNode.AncestorsOrSelf(2).FirstOrDefault();
@@ -238,8 +223,13 @@ namespace W3S_GCS.Controllers {
 
         public JsonResult CheckDb() {
             bool success = false;
-            if (_dbCtx.Database.Query<object>(@"SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'gcs_searchsettings'").Count() > 0) {
-                success = true;
+
+            using (var scope = _scopeProvider.CreateScope()) {
+                object settings = scope.Database.Query<object>(@"SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'gcs_searchsettings'");
+
+                if (settings != null) {
+                    success = true;
+                }
             }
 
             return new JsonResult() {

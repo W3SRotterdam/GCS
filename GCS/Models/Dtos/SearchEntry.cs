@@ -1,10 +1,10 @@
-﻿using System;
+﻿using NPoco;
+using System;
 using System.ComponentModel.DataAnnotations;
-using Umbraco.Core.Persistence;
 using Umbraco.Core.Persistence.DatabaseAnnotations;
 
 namespace W3S_GCS.Models.Dtos {
-    [PrimaryKey("Id", autoIncrement = true)]
+    [PrimaryKey("Id", AutoIncrement = true)]
     [TableName("gcs_searchentry")]
     public class SearchEntry {
         [Key]

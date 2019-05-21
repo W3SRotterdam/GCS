@@ -6,7 +6,7 @@ using W3S_GCS.Models.Tree;
 
 namespace W3S_GCS.Controllers.Trees {
     [PluginController("GCS")]
-    [Tree("GCS", "GCSTree", "Google Custom Search", iconClosed: "icon-binoculars")]
+    [Tree("GCS", "GCSTree")]
     public class GCSTreeController : TreeController {
         protected override TreeNodeCollection GetTreeNodes(string id, FormDataCollection queryStrings) {
             var nodes = new TreeNodeCollection();
@@ -22,9 +22,11 @@ namespace W3S_GCS.Controllers.Trees {
         protected override MenuItemCollection GetMenuForNode(string id, FormDataCollection queryStrings) {
             MenuItemCollection menu = new MenuItemCollection();
             menu.DefaultMenuAlias = "gcs";
-            menu.Items.Add<PropertiesActionModel>("gcs");
+            MenuItem item = new MenuItem("gcs", "GCS");
+            menu.Items.Add(item);
+
+            //menu.Items.Add<PropertiesActionModel>("gcs");
             return menu;
         }
-
     }
 }

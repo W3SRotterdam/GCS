@@ -1,122 +1,112 @@
-﻿using System;
+﻿using NPoco;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
-using umbraco.interfaces;
-using Umbraco.Core;
-using Umbraco.Core.Logging;
-using Umbraco.Core.Persistence;
+using System.Xml.Linq;
+using Umbraco.Core.PackageActions;
+using Umbraco.Core.Scoping;
 using W3S_GCS.Models.Dtos;
 
-namespace W3S_GCS.Installer {
+namespace W3S_GCS.Installer
+{
     public class PackageActions : IPackageAction {
+        private static IScopeProvider _scopeProvider;
 
-        static DatabaseContext _dbCtx {
-            get {
-                return ApplicationContext.Current.DatabaseContext;
-            }
+        public PackageActions(IScopeProvider scopeProvider) {
+            _scopeProvider = scopeProvider;
         }
 
-        static UmbracoDatabase _umDb {
-            get {
-                return ApplicationContext.Current.DatabaseContext.Database;
+         public bool Execute(string packageName, XElement xmlData) {
+             try {
+                //LogHelper.Info(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "GCS Executing package actions");
+                return InitDatabase();
+            } catch (Exception ex) {
+                //LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "GCS INSTALL Package Error", ex);
+                return false;
             }
         }
-
-        static DatabaseSchemaHelper _dbH {
-            get {
-                return new DatabaseSchemaHelper(_dbCtx.Database, ApplicationContext.Current.ProfilingLogger.Logger, _dbCtx.SqlSyntax);
-            }
-        }
-
-        static readonly DatabaseProviders DatabaseProvider = ApplicationContext.Current.DatabaseContext.DatabaseProvider;
 
         public string Alias() {
             return "w3s-gcs";
         }
 
-        public bool Execute(string packageName, XmlNode xmlData) {
-            try {
-                LogHelper.Info(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "GCS Executing package actions");
-                return InitDatabase();
-            } catch (Exception ex) {
-                LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "GCS INSTALL Package Error", ex);
-                return false;
-            }
+        public bool Undo(string packageName, XElement xmlData) {
+            throw new NotImplementedException();
         }
 
         public static bool InitDatabase() {
-            //if (GetGCSDataBaseExists()) {
-            //    throw new Exception("Table already exists.");
+            using (var scope = _scopeProvider.CreateScope()) {
+                if (scope.Database.Query<object>(@"SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'umbracoUserGroup2App'").Count() > 0) {
+                    int adminId = scope.Database.Query<int>(@"SELECT Id from umbracoUserGroup WHERE userGroupAlias = 'admin'").FirstOrDefault();
 
-            if (_dbCtx.Database.Query<object>(@"SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'umbracoUserGroup2App'").Count() > 0) {
-                int adminId = _umDb.Query<int>(@"SELECT Id from umbracoUserGroup WHERE userGroupAlias = 'admin'").FirstOrDefault();
-
-                if (adminId > 0) {
-                    if (_dbCtx.Database.Query<object>(@"SELECT * FROM umbracoUserGroup2App WHERE userGroupId = @0 AND app = @1", adminId, "GCS").Count() < 1) {
-                        _dbCtx.Database.Execute(@"insert umbracoUserGroup2App values(@0, @1)", adminId, "GCS");
+                    if (adminId > 0) {
+                        if (scope.Database.Query<object>(@"SELECT * FROM umbracoUserGroup2App WHERE userGroupId = @0 AND app = @1", adminId, "GCS").Count() < 1) {
+                            scope.Database.Execute(@"insert umbracoUserGroup2App values(@0, @1)", adminId, "GCS");
+                        }
                     }
-                }
-            } else if (_dbCtx.Database.Query<object>(@"SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'umbracoUser2app'").Count() > 0) {
-                int adminId = _umDb.Query<int>(@"SELECT Id from umbracoUserType WHERE userTypeAlias = 'admin'").FirstOrDefault();
-                List<int> userIds = _umDb.Query<int>(@"SELECT Id from umbracoUser WHERE userType = @0", adminId).ToList();
+                } else if (scope.Database.Query<object>(@"SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'umbracoUser2app'").Count() > 0) {
+                    int adminId = scope.Database.Query<int>(@"SELECT Id from umbracoUserType WHERE userTypeAlias = 'admin'").FirstOrDefault();
+                    List<int> userIds = scope.Database.Query<int>(@"SELECT Id from umbracoUser WHERE userType = @0", adminId).ToList();
 
-                if (userIds.Count > 0) {
-
-                    foreach (var id in userIds) {
-                        if (_dbCtx.Database.Query<object>(@"SELECT * FROM umbracoUser2app WHERE [user] = @0 AND app = @1", id, "GCS").Count() < 1) {
-                            _dbCtx.Database.Execute(@"insert umbracoUser2app values(@0, @1)", id, "GCS");
+                    if (userIds.Count > 0) {
+                        foreach (var id in userIds) {
+                            if (scope.Database.Query<object>(@"SELECT * FROM umbracoUser2app WHERE [user] = @0 AND app = @1", id, "GCS").Count() < 1) {
+                                scope.Database.Execute(@"insert umbracoUser2app values(@0, @1)", id, "GCS");
+                            }
                         }
                     }
                 }
-            }
 
-            if (!_dbH.TableExist("gcs_searchsettings") && !_dbH.TableExist("gcs_searchinstance") && !_dbH.TableExist("gcs_searchentry")) {
-                try {
-                    _dbH.CreateTable<SearchEntry>(false);
-                    _dbH.CreateTable<SearchSettings>(false);
+                if (!scope.Database.Exists<SearchSettings>("Id") && !scope.Database.Exists<SearchInstance>("Id") && !scope.Database.Exists<SearchEntry>("Id")) {
+                    try {
+                        scope.Database.Query<object>(GetInitializationQuery());
 
-                    var settings = _umDb.Insert(new SearchSettings() {
-                        APIKey = "",
-                        CurrentURL = "",
-                        CXKey = "",
-                        DateCreated = DateTime.Now,
-                        DevelopmentURL = "",
-                        ExcludeNodeIds = "",
-                        LastUpdated = DateTime.Now,
-                        DateRestrict = new DateTime(1970, 1, 1, 12, 0, 0, 0),
-                        LoadIconGUID = "",
-                        RedirectNodeURL = "",
-                        ShowFilterFileType = false,
-                        ThumbnailFallbackGUID = "",
-                        BaseURL = "https://www.googleapis.com/customsearch/v1",
-                        RedirectAlias = "search",
-                        ItemsPerPage = 10,
-                        LoadMoreSetUp = "button",
-                        MaxPaginationPages = 6,
-                        ShowQuery = true,
-                        ShowTiming = true,
-                        ShowTotalCount = true,
-                        ShowSpelling = true,
-                        KeepQuery = true,
-                        ShowThumbnail = true,
+                        //_dbH.CreateTable<SearchEntry>(false);
+                        //_dbH.CreateTable<SearchSettings>(false);
 
-                    });
+                        var settings = scope.Database.Insert(new SearchSettings() {
+                            APIKey = "",
+                            CurrentURL = "",
+                            CXKey = "",
+                            DateCreated = DateTime.Now,
+                            DevelopmentURL = "",
+                            ExcludeNodeIds = "",
+                            LastUpdated = DateTime.Now,
+                            DateRestrict = new DateTime(1970, 1, 1, 12, 0, 0, 0),
+                            LoadIconGUID = "",
+                            RedirectNodeURL = "",
+                            ShowFilterFileType = false,
+                            ThumbnailFallbackGUID = "",
+                            BaseURL = "https://www.googleapis.com/customsearch/v1",
+                            RedirectAlias = "search",
+                            ItemsPerPage = 10,
+                            LoadMoreSetUp = "button",
+                            MaxPaginationPages = 6,
+                            ShowQuery = true,
+                            ShowTiming = true,
+                            ShowTotalCount = true,
+                            ShowSpelling = true,
+                            KeepQuery = true,
+                            ShowThumbnail = true,
 
-                    _dbH.CreateTable<SearchInstance>(false);
+                        });
 
-                    _umDb.Insert(new SearchInstance() {
-                        SettingsId = Int32.Parse(settings.ToString()),
-                        DateCreated = DateTime.Now.ToString(),
-                        Name = "GCS " + settings.ToString()
-                    });
+                        //_dbH.CreateTable<SearchInstance>(false);
 
-                    //_umDb.Query<bool>(GetInitializationQuery());
-                    //_umDb.Query<bool>(GetSeederQuery(), new {
-                    //    dateNow = DateTime.Now.ToString()
-                    //});
-                } catch (Exception ex) {
-                    LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "GCS db Error", ex);
+                        scope.Database.Insert(new SearchInstance() {
+                            SettingsId = Int32.Parse(settings.ToString()),
+                            DateCreated = DateTime.Now.ToString(),
+                            Name = "GCS " + settings.ToString()
+                        });
+
+                        //_umDb.Query<bool>(GetInitializationQuery());
+                        //_umDb.Query<bool>(GetSeederQuery(), new {
+                        //    dateNow = DateTime.Now.ToString()
+                        //});
+                    } catch (Exception ex) {
+                        //LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "GCS db Error", ex);
+                    }
                 }
             }
 
@@ -124,8 +114,10 @@ namespace W3S_GCS.Installer {
         }
 
         public static bool GetGCSDataBaseExists() {
-            string query = "SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'searchsettings'";
-            return _umDb.Query<int>(query).FirstOrDefault() == 1;
+            using (var scope = _scopeProvider.CreateScope()) {
+                string query = "SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'searchsettings'";
+                return scope.Database.Query<int>(query).FirstOrDefault() == 1;
+            }
         }
 
         //private static string GetFolderName() {
@@ -160,10 +152,6 @@ namespace W3S_GCS.Installer {
             var node = xmlDocument.CreateNode(XmlNodeType.Element, name, "");
             node.AppendChild(xmlDocument.CreateTextNode(value));
             return node;
-        }
-
-        public bool Undo(string packageName, XmlNode xmlData) {
-            return true;
         }
 
         private static Sql GetInitializationQuery() {

@@ -1,6 +1,7 @@
-﻿using umbraco.interfaces;
+﻿using Umbraco.Web.Actions;
 
-namespace W3S_GCS.Models.Tree {
+namespace W3S_GCS.Models.Tree
+{
     public class PropertiesActionModel : IAction {
         private static readonly PropertiesActionModel m_instance = new PropertiesActionModel();
 
@@ -50,6 +51,8 @@ namespace W3S_GCS.Models.Tree {
                 return false;
             }
         }
+
+        public string Category => throw new System.NotImplementedException();
         #endregion
     }
 }

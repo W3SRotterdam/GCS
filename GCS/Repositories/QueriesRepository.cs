@@ -3,22 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using Umbraco.Core;
 using Umbraco.Core.Persistence;
+using Umbraco.Core.Scoping;
 using W3S_GCS.Interfaces;
 using W3S_GCS.Models.Dtos;
 
 namespace W3S_GCS.Repositories {
     public class QueriesRepository : IRepository<SearchEntry> {
-        static DatabaseContext _dbCtx {
-            get {
-                return ApplicationContext.Current.DatabaseContext;
-            }
-        }
-
-        static UmbracoDatabase _umDb {
-            get {
-                return ApplicationContext.Current.DatabaseContext.Database;
-            }
-        }
+        
+        private IScopeProvider _scopeProvider;
 
         public SearchEntry Get() {
             throw new NotImplementedException();
@@ -28,9 +20,12 @@ namespace W3S_GCS.Repositories {
         }
 
         public SearchEntry Create(SearchEntry entry) {
-            if (!String.IsNullOrEmpty(entry.Query)) {
-                _umDb.Save(entry);
+            using (var scope = _scopeProvider.CreateScope()) {
+                if (!String.IsNullOrEmpty(entry.Query)) {
+                    scope.Database.Save<SearchEntry>(entry);
+                }
             }
+
             return entry;
             //using (DBEntities db = new DBEntities()) {
             //    SearchEntry SearchEntry = db.SearchEntries.Add(entry);
@@ -40,7 +35,9 @@ namespace W3S_GCS.Repositories {
         }
 
         public void UpdateClick(SearchEntry model) {
-            _dbCtx.Database.Execute("UPDATE gcs_searchentry SET ClickTitle = @0, ClickURL = @1 WHERE Id = @2", model.ClickTitle, model.ClickURL, model.Id);
+            using (var scope = _scopeProvider.CreateScope()) {
+                scope.Database.Execute("UPDATE gcs_searchentry SET ClickTitle = @0, ClickURL = @1 WHERE Id = @2", model.ClickTitle, model.ClickURL, model.Id);
+            }
 
             //using (DBEntities db = new DBEntities()) {
             //    db.SearchEntries.Attach(model);
@@ -61,8 +58,10 @@ namespace W3S_GCS.Repositories {
         public Dictionary<String, Int32> GetTopQueries(int year = -1, int month = -1) {
             List<SearchEntryStat> entries = new List<SearchEntryStat>();
 
-            if (year != -1 && month != -1) {
-                entries = _umDb.Query<SearchEntryStat>(@"SELECT Query AS Name, COUNT(*) as count FROM gcs_searchentry WHERE Query != '' AND DATEPART(year, Date) = @0 AND DATEPART(month, Date) = @1 GROUP BY Query ORDER BY count DESC", year, month).Take(10).ToList();
+            using (var scope = _scopeProvider.CreateScope()) {
+                if (year != -1 && month != -1) {
+                    entries = scope.Database.Query<SearchEntryStat>(@"SELECT Query AS Name, COUNT(*) as count FROM gcs_searchentry WHERE Query != '' AND DATEPART(year, Date) = @0 AND DATEPART(month, Date) = @1 GROUP BY Query ORDER BY count DESC", year, month).Take(10).ToList();
+                }
             }
 
             return entries != null && entries.Count > 0 ? entries.ToDictionary(e => e.Name, e => e.Count) : null;
@@ -84,7 +83,9 @@ namespace W3S_GCS.Repositories {
             List<SearchEntryStat> entries = new List<SearchEntryStat>();
 
             if (year != -1 && month != -1) {
-                entries = _umDb.Query<SearchEntryStat>(@"SELECT CorrectedQuery AS Name, COUNT(*) as count FROM gcs_searchentry WHERE CorrectedQuery != '' AND DATEPART(year, Date) = @0 AND DATEPART(month, Date) = @1 GROUP BY CorrectedQuery ORDER BY count DESC", year, month).Take(10).ToList();
+                using (var scope = _scopeProvider.CreateScope()) {
+                    entries = scope.Database.Query<SearchEntryStat>(@"SELECT CorrectedQuery AS Name, COUNT(*) as count FROM gcs_searchentry WHERE CorrectedQuery != '' AND DATEPART(year, Date) = @0 AND DATEPART(month, Date) = @1 GROUP BY CorrectedQuery ORDER BY count DESC", year, month).Take(10).ToList();
+                }
             }
 
             return entries != null && entries.Count > 0 ? entries.ToDictionary(e => e.Name, e => e.Count) : null;
@@ -106,7 +107,9 @@ namespace W3S_GCS.Repositories {
             List<SearchEntryStat> entries = new List<SearchEntryStat>();
 
             if (year != -1 && month != -1) {
-                entries = _umDb.Query<SearchEntryStat>(@"SELECT ClickURL AS Name, COUNT(*) as count FROM gcs_searchentry WHERE ClickURL != '' AND DATEPART(year, Date) = @0 AND DATEPART(month, Date) = @1 GROUP BY ClickURL ORDER BY count DESC", year, month).Take(10).ToList();
+                using (var scope = _scopeProvider.CreateScope()) {
+                    entries = scope.Database.Query<SearchEntryStat>(@"SELECT ClickURL AS Name, COUNT(*) as count FROM gcs_searchentry WHERE ClickURL != '' AND DATEPART(year, Date) = @0 AND DATEPART(month, Date) = @1 GROUP BY ClickURL ORDER BY count DESC", year, month).Take(10).ToList();
+                }
             }
 
             return entries != null && entries.Count > 0 ? entries.ToDictionary(e => e.Name, e => e.Count) : null;

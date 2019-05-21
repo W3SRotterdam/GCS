@@ -4,12 +4,12 @@ using System.Globalization;
 using System.Linq;
 using Umbraco.Core;
 using Umbraco.Core.Models;
+using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 
 namespace W3S_GCS.Services {
     public class NodeService {
-
-        UmbracoHelper uh = new UmbracoHelper(UmbracoContext.Current);
+        UmbracoHelper uh = Umbraco.Web.Composing.Current.UmbracoHelper;
 
         public string GetPathByUdi(string udi) {
             var content = GetContent(udi);
@@ -59,12 +59,11 @@ namespace W3S_GCS.Services {
             return redirectNode != null ? redirectNode.Url : "";
         }
 
-        public CultureInfo GetCurrentCulture(IPublishedContent node) {
-            var culture = System.Threading.Thread.CurrentThread.CurrentCulture;
+        public PublishedCultureInfo GetCurrentCulture(IPublishedContent node) {
+            PublishedCultureInfo culture = null; //System.Threading.Thread.CurrentThread.CurrentCulture;
             if (node != null) {
                 culture = node.GetCulture();
-            }
-
+            } 
             return culture;
         }
 
@@ -90,15 +89,15 @@ namespace W3S_GCS.Services {
         }
 
         private IPublishedContent GetContent(string udi) {
-            return uh.TypedContent(GetIdForUdi(udi));
-        }
+            return uh.Content(GetIdForUdi(udi));
+  }
 
         private IPublishedContent GetMediaContent(string udi) {
-            return uh.TypedMedia(GetIdForUdi(udi));
+            return uh.Media(GetIdForUdi(udi));
         }
 
         private int GetIdForUdi(string udi) {
-            return uh.GetIdForUdi(Udi.Parse(udi));
+            return uh.Content(Udi.Parse(udi)).Id;
         }
     }
 }

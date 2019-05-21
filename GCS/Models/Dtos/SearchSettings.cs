@@ -1,13 +1,13 @@
 ﻿using Newtonsoft.Json;
+using NPoco;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Umbraco.Core.Persistence;
 using Umbraco.Core.Persistence.DatabaseAnnotations;
 using W3S_GCS.Converters;
 
 namespace W3S_GCS.Models.Dtos {
-    [PrimaryKey("Id", autoIncrement = true)]
+    [PrimaryKey("Id", AutoIncrement = true)]
     [TableName("gcs_searchsettings")]
     public class SearchSettings {
         [Key]
@@ -16,7 +16,7 @@ namespace W3S_GCS.Models.Dtos {
         public Int32 Id { get; set; }
         [NotMapped]
         [JsonIgnore]
-        [Umbraco.Core.Persistence.Ignore]
+        [Ignore]
         public String CurrentURL { get; set; }
         public String BaseURL { get; set; }
         public String CXKey { get; set; }
@@ -24,7 +24,7 @@ namespace W3S_GCS.Models.Dtos {
         public Int32 ItemsPerPage { get; set; }
         [NotMapped]
         [JsonIgnore]
-        [Umbraco.Core.Persistence.Ignore]
+        [Ignore]
         public String RedirectNodeURL { get; set; }
         public String RedirectAlias { get; set; }
         public String LoadMoreSetUp { get; set; }

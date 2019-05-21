@@ -3,22 +3,20 @@ using System.Linq;
 using Umbraco.Core;
 using Umbraco.Core.Logging;
 using Umbraco.Core.Persistence;
+using Umbraco.Core.Scoping;
 using W3S_GCS.Interfaces;
 using W3S_GCS.Models.Dtos;
 
 namespace W3S_GCS.Repositories {
     public class SettingsRepository : IRepository<SearchSettings> {
-        static UmbracoDatabase _umDb {
-            get {
-                return ApplicationContext.Current.DatabaseContext.Database;
-            }
-        }
+       
+        private IScopeProvider _scopeProvider;
 
         public SearchSettings Get() {
             try {
                 return _umDb.Query<SearchSettings>("SELECT * FROM [gcs_searchsettings]").FirstOrDefault();
             } catch (Exception ex) {
-                LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "GCS Error Get settings", ex);
+                //LogHelper.Error(System.Reflection.MethodBase.GetCurrentMethod().GetType(), "GCS Error Get settings", ex);
                 return null;
             }
 

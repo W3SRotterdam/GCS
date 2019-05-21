@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Web;
-using umbraco;
 using Umbraco.Core;
 using Umbraco.Core.Logging;
 
@@ -41,7 +40,7 @@ namespace W3S_GCS.App_Plugins.GCS.Models {
                             UpdateActionsForLanguageFile(string.Format("{0}.xml", langcode), area, key, value);
                         }
                     } catch (Exception ex) {
-                        LogHelper.Error<LanguageInstaller>("Backend Error in language installer", ex);
+                        //LogHelper.Error<LanguageInstaller>("Backend Error in language installer", ex);
                     }
                 }
             }
