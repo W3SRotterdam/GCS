@@ -1,5 +1,5 @@
 # W3S GCS
-Google Custom Search plugin for Umbraco v7.3.x untill Umbraco v7.5.x
+Google Custom Search plugin for Umbraco v7.1.x untill Umbraco v7.3.x
 
 Looking for the plugin suited for Umbraco v7.6.x or higher. See: https://github.com/W3S-uORM/GCS/tree/umbraco-v7
 Looking for the Umbraco v8.x version. See: https://github.com/W3S-uORM/GCS/blob/master/README.md
