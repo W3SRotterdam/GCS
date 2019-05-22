@@ -3,7 +3,7 @@ Google Custom Search plugin for Umbraco v7.3.x untill Umbraco v7.5.x
 
 Looking for the Umbraco v8.x version. See: https://github.com/W3S-uORM/GCS/blob/master/README.md
 
-Previous releases:  
+Other releases:  
 Umbraco v7.1.x / v7.2.x See: https://github.com/W3S-uORM/GCS/tree/umbraco-v7.1-v7.2  
 Umbraco v7.6.x or higher. See https://github.com/W3S-uORM/GCS/tree/umbraco-v7.6-v7.14  
 
