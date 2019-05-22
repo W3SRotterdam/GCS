@@ -1,0 +1,9 @@
+﻿@inherits System.Web.Mvc.WebViewPage<W3S_GCS.Models.Filters.FileTypeFilter>
+
+<div class="gcs__filetypefilter">
+    <select class="gcs__filetypefilter__select">
+        @foreach (var filetype in Model.FileTypes) {
+            <option value="@filetype.Key">@filetype.Value</option>
+        }
+    </select>
+</div>
