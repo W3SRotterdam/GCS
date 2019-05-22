@@ -2,7 +2,7 @@
 Google Custom Search plugin for Umbraco v8.x. 
 Running this solution requires you to run visual studio edition 2017 or higher.
 
-Looking for older versions? 
+Looking for older versions?  
 Umbraco v7.1.x / v7.2.x See: https://github.com/W3S-uORM/GCS/tree/umbraco-v7.1-v7.2  
 Umbraco v7.3.x / v7.5.x See: https://github.com/W3S-uORM/GCS/tree/umbraco-v7.3-v7.5  
 Umbraco v7.6.x or higher. See https://github.com/W3S-uORM/GCS/tree/umbraco-v7.6-v7.14  
